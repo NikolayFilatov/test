@@ -1,0 +1,62 @@
+<?php foreach ($this->data as $wall):?> 
+<div class="wall-box">
+	<div class="wall-ava"><img width=50 class="ava" src='<?=$wall->getAutor()->getAvatarmini()?>' /></div>
+	<div class="wall-content">
+		<div class="wall-content-top">
+			<div class="wall-date"><?=$wall->getCreated()->format('Y-m-d H:i:s')?></div>
+			<div class="wall-autor">
+				<a href="<?=$this->url('my/wall', ['param' => $wall->getAutor()->getId()])?>"><?=$wall->getAutor()->getFullName()?></a>
+			</div>
+		</div>
+		<div class="wall-content-mess"><?=$wall->getMessage()?></div>
+		<div class="wall-content-foot">
+			<div class="wall-count-comment">Комментариев - 0</div>
+			<div class="wall-answer">Ответить</div>
+			<?php if($this->param["permission"] == "host"):?>
+			<div class="wall-action">
+				<div class="wall-action-delete" id="<?=$wall->getId();?>">Удалить</div>
+			</div>
+			<?php endif;?>
+		</div>
+        <div class="clearfloat"></div>
+        <div class="wall-comments">
+        	<?php if(!is_null($wall->getComments())):?>
+		        <?php foreach($wall->getComments() as $comment):?>
+		        <div>
+			        <div class="wall-ava"><img width=35 class="ava" src='<?=$comment->getAutor()->getAvatarmini()?>' /></div>
+			        <div class="wall-comment-top">
+			        	<div class="wall-autor">
+			        		<a href="<?=$this->url('my/wall', ['param' => $comment->getAutor()->getId()])?>"><?=$comment->getAutor()->getFullname();?></a>
+			        	</div>
+			        </div>
+			        <div class="wall-comment"><?=$comment->getMessage();?></div>
+			        <div class="wall-comment-foot">
+				        <div class="wall-action-comment">
+				        	<div class="wall-action-date"><?=$comment->getCreated()->format('Y-m-d H:i:s');?></div>
+				        	<div class="wall-action-delete" id="<?=$comment->getId();?>">Удалить</div>
+				        </div>
+				        <div class="clearfloat"></div>
+					</div>
+			        <div class="clearfloat"></div>
+			    </div>
+		        <?php endforeach;?>
+		    <?php endif;?>
+			<div class="wall-addcomment">
+	        <?php
+	        	$form = $this->param['form'];
+	            $form->get('idUser')->setValue(0);
+	            $form->get('idMess')->setValue($wall->getId());
+	            $form->prepare();
+	            echo $this->form()->openTag($form);
+	            echo $this->formRow($form->get('cmessage'));
+	            echo $this->formSubmit($form->get('submit'));
+	            echo $this->formHidden($form->get('idMess'));
+	            echo $this->form()->closeTag();
+	        ?>
+	        </div>  		    
+        </div>
+        <div class="clearfloat"></div>      
+	</div>
+	<div class="clearfloat"></div>
+</div>
+<?php endforeach;?>

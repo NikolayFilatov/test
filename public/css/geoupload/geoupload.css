@@ -1,0 +1,24 @@
+.wr_form {
+}
+.inputfile {
+}
+.iframe1 {
+    background-color: #900;
+    height: 80px; 
+}
+#UploadForm ul li {
+    font-size:14px;
+}
+#UploadForm ul {
+    padding:0;
+    margin:0;
+}
+#close_fancy {
+    float:right;
+    font-size:12px;
+    padding:5px;
+}
+.clearfloat {
+    float:none;
+    clear:both
+}

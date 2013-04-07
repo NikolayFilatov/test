@@ -1,0 +1,51 @@
+<div class="r_content">
+	<div class="my_top">
+		<div class="rc_left">
+			<img width=220 src='<?php echo $this->user->getAvatar();?>' />
+			<br>
+	        <?php
+                    if ($param['permission'] == "host") {
+                        echo $this->GeouploadHelper()->renderWidgetAvatarForm();
+                    }
+                ?>
+		</div>
+		<div class="rc_right">
+			<div class="name"><?=$this->user->getFullname();?></div>
+			<div class="status"><?=$this->user->getStatus();?></div>
+			<dl>
+				<dt>Город:</dt>
+				<dd>Санкт-Петербург</dd>
+				<dt>Город:</dt>
+				<dd>Санкт-Петербург</dd>
+			</dl>
+		</div>
+		<div class='clearfloat'></div>
+	</div>
+	<div class="gor_mnu_box">
+		<ul class="gor_mnu'>
+			<a href="<?=$this->url('my/wall') . "/" . $this->user->getId()?>"><li class='gor_mnu_li_focus'>Стена</li></a>
+			<a href="<?=$this->url('my/res') . "/" . $this->user->getId()?>"><li class='gor_mnu_li'>Ресурсы</li></a>
+			<?php if($this->param['permission'] == 'host'):?>
+			<a href="<?=$this->url('my/sett') . "/" . $this->user->getId()?>"><li class='gor_mnu_li'>Настройки</li></a>			
+			<a href="<?=$this->url('my/spec') . "/" . $this->user->getId()?>"><li class='gor_mnu_li'>Специализация</li></a>
+			<?php endif;?>
+		</ul>
+		<div class="clearfloat"></div>
+	</div>
+	<div class="wall">
+		<div class="add">
+	        <?php
+	            $this->form->get('idUser')->setValue($this->user->getId());
+	            $this->form->get('idMess')->setValue(0);
+	            $this->form->prepare();
+	            echo $this->form()->openTag($form);
+	            echo $this->formRow($this->form->get('message'));
+	            echo $this->formSubmit($this->form->get('submit'));
+	            echo $this->formHidden($form->get('idUser'));
+	            echo $this->form()->closeTag();
+	        ?>
+        	<div class='clearfloat'></div>
+        </div>
+		<?php echo $this->Wall($this->wall, $this->param)?>
+	</div>
+</div>

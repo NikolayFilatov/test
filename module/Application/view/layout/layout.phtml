@@ -1,0 +1,66 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/js/geoupload/fancyBox/source/jquery.fancybox.css')
+        ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                      	->prependFile($this->basePath() . '/js/jquery.min.js')
+                                        ->appendFile($this->basePath() . '/js/geoupload/fancyBox/source/jquery.fancybox.pack.js')
+                                        ->appendFile($this->basePath() . '/js/my.js')
+                ?>
+
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="<?=$this->url('home')?>">
+                    	<img class="brand" src="<?php echo $this->basePath() . "/images/logo.png" ?>" />
+                    </a>
+                    <ul class="nav" style="float:right;">
+                        <li><a href="/my">Моя страница</a></li>
+                        <li><a href="/firms">Фирмы</a></li>
+                        <li><a href="/dialogue">Диалоги</a></li>
+                        <li><a href="/friends">Контакты</a></li>
+                        <li><a href="/news">Новости</a></li>
+                        <li><a href="/forum">Форум</a></li>
+                        <li><a href="/user/logout">Выйти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container content">
+        	<div class='right_col'>
+        		<div style='padding:10px;'>
+                            <?php echo $this->Helper() ?>
+        		</div>
+                    
+        	</div>        
+        	<div class='left_col'>
+        		<ul class='left_nav'>
+        			<li>GEOBridge</li>
+        			<li>Ресурсы</li>
+        			<li>Инструменты</li>
+        			<li>Видео</li>
+        			<li>Объявления</li>
+        			<li>Приложения</li>
+        			<li>Статьи</li>
+        		</ul>
+        	</div>
+        	<div class='center_col'>
+	            <?php echo $this->content; ?>      	
+        	</div> <!-- /center_col -->
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>
