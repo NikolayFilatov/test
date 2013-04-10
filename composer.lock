@@ -1,5 +1,9 @@
 {
-    "hash": "c3cc3b0b2510a2610659c79a532d55e3",
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "beb6ba0120920cefe8aa13b912e34197",
     "packages": [
         {
             "name": "doctrine/common",
@@ -18,7 +22,6 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-19 22:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -63,12 +66,13 @@
             "description": "Common Library for Doctrine projects",
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
-                "collections",
-                "spl",
-                "eventmanager",
                 "annotations",
-                "persistence"
-            ]
+                "collections",
+                "eventmanager",
+                "persistence",
+                "spl"
+            ],
+            "time": "2012-09-19 22:55:18"
         },
         {
             "name": "doctrine/dbal",
@@ -85,10 +89,9 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
-                "doctrine/common": ">=2.3.0,<2.5-dev"
+                "doctrine/common": ">=2.3.0,<2.5-dev",
+                "php": ">=5.3.2"
             },
-            "time": "2013-03-24 19:16:29",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -128,10 +131,11 @@
             "homepage": "http://www.doctrine-project.org",
             "keywords": [
                 "database",
-                "persistence",
                 "dbal",
+                "persistence",
                 "queryobject"
-            ]
+            ],
+            "time": "2013-03-24 19:16:29"
         },
         {
             "name": "doctrine/doctrine-module",
@@ -148,21 +152,20 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
                 "doctrine/common": ">=2.3-dev,<2.5-dev",
+                "php": ">=5.3.3",
                 "symfony/console": ">=2.0.13",
                 "zendframework/zend-authentication": "2.*",
                 "zendframework/zend-cache": "2.*",
-                "zendframework/zend-paginator": "2.*",
-                "zendframework/zend-stdlib": "2.*",
                 "zendframework/zend-mvc": "2.*",
+                "zendframework/zend-paginator": "2.*",
                 "zendframework/zend-servicemanager": "2.*",
+                "zendframework/zend-stdlib": "2.*",
                 "zendframework/zend-validator": "2.*"
             },
             "suggest": {
                 "doctrine/data-fixtures": "Data Fixtures if you want to generate test data or bootstrap data for your deployments"
             },
-            "time": "2013-01-14 14:25:26",
             "bin": [
                 "bin/doctrine-module"
             ],
@@ -212,10 +215,11 @@
             "description": "Zend Framework 2 Module that provides Doctrine basic functionality required for ORM and ODM modules",
             "homepage": "http://www.doctrine-project.org/",
             "keywords": [
-                "zf2",
+                "doctrine",
                 "module",
-                "doctrine"
-            ]
+                "zf2"
+            ],
+            "time": "2013-01-14 14:25:26"
         },
         {
             "name": "doctrine/doctrine-orm-module",
@@ -232,24 +236,23 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "doctrine/orm": ">=2.3-dev,<2.5-dev",
                 "doctrine/dbal": ">=2.3-dev,<2.5-dev",
-                "zendframework/zend-stdlib": "2.*",
+                "doctrine/doctrine-module": "0.7.*",
+                "doctrine/orm": ">=2.3-dev,<2.5-dev",
+                "php": ">=5.3.3",
                 "zendframework/zend-form": "2.*",
                 "zendframework/zend-mvc": "2.*",
                 "zendframework/zend-servicemanager": "2.*",
-                "doctrine/doctrine-module": "0.7.*"
+                "zendframework/zend-stdlib": "2.*"
             },
             "require-dev": {
-                "zendframework/zend-developer-tools": "dev-master",
-                "doctrine/migrations": "1.*"
+                "doctrine/migrations": "1.*",
+                "zendframework/zend-developer-tools": "dev-master"
             },
             "suggest": {
-                "zendframework/zend-developer-tools": "zend-developer-tools if you want to profile operations executed by the ORM during development",
-                "doctrine/migrations": "doctrine migrations if you want to keep your schema definitions versioned"
+                "doctrine/migrations": "doctrine migrations if you want to keep your schema definitions versioned",
+                "zendframework/zend-developer-tools": "zend-developer-tools if you want to profile operations executed by the ORM during development"
             },
-            "time": "2013-01-23 19:32:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -291,11 +294,66 @@
             "description": "Zend Framework 2 Module that provides Doctrine ORM functionality",
             "homepage": "http://www.doctrine-project.org/",
             "keywords": [
-                "orm",
-                "zf2",
+                "doctrine",
                 "module",
-                "doctrine"
-            ]
+                "orm",
+                "zf2"
+            ],
+            "time": "2013-01-23 19:32:00"
+        },
+        {
+            "name": "doctrine/migrations",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/migrations.git",
+                "reference": "e1f6efcd94993b493de5c6a413cbc327ea9c0caa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/e1f6efcd94993b493de5c6a413cbc327ea9c0caa",
+                "reference": "e1f6efcd94993b493de5c6a413cbc327ea9c0caa",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": ">=2.0,<2.5.x-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "symfony/console": "2.*",
+                "symfony/yaml": "2.*"
+            },
+            "suggest": {
+                "symfony/console": "to run the migration from the console"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\DBAL\\Migrations": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan H. Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                }
+            ],
+            "description": "Database Schema migrations using Doctrine DBAL",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "migrations"
+            ],
+            "time": "2012-12-27 16:39:29"
         },
         {
             "name": "doctrine/orm",
@@ -312,15 +370,14 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
-                "ext-pdo": "*",
                 "doctrine/dbal": "2.3.*",
+                "ext-pdo": "*",
+                "php": ">=5.3.2",
                 "symfony/console": "2.*"
             },
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2013-03-24 20:43:58",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -365,7 +422,8 @@
             "keywords": [
                 "database",
                 "orm"
-            ]
+            ],
+            "time": "2013-03-24 20:43:58"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -373,32 +431,31 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "db0585625f6944a755534688e971b86d1d33ec45"
+                "reference": "af197d8d65de90827778379a18dd44d82c61d3fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/db0585625f6944a755534688e971b86d1d33ec45",
-                "reference": "db0585625f6944a755534688e971b86d1d33ec45",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/af197d8d65de90827778379a18dd44d82c61d3fc",
+                "reference": "af197d8d65de90827778379a18dd44d82c61d3fc",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
-                "doctrine/common": ">=2.2,<2.5-dev"
+                "doctrine/common": ">=2.2,<2.5-dev",
+                "php": ">=5.3.2"
             },
             "require-dev": {
-                "doctrine/orm": ">=2.2",
                 "doctrine/dbal": ">=2.2",
-                "symfony/yaml": "2.*",
                 "doctrine/mongodb": "1.0.1",
-                "doctrine/mongodb-odm": "1.0.0-BETA7"
+                "doctrine/mongodb-odm": "1.0.0-BETA7",
+                "doctrine/orm": ">=2.2",
+                "symfony/yaml": "2.*"
             },
             "suggest": {
-                "doctrine/mongodb-odm": ">=1.0.0-BETA7",
+                "doctrine/dbal": ">=2.3.2",
                 "doctrine/mongodb": ">=1.0.1",
-                "doctrine/orm": ">=2.3.2",
-                "doctrine/dbal": ">=2.3.2"
+                "doctrine/mongodb-odm": ">=1.0.0-BETA7",
+                "doctrine/orm": ">=2.3.2"
             },
-            "time": "2013-04-07 10:44:07",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -431,20 +488,21 @@
             "description": "Doctrine2 behavioral extensions",
             "homepage": "http://gediminasm.org/",
             "keywords": [
-                "tree",
+                "Blameable",
                 "behaviors",
                 "doctrine2",
                 "extensions",
                 "gedmo",
-                "sluggable",
                 "loggable",
-                "translatable",
                 "nestedset",
+                "sluggable",
                 "sortable",
                 "timestampable",
-                "Blameable",
+                "translatable",
+                "tree",
                 "uploadable"
-            ]
+            ],
+            "time": "2013-04-08 16:55:03"
         },
         {
             "name": "symfony/console",
@@ -464,7 +522,6 @@
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "2013-03-19 20:48:08",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -491,7 +548,8 @@
                 }
             ],
             "description": "Symfony Console Component",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-03-19 20:48:08"
         },
         {
             "name": "zendframework/zendframework",
@@ -618,7 +676,6 @@
                 "zendframework/zend-servicemanager": "2.1.*",
                 "zendframework/zend-stdlib": "2.1.*"
             },
-            "time": "2013-03-15 19:29:07",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -645,25 +702,25 @@
             "homepage": "https://github.com/ZF-Commons/ZfcBase",
             "keywords": [
                 "zf2"
-            ]
+            ],
+            "time": "2013-03-15 19:29:07"
         },
         {
             "name": "zf-commons/zfc-user",
-            "version": "dev-master",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ZF-Commons/ZfcUser.git",
-                "reference": "48a77acdb2fe5ff73241e736ca88b4ed2f6831f3"
+                "reference": "0.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ZF-Commons/ZfcUser/zipball/48a77acdb2fe5ff73241e736ca88b4ed2f6831f3",
-                "reference": "48a77acdb2fe5ff73241e736ca88b4ed2f6831f3",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcUser/zipball/0.1.1",
+                "reference": "0.1.1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "zf-commons/zfc-base": "0.*",
                 "zendframework/zend-authentication": "2.1.*",
                 "zendframework/zend-crypt": "2.1.*",
                 "zendframework/zend-form": "2.1.*",
@@ -674,12 +731,12 @@
                 "zendframework/zend-servicemanager": "2.1.*",
                 "zendframework/zend-stdlib": "2.1.*",
                 "zendframework/zend-validator": "2.1.*",
-                "zendframework/zend-view": "2.1.*"
+                "zendframework/zend-view": "2.1.*",
+                "zf-commons/zfc-base": "0.*"
             },
             "suggest": {
                 "zendframework/zend-session": "To use the default authentication adapter."
             },
-            "time": "2013-03-27 14:54:31",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -706,10 +763,61 @@
             "homepage": "https://github.com/ZF-Commons/ZfcUser",
             "keywords": [
                 "zf2"
-            ]
+            ],
+            "time": "2013-03-15 19:29:00"
+        },
+        {
+            "name": "zf-commons/zfc-user-doctrine-orm",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZF-Commons/ZfcUserDoctrineORM.git",
+                "reference": "0.1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcUserDoctrineORM/zipball/0.1.1",
+                "reference": "0.1.1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-orm-module": "0.*",
+                "php": ">=5.3.3",
+                "zf-commons/zfc-user": "0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZfcUserDoctrineORM": "src/"
+                },
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kyle Spraggs",
+                    "email": "theman@spiffyjr.me",
+                    "homepage": "http://www.spiffyjr.me/"
+                },
+                {
+                    "name": "Evan Coury",
+                    "email": "me@evancoury.com",
+                    "homepage": "http://blog.evan.pro/"
+                }
+            ],
+            "description": "Doctrine2 ORM storage adapter for ZfcUser.",
+            "homepage": "https://github.com/ZF-Commons/ZfcUserDoctrineORM",
+            "keywords": [
+                "zf2"
+            ],
+            "time": "2013-02-08 00:41:12"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
@@ -717,6 +825,13 @@
     "stability-flags": {
         "doctrine/doctrine-orm-module": 20,
         "gedmo/doctrine-extensions": 20,
-        "zf-commons/zfc-user": 20
-    }
+        "zf-commons/zfc-user-doctrine-orm": 20,
+        "doctrine/migrations": 20
+    },
+    "platform": {
+        "php": ">=5.3.3"
+    },
+    "platform-dev": [
+
+    ]
 }
