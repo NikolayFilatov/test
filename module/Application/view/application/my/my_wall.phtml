@@ -2,12 +2,6 @@
 	<div class="my_top">
 		<div class="rc_left">
 			<img width=220 src='<?php echo $this->user->getAvatar();?>' />
-			<br>
-	        <?php
-                    if ($param['permission'] == "host") {
-                        echo $this->GeouploadHelper()->renderWidgetAvatarForm();
-                    }
-                ?>
 		</div>
 		<div class="rc_right">
 			<div class="name"><?=$this->user->getFullname();?></div>

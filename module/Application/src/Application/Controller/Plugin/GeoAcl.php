@@ -35,7 +35,6 @@ class GeoAcl extends AbstractPlugin {
             $sm = $e->getApplication()->getServiceManager();
             $pm = $sm->get('Zend\Mvc\Controller\PluginManager');
             return $pm->get('redirect')->toRoute('deny');
-           
         }
     }
 }

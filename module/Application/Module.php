@@ -66,6 +66,7 @@ class Module
             $this->GeoAcl($e, $group);
         }
     }
+
     //for check gropp and get access from acl.config.php via GeoAcl plugin
     public function GeoAcl($e, $group) {
         $sm = $e->getApplication()->getServiceManager();
