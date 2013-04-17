@@ -57,22 +57,7 @@ class Module
             $pm = $sm->get('Zend\Mvc\Controller\PluginManager');
             return $pm->get('redirect')->toRoute('zfcuser/login');
             
-        } else {
-            if (is_object($ZfcServ->getIdentity()->getGroup())) {
-                $group = $ZfcServ->getIdentity()->getGroup()->getName();
-            } else {
-                $group = "guest";
-            }
-            $this->GeoAcl($e, $group);
         }
-    }
-
-    //for check gropp and get access from acl.config.php via GeoAcl plugin
-    public function GeoAcl($e, $group) {
-        $sm = $e->getApplication()->getServiceManager();
-        $pm = $sm->get('Zend\Mvc\Controller\PluginManager');
-        $acl = $pm->get('GeoAcl');
-        $acl->check($e, $group);
     }
 
 
@@ -88,9 +73,8 @@ class Module
     	$module = require __DIR__ . '/config/module.config.php';
     	$router = require __DIR__ . '/config/router.config.php';
     	$user = require __DIR__ . '/config/user.config.php';
-        $acl = require __DIR__ . '/config/acl.config.php';
     	
-    	$config = array_merge_recursive($module, $router, $user, $acl);
+    	$config = array_merge_recursive($module, $router, $user);
         return $config;
     }
 

@@ -2,13 +2,6 @@
 
 namespace Application\Controller;
 
-use Application\Entity\User\UserWall;
-use Application\Entity\User\UserContact;
-use Application\Entity\User\ZfcUser;
-
-use Application\Entity\Groups\GroupsService;
-use Application\Entity\Groups\Groups;
-
 use Application\Entity\User\User;
 use Application\Entity\User\UserService;
 
@@ -29,7 +22,7 @@ class IndexController extends AbstractActionController
     }
     
     public function indexAction()
-    {	
+    {
     	$em = $this->getEntityManager();
     	
     	$user = $this->zfcUserAuthentication()->getIdentity();
