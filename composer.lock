@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "beb6ba0120920cefe8aa13b912e34197",
+    "hash": "e74d482d7c0cc528f4fb4ffcc3fa00a3",
     "packages": [
         {
             "name": "doctrine/common",
@@ -227,12 +227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineORMModule.git",
-                "reference": "8da0dab03be4f282b97632d54979d6b45d6bf479"
+                "reference": "9c1a81dbbdce60159da82cd3723eabdea9ace646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineORMModule/zipball/8da0dab03be4f282b97632d54979d6b45d6bf479",
-                "reference": "8da0dab03be4f282b97632d54979d6b45d6bf479",
+                "url": "https://api.github.com/repos/doctrine/DoctrineORMModule/zipball/9c1a81dbbdce60159da82cd3723eabdea9ace646",
+                "reference": "9c1a81dbbdce60159da82cd3723eabdea9ace646",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                 {
                     "name": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/",
+                    "homepage": "http://marco-pivetta.com/",
                     "role": "Developer"
                 },
                 {
@@ -299,7 +299,7 @@
                 "orm",
                 "zf2"
             ],
-            "time": "2013-01-23 19:32:00"
+            "time": "2013-04-16 12:00:34"
         },
         {
             "name": "doctrine/migrations",
@@ -431,12 +431,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "af197d8d65de90827778379a18dd44d82c61d3fc"
+                "reference": "b31e0a4664f13dbf24b0215547e42c401ca5300a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/af197d8d65de90827778379a18dd44d82c61d3fc",
-                "reference": "af197d8d65de90827778379a18dd44d82c61d3fc",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/b31e0a4664f13dbf24b0215547e42c401ca5300a",
+                "reference": "b31e0a4664f13dbf24b0215547e42c401ca5300a",
                 "shasum": ""
             },
             "require": {
@@ -502,7 +502,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-04-08 16:55:03"
+            "time": "2013-04-12 04:03:22"
         },
         {
             "name": "symfony/console",
