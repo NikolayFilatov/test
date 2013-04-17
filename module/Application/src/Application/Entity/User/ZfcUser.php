@@ -2,26 +2,29 @@
 namespace Application\Entity\User;
 
 use Zend\ServiceManager\ServiceManager;
+use Zend\Filter\Boolean;
+use Application\Entity\User\UserContact;
 
 use Application\Entity\Entity as BaseEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use ZfcUser\Entity\UserInterface;
 use \DateTime;
 use \DateTimeZone;
 
 /**
-* @ORM\Entity
-* @ORM\Table(name="user")
-*/
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ */
 
 class ZfcUser extends BaseEntity implements UserInterface {
-	
-	protected $protectedProperties = [
+
+    protected $protectedProperties = [
         'id',
         'created',
-	];
-	
+    ];
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer", name="id")
@@ -42,12 +45,6 @@ class ZfcUser extends BaseEntity implements UserInterface {
     protected $email;
 
     /**
-     * @ORM\Column(type="string", name="display_name")
-     * @var string
-     */
-    protected $displayName;
-
-    /**
      * @ORM\Column(type="string")
      * @var string
      */
@@ -57,7 +54,7 @@ class ZfcUser extends BaseEntity implements UserInterface {
      * @ORM\Column(type="integer")
      * @var int
      */
-    protected $state = 0;
+    protected $state;
 
     /**
      * User creation date
@@ -66,7 +63,6 @@ class ZfcUser extends BaseEntity implements UserInterface {
      * @var \DateTime
      */
     protected $created;
-    
 
     /**
      * Construct
@@ -76,11 +72,13 @@ class ZfcUser extends BaseEntity implements UserInterface {
      */
     public function __construct($data = null)
     {
-    	$this->created = new DateTime('now', new DateTimeZone('UTC'));
-    	
-    	return parent::__construct($data);
+        $this->contacts = new ArrayCollection();
+        $this->wall = new ArrayCollection();
+        $this->created = new DateTime('now', new DateTimeZone('UTC'));
+
+        return parent::__construct($data);
     }
-    
+
     /**
      * Get id.
      *
@@ -111,6 +109,16 @@ class ZfcUser extends BaseEntity implements UserInterface {
     public function getUsername()
     {
         return $this->username;
+    }
+
+    public function getDisplayName()
+    {
+
+    }
+
+    public function setDisplayName($name)
+    {
+
     }
 
     /**
@@ -144,28 +152,6 @@ class ZfcUser extends BaseEntity implements UserInterface {
     public function setEmail($email)
     {
         $this->email = $email;
-        return $this;
-    }
-
-    /**
-     * Get displayName.
-     *
-     * @return string
-     */
-    public function getDisplayName()
-    {
-        return $this->displayName;
-    }
-
-    /**
-     * Set displayName.
-     *
-     * @param string $displayName
-     * @return UserInterface
-     */
-    public function setDisplayName($displayName)
-    {
-        $this->displayName = $displayName;
         return $this;
     }
 
@@ -215,9 +201,8 @@ class ZfcUser extends BaseEntity implements UserInterface {
 
     public function toArray() {
         return [
-        	'is' => $this->id,
-        	'username' => $this->username,
-        	'sex' => $this->sex,
+            'is' => $this->id,
+            'username' => $this->username,
         ];
     }
 
