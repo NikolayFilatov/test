@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishGroup.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishGroupService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/Module.php" afterPath="$PROJECT_DIR$/module/Application/Module.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php" afterPath="$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php" />
     </list>
     <ignored path="test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +13,7 @@
     <file path="/login.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1365661500121" ignored="false" />
     <file path="/layout.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366196915935" ignored="false" />
     <file path="/style.css" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366196741841" ignored="false" />
-    <file path="/UserController.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366013372245" ignored="false" />
+    <file path="/UserController.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366206490082" ignored="false" />
     <file path="/register.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366013676628" ignored="false" />
     <file path="/Register.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366013725565" ignored="false" />
     <file path="/ZfcUser.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366204318570" ignored="false" />
@@ -51,10 +46,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.53289473">
       <split-first>
         <leaf>
-          <file leaf-file-name="ZfcUser.php" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="ZfcUser.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="119" column="5" selection-start="2114" selection-end="2114" vertical-scroll-proportion="0.36647174">
+                <state line="121" column="5" selection-start="2121" selection-end="2121" vertical-scroll-proportion="-8.538462">
                   <folding>
                     <element signature="e#42#81#0" expanded="true" />
                   </folding>
@@ -128,10 +123,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="UserController.php" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="79" column="30" selection-start="1830" selection-end="1830" vertical-scroll-proportion="-16.40351">
+                <state line="148" column="9" selection-start="4554" selection-end="4554" vertical-scroll-proportion="0.54371">
                   <folding />
                 </state>
               </provider>
@@ -188,7 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/autoload/doctrine.global.php" />
         <option value="$PROJECT_DIR$/module/Application/config/acl.config.php" />
         <option value="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
@@ -204,6 +198,7 @@
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishGroup.php" />
         <option value="$PROJECT_DIR$/module/Application/Module.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php" />
+        <option value="$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php" />
       </list>
     </option>
   </component>
@@ -585,7 +580,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1036" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -732,13 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="30" selection-start="1830" selection-end="1830" vertical-scroll-proportion="-16.40351">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="0" selection-start="675" selection-end="675" vertical-scroll-proportion="-18.307692">
@@ -782,10 +770,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="5" selection-start="2114" selection-end="2114" vertical-scroll-proportion="0.36647174">
+        <state line="121" column="5" selection-start="2121" selection-end="2121" vertical-scroll-proportion="-8.538462">
           <folding>
             <element signature="e#42#81#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="9" selection-start="4554" selection-end="4554" vertical-scroll-proportion="0.54371">
+          <folding />
         </state>
       </provider>
     </entry>
