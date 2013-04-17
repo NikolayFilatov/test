@@ -2,28 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" />
-      <change type="DELETED" beforePath="C:\www\test\module\Application\config\acl.config.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/Module.php" afterPath="$PROJECT_DIR$/module/Application/Module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" afterPath="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" afterPath="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366187253726" ignored="false" />
     <file path="/WallService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1365355219530" ignored="false" />
-    <file path="/a.dummy" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366195609485" ignored="false" />
+    <file path="/a.dummy" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366197846447" ignored="false" />
     <file path="/composer.json" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1365509714441" ignored="false" />
     <file path="/login.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1365661500121" ignored="false" />
-    <file path="/layout.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366190378719" ignored="false" />
-    <file path="/style.css" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366013118860" ignored="false" />
+    <file path="/layout.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366196915935" ignored="false" />
+    <file path="/style.css" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366196741841" ignored="false" />
     <file path="/UserController.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366013372245" ignored="false" />
     <file path="/register.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366013676628" ignored="false" />
     <file path="/Register.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366013725565" ignored="false" />
     <file path="/ZfcUser.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366192494187" ignored="false" />
-    <file path="/index.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366195218589" ignored="false" />
+    <file path="/index.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366196171822" ignored="false" />
     <file path="/IndexController.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366195538541" ignored="false" />
     <file path="/Module.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366195672318" ignored="false" />
+    <file path="/Bludo.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366197452391" ignored="false" />
+    <file path="/BludoService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366197947384" ignored="false" />
+    <file path="/Dish.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366197906379" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +47,13 @@
     <favorites_list name="test" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47149122">
+    <splitter split-orientation="horizontal" split-proportion="0.53289473">
       <split-first>
         <leaf>
           <file leaf-file-name="ZfcUser.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="204" column="17" selection-start="3400" selection-end="3400" vertical-scroll-proportion="-14.538462">
+                <state line="204" column="17" selection-start="0" selection-end="3739" vertical-scroll-proportion="-133.38461">
                   <folding>
                     <element signature="e#42#81#0" expanded="true" />
                   </folding>
@@ -56,14 +61,33 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.phtml" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml">
+          <file leaf-file-name="Dish.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="3" column="31" selection-start="277" selection-end="277" vertical-scroll-proportion="0.064556964">
+                <state line="9" column="18" selection-start="181" selection-end="181" vertical-scroll-proportion="-1.8">
                   <folding>
-                    <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+                    <element signature="e#42#81#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DishService.php" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishService.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="75" column="7" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.702957">
+                  <folding>
+                    <element signature="e#42#76#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserService.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/UserService.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="2702" vertical-scroll-proportion="-0.0">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -71,19 +95,10 @@
           <file leaf-file-name="IndexController.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="29" column="8" selection-start="686" selection-end="686" vertical-scroll-proportion="-18.961538">
+                <state line="28" column="0" selection-start="675" selection-end="675" vertical-scroll-proportion="-18.307692">
                   <folding>
                     <element signature="e#42#75#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/view/zfc-user/user/index.phtml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1" column="7" selection-start="0" selection-end="277" vertical-scroll-proportion="-0.65384614">
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -101,15 +116,6 @@
             <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Service/User.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="84" column="44" selection-start="1888" selection-end="1888" vertical-scroll-proportion="-14.730769">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="__CG__ApplicationEntityUserZfcUser.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/data/DoctrineORMModule/Proxy/__CG__ApplicationEntityUserZfcUser.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="210" column="69" selection-start="4936" selection-end="4937" vertical-scroll-proportion="-4.7719297">
                   <folding />
                 </state>
               </provider>
@@ -166,22 +172,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/Plugin/GeoAcl.php" />
-        <option value="$PROJECT_DIR$/module/Application/view/zfc-user/user/login.phtml" />
-        <option value="$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Form/Login.php" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
-        <option value="$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/vendor/zf-commons/zfc-user/view/zfc-user/user/register.phtml" />
         <option value="$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Form/Register.php" />
         <option value="$PROJECT_DIR$/module/Application/view/zfc-user/user/register.phtml" />
-        <option value="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
         <option value="$PROJECT_DIR$/data/DoctrineORMModule/Proxy/__CG__ApplicationEntityUserZfcUser.php" />
         <option value="$PROJECT_DIR$/config/autoload/doctrine.global.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php" />
         <option value="$PROJECT_DIR$/module/Application/config/acl.config.php" />
         <option value="$PROJECT_DIR$/module/Application/Module.php" />
         <option value="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Bludo/Bludo.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Bludo/BludoService.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Bludo/Dish.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishService.php" />
       </list>
     </option>
   </component>
@@ -246,6 +252,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -275,36 +313,6 @@
               <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zfc-user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -328,7 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -448,6 +456,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dish" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -482,7 +524,7 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.PHP" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -607,71 +649,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="9" selection-start="7151" selection-end="7151" vertical-scroll-proportion="-7.2280703">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/layout/layout.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="18" selection-start="1798" selection-end="1798" vertical-scroll-proportion="-21.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/zfc-user/user/register.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="26" selection-start="663" selection-end="663" vertical-scroll-proportion="0.3185279">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Form/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="25" selection-start="1137" selection-end="1137" vertical-scroll-proportion="0.021518987">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Form/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1145" selection-end="1145" vertical-scroll-proportion="-9.692307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/UserService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="8" selection-start="1325" selection-end="1325" vertical-scroll-proportion="-43.807693">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Entity/UserInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2448717">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.50384617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="17" selection-start="3400" selection-end="3400" vertical-scroll-proportion="-14.538462">
-          <folding>
-            <element signature="e#42#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/application/index/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="11" selection-start="1152" selection-end="1152" vertical-scroll-proportion="-13.730769">
@@ -700,28 +677,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php">
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="8" selection-start="686" selection-end="686" vertical-scroll-proportion="-18.961538">
-          <folding>
-            <element signature="e#42#75#0" expanded="true" />
-          </folding>
+        <state line="14" column="26" selection-start="284" selection-end="284" vertical-scroll-proportion="0.29166666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/layout/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="11" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.3658228">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/view/zfc-user/user/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="7" selection-start="0" selection-end="277" vertical-scroll-proportion="-0.65384614">
+        <state line="1" column="7" selection-start="0" selection-end="277" vertical-scroll-proportion="0.02117061">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="9" selection-start="7151" selection-end="7151" vertical-scroll-proportion="-7.2280703">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/DoctrineORMModule/Proxy/__CG__ApplicationEntityUserZfcUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="69" selection-start="4936" selection-end="4937" vertical-scroll-proportion="0.6192358">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/src/ZfcUser/Service/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="44" selection-start="1888" selection-end="1888" vertical-scroll-proportion="-14.730769">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="31" selection-start="277" selection-end="277" vertical-scroll-proportion="0.064556964">
+        <state line="4" column="6" selection-start="245" selection-end="245" vertical-scroll-proportion="0.083640836">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="675" selection-end="675" vertical-scroll-proportion="-18.307692">
+          <folding>
+            <element signature="e#42#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="204" column="17" selection-start="0" selection-end="3739" vertical-scroll-proportion="-133.38461">
+          <folding>
+            <element signature="e#42#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/UserService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="2702" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="18" selection-start="181" selection-end="181" vertical-scroll-proportion="-1.8">
+          <folding>
+            <element signature="e#42#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="7" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.702957">
+          <folding>
+            <element signature="e#42#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
