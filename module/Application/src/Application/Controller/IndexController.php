@@ -26,8 +26,7 @@ class IndexController extends AbstractActionController
     	$em = $this->getEntityManager();
     	
     	$user = $this->zfcUserAuthentication()->getIdentity();
-    	
-    	
+
         $vm = new ViewModel();
         $vm->setTemplate('application/index/index');
         
