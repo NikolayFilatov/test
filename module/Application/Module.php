@@ -37,11 +37,10 @@ class Module
         $sessionManager = new SessionManager($sessionConfig);
         $sessionManager->start();
         Container::setDefaultManager($sessionManager);
-        
         //event for set locale for traslator
         $eventManager->attach(MvcEvent::EVENT_DISPATCH, array($this, 'setLocale'));
-
     }
+
     //function for set translator locale
     public function setLocale(MvcEvent $e) {
         $translator = $e->getApplication()->getServiceManager()->get('translator');
@@ -56,10 +55,8 @@ class Module
         if (!$ZfcServ->hasIdentity()) {
             $pm = $sm->get('Zend\Mvc\Controller\PluginManager');
             return $pm->get('redirect')->toRoute('zfcuser/login');
-            
         }
     }
-
 
     //for override default Zfc view scripts
     public function init($moduleManager)

@@ -11,10 +11,10 @@ use \DateTimeZone;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="dish")
+ * @ORM\Table(name="dish_group")
  */
 
-class Dish extends Entity {
+class DishGroups extends Entity {
 
     protected $protectedProperties = [
         'id',
@@ -33,11 +33,6 @@ class Dish extends Entity {
      * @var string
      */
     protected $name;
-
-    /**
-     *
-     */
-    protected $group;
 
     /**
      * User creation date
@@ -60,12 +55,10 @@ class Dish extends Entity {
         return parent::__construct($data);
     }
 
-
     public function toArray() {
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'cost' => 1,
         ];
     }
 
