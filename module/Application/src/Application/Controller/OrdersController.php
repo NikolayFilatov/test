@@ -42,11 +42,7 @@ class OrdersController extends AbstractActionController
         $orderService = new OrderService($em);
 
         $date = new DateTime('now', new DateTimeZone('UTC'));
-        $iD = date('d', $date->getTimestamp());
-        $iM = date('m', $date->getTimestamp());
-        $iY = date('y', $date->getTimestamp());
-
-        $date->setTimestamp(mktime(0, 0, 0, $iM, $iD, $iY));
+        $date = $this->DateFormat()->getDay($date);
 
         $orders = $orderService->findOrder([
             'date' => $date,

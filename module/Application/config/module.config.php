@@ -74,7 +74,7 @@ return [
     
     'controller_plugins' => array(
         'invokables' => array(
-            'GeoAcl' => 'Application\Controller\Plugin\GeoAcl',
+            'DateFormat' => 'Application\Controller\Plugin\DateFormat',
         )
     ),
   
