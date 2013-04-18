@@ -1,7 +1,9 @@
 <?php
 namespace Application\Entity\Dish;
 
+use Application\Entity\Price\Price;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Tests\ORM\Functional\Ticket\DDC513Price;
 use Zend\ServiceManager\ServiceManager;
 
 use Application\Entity\Entity;
@@ -51,6 +53,17 @@ class Dish extends Entity {
     protected $created;
 
     /**
+     * Ссылка на стоимость
+     *
+     * @ORM\OneToMany(
+     *  targetEntity="\Application\Entity\Price\Price",
+     *  mappedBy="dish"
+     * )
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    protected $price;
+
+    /**
      * Construct
      * Instantiates user entity.
      *
@@ -59,6 +72,7 @@ class Dish extends Entity {
     public function __construct($data = null)
     {
         $this->created = new DateTime('now', new DateTimeZone('UTC'));
+        $this->price = new ArrayCollection();
 
         return parent::__construct($data);
     }
@@ -77,4 +91,14 @@ class Dish extends Entity {
         ];
     }
 
+    public function addPrice(Price $price)
+    {
+        $this->price->add($price);
+    }
+
+    public function getCost()
+    {
+        $price = $this->price->last();
+        return $price->getCost();
+    }
 }

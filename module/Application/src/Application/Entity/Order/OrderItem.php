@@ -1,21 +1,19 @@
 <?php
-namespace Application\Entity\Menu;
+namespace Application\Entity\Order;
 
-use Application\Entity\Dish\Dish;
 use Zend\ServiceManager\ServiceManager;
 
 use Application\Entity\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use \DateTime;
-use \DateTimeZone;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="menu")
+ * @ORM\Table(name="order_item")
  */
 
-class Menu extends Entity {
+class OrderItem extends Entity {
 
     protected $protectedProperties = [
         'id',
@@ -30,18 +28,22 @@ class Menu extends Entity {
     protected $id;
 
     /**
-     * Menu for date
-     *
-     * @ORM\Column(type = "datetime")
-     * @var \DateTime
+     * @ORM\ManyToOne(targetEntity="\Application\Entity\Menu\Menu")
+     * @var \Application\Entity\Menu\Menu
      */
-    protected $date;
+    protected $menu;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\Application\Entity\Dish\Dish")
-     * @var \Application\Entity\Dish\Dish
+     * @ORM\ManyToOne(targetEntity="\Application\Entity\Order\Order")
+     * @var \Application\Entity\Order\Order
      */
-    protected $dish;
+    protected $order;
+
+    /**
+     * @ORM\Column(type = "integer")
+     * @var int
+     */
+    protected $count = 1;
 
     /**
      * Construct
@@ -60,14 +62,8 @@ class Menu extends Entity {
         ];
     }
 
-    public function setDish(Dish $dish)
-    {
-        $this->dish = $dish;
-    }
-
     public function getCost()
     {
-        return $this->dish->getCost();
+        $this->menu->getCost() * $this->count;
     }
-
 }

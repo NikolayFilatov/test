@@ -6,12 +6,18 @@ use Application\Entity\Dish\Dish;
 use Application\Entity\Dish\DishGroupService;
 use Application\Entity\Dish\DishGroup;
 use Application\Entity\Dish\DishService;
+use Application\Entity\Menu\Menu;
+use Application\Entity\Menu\MenuService;
+use Application\Entity\Price\Price;
+use Application\Entity\Price\PriceService;
 use Application\Entity\User\User;
 use Application\Entity\User\UserService;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Doctrine\ORM\EntityManager;
+use \DateTime;
+use \DateTimeZone;
 
 class MenuController extends AbstractActionController
 {
@@ -41,18 +47,30 @@ class MenuController extends AbstractActionController
     {
         $em = $this->getEntityManager();
 
-        //test
-        $dishGroupService = new DishGroupService($em);
         $dishService = new DishService($em);
-        $dish = new Dish([
-            'name' => 'SecondDish in SecondGroup',
-        ]);
-//        $firstGroup = $dishGroupService->findDishGroupById(2);
-//        $dish->setGroup($firstGroup);
-//        $dishGroupService->save($firstGroup);
+        $dishGroupService = new DishGroupService($em);
+        $menuService = new MenuService($em);
+        $priceService = new PriceService($em);
 
-//        $dishService->save($dish);
-//        $dishGroupService->delete($firstGroup);
+        $dishs = $dishService->getAllDish();
+        $dish = array_shift($dishs);
+
+        $dateCur = new DateTime('now', new DateTimeZone('UTC'));
+
+        $price = new Price();
+        $price->setDish($dish);
+        $price->setDate($dateCur);
+        $price->setCost(160);
+
+        $priceService->save($price);
+
+        $menu = new Menu([
+            'date' => $dateCur
+        ]);
+
+        $menu->setDish($dish);
+
+        $menuService->save($menu);
 
         $dg = $dishGroupService->getAllDishGroup();
 
