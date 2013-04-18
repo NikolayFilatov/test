@@ -80,4 +80,12 @@ class DishService extends EntityRepository {
         return $repo->findAll();
     }
 
+    public function createDish($data = null)
+    {
+        $dish = new Dish($data);
+        $this->save($dish);
+
+        return $dish;
+    }
+
 }

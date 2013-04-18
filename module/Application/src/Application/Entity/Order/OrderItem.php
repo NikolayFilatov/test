@@ -64,6 +64,6 @@ class OrderItem extends Entity {
 
     public function getCost()
     {
-        $this->menu->getCost() * $this->count;
+        return $this->menu->getCost() * $this->count;
     }
 }

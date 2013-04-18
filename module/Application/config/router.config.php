@@ -102,6 +102,17 @@ return [
                 ],
                 'may_terminate' => true,
             ],
+            'orders' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/orders',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Orders',
+                        'action'     => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
 			/*
 			 * API Controllers
 			*/

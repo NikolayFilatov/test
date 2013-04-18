@@ -69,15 +69,25 @@ class OrderService extends EntityRepository {
         return $order;
     }
 
+    public function getAllOrder()
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+        return $repo->findAll();
+    }
+
     public function findOrderById($id)
     {
         $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
         return $repo->find($id);
     }
 
-    public function getOrderByUser(ZfcUser $user)
+    public function findOrder($data)
     {
-        return null;
+        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+
+        $order = $repo->findBy($data);
+
+        return $order;
     }
 
     public function getOrderByDate(DateTime $date = null)
@@ -85,16 +95,12 @@ class OrderService extends EntityRepository {
         return null;
     }
 
-    public function createOrder(ZfcUser $user)
+    public function createOrder($data = null)
     {
-        $order = new Order(['user' => $user]);
-        return $order;
-    }
+        $order = new Order($data);
+        $this->save($order);
 
-    public function createItem(Order $order)
-    {
-        $item = new OrderItem(['order' => $order]);
-        return $item;
+        return $order;
     }
 
     public function addItemToOrder(OrderItem $item, Order $order)

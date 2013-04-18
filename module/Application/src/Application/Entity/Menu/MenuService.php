@@ -77,21 +77,27 @@ class MenuService extends EntityRepository {
      */
     public function getAllMenu()
     {
-        $repo = $this->_em->getRepository('\Application\Entity\menu\Menu');
+        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
         return $repo->findAll();
     }
 
     public function findMenuById($id)
     {
-        $repo = $this->_em->getRepository('\Application\Entity\menu\Menu');
+        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
         return $repo->find($id);
     }
 
     public function getMenuByDate(DateTime $date)
     {
-
         return null;
     }
 
+    public function createMenu($data = null)
+    {
+        $menu = new Menu($data);
+        $this->save($menu);
+
+        return $menu;
+    }
 
 }

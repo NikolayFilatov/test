@@ -87,8 +87,15 @@ class PriceService extends EntityRepository {
 
     public function getPriceByDate(DateTime $date)
     {
-
         return null;
+    }
+
+    public function createPrice($data = null)
+    {
+        $price = new Price($data);
+        $this->save($price);
+
+        return $price;
     }
 
 

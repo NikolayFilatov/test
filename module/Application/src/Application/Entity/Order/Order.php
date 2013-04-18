@@ -10,7 +10,7 @@ use \DateTime;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="order")
+ * @ORM\Table(name="orders")
  */
 
 class Order extends Entity {
@@ -36,7 +36,7 @@ class Order extends Entity {
     protected $date;
 
     /**
-     * Ссылка на стоимость
+     * Ссылка на запись заказа
      *
      * @ORM\OneToMany(
      *  targetEntity="\Application\Entity\Order\OrderItem",
@@ -52,12 +52,6 @@ class Order extends Entity {
      * @var \Application\Entity\User\ZfcUser
      */
     protected $user;
-
-    /**
-     * @ORM\Column(type = "integer")
-     * @var int
-     */
-    protected $count = 1;
 
     /**
      * Construct
@@ -89,8 +83,19 @@ class Order extends Entity {
         return $this;
     }
 
-    public function getCost()
+    public function getTotal()
     {
-        $this->menu->getCost() * $this->count;
+        $total = 0;
+        foreach($this->item as $item)
+        {
+            $total = $total + $item->getCost();
+        }
+
+        return $total;
+    }
+
+    public function getCountItem()
+    {
+        return $this->item->count();
     }
 }

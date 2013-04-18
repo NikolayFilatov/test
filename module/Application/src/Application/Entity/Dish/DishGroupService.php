@@ -86,5 +86,13 @@ class DishGroupService extends EntityRepository {
         return $repo->find($id);
     }
 
+    public function createDishGroup($data = null)
+    {
+        $group = new DishGroup($data);
+        $this->save($group);
+
+        return $group;
+    }
+
 
 }

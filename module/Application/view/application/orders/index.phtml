@@ -1,0 +1,12 @@
+<div class="dcontent">
+    <?php foreach($this->orders as $order):?>
+        <div><?=$order->getUser()->getEmail();?></div>
+        <div><?=$order->getDate()->format('d-m-Y');?></div>
+        <div><?=$order->getTotal();?></div>
+        <div><?=$order->getCountItem();?></div>
+        <?php $items = $order->getItem();?>
+        <?php foreach($items as $item):?>
+            <div><?=$item->getCost()?></div>
+        <?php endforeach;?>
+    <?php endforeach;?>
+</div>

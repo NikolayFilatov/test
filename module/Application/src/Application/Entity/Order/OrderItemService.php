@@ -1,7 +1,7 @@
 <?php
-namespace Application\Entity\OrderItem;
+namespace Application\Entity\Order;
 
-use Application\Entity\User\ZfcUser;
+use Application\Entity\Order\OrderItem;
 use Doctrine\ORM\EntityRepository;
 use Zend\ServiceManager\ServiceManager;
 use \Exception;
@@ -73,5 +73,13 @@ class OrderItemService extends EntityRepository {
     {
         $repo = $this->_em->getRepository('\Application\Entity\OrderItem\OrderItem');
         return $repo->find($id);
+    }
+
+    public function createItem($data = null)
+    {
+        $item = new OrderItem($data);
+        $this->save($item);
+
+        return $item;
     }
 }
