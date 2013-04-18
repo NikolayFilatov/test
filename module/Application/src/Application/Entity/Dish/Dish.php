@@ -1,10 +1,12 @@
 <?php
 namespace Application\Entity\Dish;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Zend\ServiceManager\ServiceManager;
 
 use Application\Entity\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Dish\DishGroup;
 
 use \DateTime;
 use \DateTimeZone;
@@ -35,12 +37,13 @@ class Dish extends Entity {
     protected $name;
 
     /**
-     *
+     * @ORM\ManyToOne(targetEntity="\Application\Entity\Dish\DishGroup")
+     * @var \Application\Entity\Dish\DishGroup
      */
     protected $group;
 
     /**
-     * User creation date
+     * Dish creation date
      *
      * @ORM\Column(type = "datetime")
      * @var \DateTime
@@ -60,6 +63,11 @@ class Dish extends Entity {
         return parent::__construct($data);
     }
 
+    public function setGroup(DishGroup $group)
+    {
+        $this->group = $group;
+        $group->addDish($this);
+    }
 
     public function toArray() {
         return [

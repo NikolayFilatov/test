@@ -80,4 +80,11 @@ class DishGroupService extends EntityRepository {
         return $repo->findAll();
     }
 
+    public function findDishGroupById($id)
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Dish\DishGroup');
+        return $repo->find($id);
+    }
+
+
 }

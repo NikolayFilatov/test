@@ -27,6 +27,7 @@ return [
         'invokables' => [
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\My' => 'Application\Controller\MyController',
+            'Application\Controller\Menu' => 'Application\Controller\MenuController',
             'Application\Controller\Api' => 'Application\Controller\ApiController',
         ],
     ],

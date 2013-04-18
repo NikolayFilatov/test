@@ -80,18 +80,28 @@ return [
 				],
 				'may_terminate' => true,
 			],
-                    'firms' => [
+            'menu' => [
 				'type' => 'Literal',
 				'options' => [
-					'route' => '/firms',
+					'route' => '/menu',
 					'defaults' => [
-						'controller' => 'Application\Controller\Index',
-						'action'     => 'firms',
+						'controller' => 'Application\Controller\Menu',
+						'action'     => 'index',
 					],
 				],
 				'may_terminate' => true,
 			],
-
+            'dish' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/dish',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Menu',
+                        'action'     => 'dish',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
 			/*
 			 * API Controllers
 			*/

@@ -84,12 +84,6 @@ div.container .brand {
 	width:730px;
 	margin-left:221px;
 }
-.content .right_col{
-	width:219px;
-	position:fixed;
-	top:50px;
-	margin-left:952px;
-}
 .clearfloat {
 	clear:both;
 	height:0;
@@ -147,6 +141,10 @@ div.container .brand {
 	border-bottom:1px solid #DDD;
 	padding:3px 0 5px;
 }
+.content .dcontent{
+    padding:20px;
+    min-height: 300px;
+}
 ul{
 	padding:0;margin:0;
 }
@@ -202,114 +200,6 @@ ul{
 	font-size: 12px;
 	outline: none;
 }
-/*------------ WALL -----------*/
-.wall-box{
-	margin-top:10px;
-	border-bottom:1px solid #DDD;
-}
-.wall-ava{
-	margin:0 10px;
-	float:left;
-}
-.wall-content{
-	float:right;
-	width:660px;
-}
-.wall-content-top{
-	margin-right:10px;
-}
-.wall-content-mess{
-	padding:10px 0;
-	font-size:13px;
-	margin-right:10px;
-}
-.wall-content-foot{
-	margin-right:10px;
-}
-.wall-autor a{
-	color:#933;
-	font-weight:bold;
-	text-decoration:none;
-}
-.wall-date{
-	color:#999;
-	float:right;
-	font-size:12px;
-}
-.wall-count-comment{
-	float:left;
-	font-size:12px;
-	color:#777;
-	width:130px;
-}
-.wall-answer{
-	float:left;
-	color:#339;
-	font-weight:bold;
-}
-.wall-action{
-	float:right;
-	color:#777;
-}
-.wall-action-comment{
-	float:right;
-	color:#777;
-	width:590px;
-}
-.wall-action-edit{
-	float:right;
-}
-.wall-action-delete{
-	float:right;
-	padding-left:10px;
-}
-.wall-action-edit, .wall-action-delete, .wall-answer{
-	font-size:12px;
-	cursor:pointer;
-}
-.txtWall{
-	width:590px;
-}
-.txtComment{
-	width:520px;
-}
-.wall .add{
-	background-color:#F7F7F7;
-	border-top:1px solid #CCC;
-	border-bottom:1px solid #CCC;
-	padding:10px;
-}
-.wall-comments{
-	margin-top:10px;
-	border-left:1px solid #DDD;
-}
-.wall-addcomment{
-	background-color:#F7F7F7;
-	border-top:1px solid #CCC;
-	padding:10px;
-	display:none;
-}
-.wall-comment, .wall-comment-top{
-	width:590px;
-	float:right;
-	padding-bottom:5px;
-	margin-right:10px;
-	font-size:12px;
-}
-.wall-comment-foot{
-	margin-right:10px;
-	padding-bottom:10px;
-}
-.wall-action-date{
-	font-size:12px;
-	color:#999;
-	float:left;
-}
-/*------------ WALL -----------*/
-
-.ava{
-	border-radius:3px;
-}
 
 .button1, .button2, .button3, .button4, .button5, .buttonadm, .button_enter{
 	display: inline-block;
@@ -364,7 +254,6 @@ background: -ms-linear-gradient(top,  #57a7e0 0%,#308ad3 48%,#207cca 49%,#1e5799
 background: linear-gradient(to bottom,  #57a7e0 0%,#308ad3 48%,#207cca 49%,#1e5799 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#57a7e0', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
 }
-/* ������ */
 
 .fl_r{float:right;}.fl_l{float:left;}
 

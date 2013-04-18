@@ -1,0 +1,22 @@
+<div class="dcontent">
+    <h3>Каталог блюд</h3>
+    <ul>
+    <?php foreach($this->groups as $group):?>
+        <li>
+            <?=$group->getName();?>
+            <?php
+                $dishs = $group->getDish();
+                if(count($dishs) != 0)
+                {
+                    echo "<ul style='margin:5px;10px;'>";
+                    foreach($dishs as $dish)
+                    {
+                        echo "<li>" . $dish->getName();
+                    }
+                    echo "</ul>";
+                }
+            ?>
+        </li>
+    <?php endforeach;?>
+    </ul>
+</div>
