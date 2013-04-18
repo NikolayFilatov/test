@@ -8,6 +8,7 @@ use Application\Entity\Dish\DishGroup;
 use Application\Entity\Dish\DishService;
 use Application\Entity\Menu\Menu;
 use Application\Entity\Menu\MenuService;
+use Application\Entity\Order\OrderService;
 use Application\Entity\Price\Price;
 use Application\Entity\Price\PriceService;
 use Application\Entity\User\User;
@@ -51,6 +52,7 @@ class MenuController extends AbstractActionController
         $dishGroupService = new DishGroupService($em);
         $menuService = new MenuService($em);
         $priceService = new PriceService($em);
+        $orderService = new OrderService($em);
 
         $dishs = $dishService->getAllDish();
         $dish = array_shift($dishs);

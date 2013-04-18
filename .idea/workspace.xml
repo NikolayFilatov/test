@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItem.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Menu/Menu.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Menu/Menu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItemService.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/MenuController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/MenuController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Menu/MenuService.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Menu/MenuService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/Order.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/Order.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Price/Price.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Price/Price.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Price/PriceService.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Price/PriceService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +28,7 @@
     <file path="/DishGroups.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366198099032" ignored="false" />
     <file path="/DishGroupService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366275330495" ignored="false" />
     <file path="/DishGroup.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366276151543" ignored="false" />
-    <file path="/MenuController.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366281930956" ignored="false" />
+    <file path="/MenuController.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366285841467" ignored="false" />
     <file path="/menu.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366273156694" ignored="false" />
     <file path="/dish.phtml" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366276347124" ignored="false" />
     <file path="/DishService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366274134241" ignored="false" />
@@ -45,7 +38,8 @@
     <file path="/Price.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366281843519" ignored="false" />
     <file path="/PriceService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366281731448" ignored="false" />
     <file path="/Order.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366283334507" ignored="false" />
-    <file path="/OrderService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366283845850" ignored="false" />
+    <file path="/OrderService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366286692108" ignored="false" />
+    <file path="/OrderItemService.php" changelist="6cdd441d-aa7a-4748-b2d4-987ed0405ba7" time="1366286877820" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +84,7 @@
           <file leaf-file-name="MenuController.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/MenuController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="26" column="5" selection-start="700" selection-end="700" vertical-scroll-proportion="-1.3076923">
+                <state line="54" column="46" selection-start="1492" selection-end="1492" vertical-scroll-proportion="-13.730769">
                   <folding>
                     <element signature="e#42#75#0" expanded="true" />
                   </folding>
@@ -98,10 +92,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="OrderService.php" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="OrderService.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="74" column="27" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.44956413">
+                <state line="107" column="0" selection-start="0" selection-end="2295" vertical-scroll-proportion="-25.653847">
                   <folding>
                     <element signature="e#43#79#0" expanded="true" />
                   </folding>
@@ -109,10 +103,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PriceService.php" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="OrderItemService.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItemService.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="70" column="0" selection-start="1591" selection-end="1591" vertical-scroll-proportion="-45.76923">
+                  <folding>
+                    <element signature="e#47#83#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="PriceService.php" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Price/PriceService.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="69" column="0" selection-start="0" selection-end="1985" vertical-scroll-proportion="-10.615385">
+                <state line="71" column="29" selection-start="1528" selection-end="1528" vertical-scroll-proportion="0.3974359">
                   <folding>
                     <element signature="e#43#77#0" expanded="true" />
                   </folding>
@@ -224,7 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/module/Application/view/application/index/index.phtml" />
         <option value="$PROJECT_DIR$/module/Application/view/application/menu/index.phtml" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishService.php" />
@@ -233,13 +237,14 @@
         <option value="$PROJECT_DIR$/module/Application/view/application/menu/dish.phtml" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Menu/MenuService.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Price/PriceService.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/MenuController.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Price/Price.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Menu/Menu.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItem.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/Order.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/MenuController.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItemService.php" />
       </list>
     </option>
   </component>
@@ -658,40 +663,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Price" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Order" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -925,13 +896,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/Application/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="51" selection-start="1871" selection-end="1871" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/application/menu/dish.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="6" selection-start="596" selection-end="596" vertical-scroll-proportion="0.43220338">
@@ -1016,20 +980,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/MenuController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="5" selection-start="700" selection-end="700" vertical-scroll-proportion="-1.3076923">
-          <folding>
-            <element signature="e#42#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Price/Price.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="14" selection-start="197" selection-end="197" vertical-scroll-proportion="-5.8846154">
           <folding>
             <element signature="e#43#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/MenuController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="46" selection-start="1492" selection-end="1492" vertical-scroll-proportion="-13.730769">
+          <folding>
+            <element signature="e#42#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1043,20 +1007,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Price/PriceService.php">
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="0" selection-end="1985" vertical-scroll-proportion="-10.615385">
+        <state line="107" column="0" selection-start="0" selection-end="2295" vertical-scroll-proportion="-25.653847">
           <folding>
-            <element signature="e#43#77#0" expanded="true" />
+            <element signature="e#43#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php">
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItemService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="27" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.44956413">
+        <state line="70" column="0" selection-start="1591" selection-end="1591" vertical-scroll-proportion="-45.76923">
           <folding>
-            <element signature="e#43#79#0" expanded="true" />
+            <element signature="e#47#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Price/PriceService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="29" selection-start="1528" selection-end="1528" vertical-scroll-proportion="0.3974359">
+          <folding>
+            <element signature="e#43#77#0" expanded="true" />
           </folding>
         </state>
       </provider>

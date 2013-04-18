@@ -1,5 +1,5 @@
 <?php
-namespace Application\Entity\Order;
+namespace Application\Entity\OrderItem;
 
 use Application\Entity\User\ZfcUser;
 use Doctrine\ORM\EntityRepository;
@@ -7,7 +7,7 @@ use Zend\ServiceManager\ServiceManager;
 use \Exception;
 use Zend\Stdlib\DateTime;
 
-class OrderService extends EntityRepository {
+class OrderItemService extends EntityRepository {
 
     protected $_em;
 
@@ -17,16 +17,16 @@ class OrderService extends EntityRepository {
     }
 
     /**
-     * @param Order $order
+     * @param OrderItem $orderItem
      * @param boolean $flush
      * @throws DatabaseException
-     * @return Order
+     * @return OrderItem
      */
-    public function save(Order $order, $flush = true)
+    public function save(OrderItem $orderItem, $flush = true)
     {
         try
         {
-            $this->_em->persist($order);
+            $this->_em->persist($orderItem);
 
             if($flush)
                 $this->_em->flush();
@@ -40,22 +40,22 @@ class OrderService extends EntityRepository {
         }
 
         //return on success
-        return $order;
+        return $orderItem;
     }
 
     /**
      * Удалим пункт меню из базы
      *
-     * @param Order $order
+     * @param OrderItem $orderItem
      * @param boolean $flush
      * @throws DatabaseException
-     * @return Order
+     * @return OrderItem
      */
-    public function delete(Order $order, $flush = true)
+    public function delete(OrderItem $orderItem, $flush = true)
     {
         try
         {
-            $this->_em->remove($order);
+            $this->_em->remove($orderItem);
             if($flush)
                 $this->_em->flush();
         }
@@ -66,45 +66,12 @@ class OrderService extends EntityRepository {
         }
 
         //return on success
-        return $order;
+        return $orderItem;
     }
 
-    public function findOrderById($id)
+    public function findOrderItemById($id)
     {
-        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+        $repo = $this->_em->getRepository('\Application\Entity\OrderItem\OrderItem');
         return $repo->find($id);
     }
-
-    public function getOrderByUser(ZfcUser $user)
-    {
-        return null;
-    }
-
-    public function getOrderByDate(DateTime $date = null)
-    {
-        return null;
-    }
-
-    public function createOrder(ZfcUser $user)
-    {
-        $order = new Order(['user' => $user]);
-        return $order;
-    }
-
-    public function createItem(Order $order)
-    {
-        $item = new OrderItem(['order' => $order]);
-        return $item;
-    }
-
-    public function addItemToOrder(OrderItem $item, Order $order)
-    {
-        $order->setItem($item);
-        $this->save($order);
-
-        return $this;
-    }
-
-
-
 }
