@@ -9,14 +9,13 @@
         <!-- Le styles -->
         <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
                         ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/js/geoupload/fancyBox/source/jquery.fancybox.css')
+//                        ->prependStylesheet($this->basePath() . '/js/geoupload/fancyBox/source/jquery.fancybox.css')
         ?>
 
         <!-- Scripts -->
         <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
                                       	->prependFile($this->basePath() . '/js/jquery.min.js')
-                                        ->appendFile($this->basePath() . '/js/geoupload/fancyBox/source/jquery.fancybox.pack.js')
-                                        ->appendFile($this->basePath() . '/js/my.js')
+//                                        ->appendFile($this->basePath() . '/js/geoupload/fancyBox/source/jquery.fancybox.pack.js')
                 ?>
 
     </head>
@@ -29,8 +28,9 @@
 <!--                    </a>-->
                     <ul class="nav" style="float:right;">
                         <li><a href="/order">Сделать заказ</a></li>
-                        <li><a href="/myorders">Мои заказы</a></li>
-                        <li><a href="/user">Моя страница</a></li>
+                        <li><a href="/catalog">Меню</a></li>
+                        <li><a href="/catalog">Каталог блюд</a></li>
+                        <li><a href="/user">Мои заказы</a></li>
                         <li><a href="/user/logout">Выйти из системы</a></li>
                     </ul>
                 </div>

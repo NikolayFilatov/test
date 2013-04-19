@@ -98,7 +98,19 @@ class Dish extends Entity {
 
     public function getCost()
     {
+        if (count($this->price) == 0)
+            return 0;
+
         $price = $this->price->last();
         return $price->getCost();
+    }
+
+    public function getLastDatePrice()
+    {
+        if (count($this->price) == 0)
+            return 0;
+
+        $price = $this->price->last();
+        return $price->getDate();
     }
 }

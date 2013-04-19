@@ -1,6 +1,7 @@
 <?php
 namespace Application\Entity\Price;
 
+use Application\Entity\Dish\Dish;
 use Doctrine\ORM\EntityRepository;
 use Zend\ServiceManager\ServiceManager;
 use \Exception;
@@ -79,7 +80,7 @@ class PriceService extends EntityRepository {
         return $repo->findAll();
     }
 
-    public function findPriceById($id)
+    public function getPriceById($id)
     {
         $repo = $this->_em->getRepository('\Application\Entity\Price\Price');
         return $repo->find($id);
@@ -90,9 +91,30 @@ class PriceService extends EntityRepository {
         return null;
     }
 
-    public function createPrice($data = null)
+    public function createPrice(Dish $dish, $cost, $date)
     {
-        $price = new Price($data);
+        if ($dish->getCost() == $cost)
+            return;
+
+        $dateLast = 0;
+        if ($dish->getLastDatePrice() != 0)
+            $dateLast = $dish->getLastDatePrice()->format('d.m.Y H:i:s');
+
+        if ($dateLast == $date->format('d.m.Y H:i:s'))
+        {
+            $price = $dish->getPrice()->last();
+            $price->setCost($cost);
+            $this->save($price);
+
+            return;
+        }
+
+        $price = new Price([
+            'dish' => $dish,
+            'cost' => $cost,
+            'date' => $date,
+        ]);
+
         $this->save($price);
 
         return $price;

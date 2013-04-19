@@ -88,4 +88,10 @@ class DishService extends EntityRepository {
         return $dish;
     }
 
+    public function getDishById($id)
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Dish\Dish');
+        return $repo->find($id);
+    }
+
 }

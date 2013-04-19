@@ -90,11 +90,6 @@ class OrderService extends EntityRepository {
         return $order;
     }
 
-    public function getOrderByDate(DateTime $date = null)
-    {
-        return null;
-    }
-
     public function createOrder($data = null)
     {
         $order = new Order($data);
