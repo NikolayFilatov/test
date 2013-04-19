@@ -1,11 +1,12 @@
 <?php
-namespace Application\Entity\Dish;
+namespace Application\Entity\Menu;
 
 use Doctrine\ORM\EntityRepository;
 use Zend\ServiceManager\ServiceManager;
 use \Exception;
+use Zend\Stdlib\DateTime;
 
-class DishGroupService extends EntityRepository {
+class MenuService extends EntityRepository {
 
     protected $_em;
 
@@ -17,16 +18,16 @@ class DishGroupService extends EntityRepository {
     /**
      * Сохраним группу в базе
      *
-     * @param Dish $dish
+     * @param Menu $menu
      * @param boolean $flush
      * @throws DatabaseException
-     * @return Dish
+     * @return Menu
      */
-    public function save(DishGroup $dish, $flush = true)
+    public function save(Menu $menu, $flush = true)
     {
         try
         {
-            $this->_em->persist($dish);
+            $this->_em->persist($menu);
 
             if($flush)
                 $this->_em->flush();
@@ -40,22 +41,22 @@ class DishGroupService extends EntityRepository {
         }
 
         //return on success
-        return $dish;
+        return $menu;
     }
 
     /**
-     * Удалим группу из базы
+     * Удалим пункт меню из базы
      *
-     * @param Dish $dish
+     * @param menu $menu
      * @param boolean $flush
      * @throws DatabaseException
-     * @return Dish
+     * @return menu
      */
-    public function delete(DishGroup $dish, $flush = true)
+    public function delete(Menu $menu, $flush = true)
     {
         try
         {
-            $this->_em->remove($dish);
+            $this->_em->remove($menu);
             if($flush)
                 $this->_em->flush();
         }
@@ -66,7 +67,7 @@ class DishGroupService extends EntityRepository {
         }
 
         //return on success
-        return $dish;
+        return $menu;
     }
 
     /**
@@ -74,35 +75,29 @@ class DishGroupService extends EntityRepository {
      *
      * @return array[Users]
      */
-    public function getAllDishGroup()
+    public function getAllMenu()
     {
-        $repo = $this->_em->getRepository('\Application\Entity\Dish\DishGroup');
+        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
         return $repo->findAll();
     }
 
-    public function getGroupById($id)
+    public function findMenuById($id)
     {
-        $repo = $this->_em->getRepository('\Application\Entity\Dish\DishGroup');
+        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
         return $repo->find($id);
     }
 
-    public function createDishGroup($data = null)
+    public function getMenuByDate(DateTime $date)
     {
-        $group = new DishGroup($data);
-        $this->save($group);
-
-        return $group;
+        return null;
     }
 
-//    /**
-//     * @param $param boolean
-//     * @return DishGroup
-//     */
-//    public function changeLevel($param)
-//    {
-//        $repo = $this->_em->getRepository('\Application\Entity\Dish\DishGroup');
-//        $groups = $repo->findBy([], ['level' => 'ASC']);
-//
-//        return $groups;
-//    }
+    public function createMenu($data = null)
+    {
+        $menu = new Menu($data);
+        $this->save($menu);
+
+        return $menu;
+    }
+
 }

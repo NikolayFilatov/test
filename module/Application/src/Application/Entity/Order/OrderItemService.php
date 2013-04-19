@@ -1,11 +1,13 @@
 <?php
-namespace Application\Entity\Dish;
+namespace Application\Entity\Order;
 
+use Application\Entity\Order\OrderItem;
 use Doctrine\ORM\EntityRepository;
 use Zend\ServiceManager\ServiceManager;
 use \Exception;
+use Zend\Stdlib\DateTime;
 
-class DishService extends EntityRepository {
+class OrderItemService extends EntityRepository {
 
     protected $_em;
 
@@ -15,18 +17,16 @@ class DishService extends EntityRepository {
     }
 
     /**
-     * Сохраним блюдо в базе
-     *
-     * @param Dish $dish
+     * @param OrderItem $orderItem
      * @param boolean $flush
      * @throws DatabaseException
-     * @return Dish
+     * @return OrderItem
      */
-    public function save(Dish $dish, $flush = true)
+    public function save(OrderItem $orderItem, $flush = true)
     {
         try
         {
-            $this->_em->persist($dish);
+            $this->_em->persist($orderItem);
 
             if($flush)
                 $this->_em->flush();
@@ -40,22 +40,22 @@ class DishService extends EntityRepository {
         }
 
         //return on success
-        return $dish;
+        return $orderItem;
     }
 
     /**
-     * Удалим блюдо из базы
+     * Удалим пункт меню из базы
      *
-     * @param Dish $dish
+     * @param OrderItem $orderItem
      * @param boolean $flush
      * @throws DatabaseException
-     * @return Dish
+     * @return OrderItem
      */
-    public function delete(Dish $dish, $flush = true)
+    public function delete(OrderItem $orderItem, $flush = true)
     {
         try
         {
-            $this->_em->remove($dish);
+            $this->_em->remove($orderItem);
             if($flush)
                 $this->_em->flush();
         }
@@ -66,32 +66,20 @@ class DishService extends EntityRepository {
         }
 
         //return on success
-        return $dish;
+        return $orderItem;
     }
 
-    /**
-     * Получим всех пользователей
-     *
-     * @return array[Users]
-     */
-    public function getAllDish()
+    public function findOrderItemById($id)
     {
-        $repo = $this->_em->getRepository('\Application\Entity\Dish\Dish');
-        return $repo->findAll();
-    }
-
-    public function createDish($data = null)
-    {
-        $dish = new Dish($data);
-        $this->save($dish);
-
-        return $dish;
-    }
-
-    public function getDishById($id)
-    {
-        $repo = $this->_em->getRepository('\Application\Entity\Dish\Dish');
+        $repo = $this->_em->getRepository('\Application\Entity\OrderItem\OrderItem');
         return $repo->find($id);
     }
 
+    public function createItem($data = null)
+    {
+        $item = new OrderItem($data);
+        $this->save($item);
+
+        return $item;
+    }
 }

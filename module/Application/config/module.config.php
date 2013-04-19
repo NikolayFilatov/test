@@ -26,7 +26,9 @@ return [
     'controllers' => [
         'invokables' => [
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\My' => 'Application\Controller\MyController',
+            'Application\Controller\Menu' => 'Application\Controller\MenuController',
+            'Application\Controller\Orders' => 'Application\Controller\OrdersController',
+            'Application\Controller\Catalog' => 'Application\Controller\CatalogController',
             'Application\Controller\Api' => 'Application\Controller\ApiController',
         ],
     ],
@@ -72,7 +74,7 @@ return [
     
     'controller_plugins' => array(
         'invokables' => array(
-            'GeoAcl' => 'Application\Controller\Plugin\GeoAcl',
+            'DateFormat' => 'Application\Controller\Plugin\DateFormat',
         )
     ),
   

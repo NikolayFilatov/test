@@ -5,6 +5,7 @@ use Zend\ServiceManager\ServiceManager;
 
 use Application\Entity\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use \DateTime;
 use \DateTimeZone;
@@ -14,7 +15,7 @@ use \DateTimeZone;
  * @ORM\Table(name="dish_group")
  */
 
-class DishGroups extends Entity {
+class DishGroup extends Entity {
 
     protected $protectedProperties = [
         'id',
@@ -35,12 +36,27 @@ class DishGroups extends Entity {
     protected $name;
 
     /**
+     * @ORM\OneToMany(
+     * 				targetEntity="Application\Entity\Dish\Dish",
+     * 				mappedBy="group",
+     * 				cascade={"persist", "remove"})
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    protected $dish;
+
+    /**
      * User creation date
      *
      * @ORM\Column(type = "datetime")
      * @var \DateTime
      */
     protected $created;
+
+    /**
+     * Очередность
+     * @ORM\Column(type = "integer")
+     */
+    protected $level;
 
     /**
      * Construct
@@ -51,6 +67,7 @@ class DishGroups extends Entity {
     public function __construct($data = null)
     {
         $this->created = new DateTime('now', new DateTimeZone('UTC'));
+        $this->dish = new ArrayCollection();
 
         return parent::__construct($data);
     }
@@ -60,6 +77,11 @@ class DishGroups extends Entity {
             'id' => $this->id,
             'name' => $this->name,
         ];
+    }
+
+    public function addDish(Dish $dish)
+    {
+        $this->dish->add($dish);
     }
 
 }

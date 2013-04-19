@@ -1,10 +1,14 @@
 <?php
 namespace Application\Entity\Dish;
 
+use Application\Entity\Price\Price;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Tests\ORM\Functional\Ticket\DDC513Price;
 use Zend\ServiceManager\ServiceManager;
 
 use Application\Entity\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Application\Entity\Dish\DishGroup;
 
 use \DateTime;
 use \DateTimeZone;
@@ -35,17 +39,29 @@ class Dish extends Entity {
     protected $name;
 
     /**
-     *
+     * @ORM\ManyToOne(targetEntity="\Application\Entity\Dish\DishGroup")
+     * @var \Application\Entity\Dish\DishGroup
      */
     protected $group;
 
     /**
-     * User creation date
+     * Dish creation date
      *
      * @ORM\Column(type = "datetime")
      * @var \DateTime
      */
     protected $created;
+
+    /**
+     * Ссылка на стоимость
+     *
+     * @ORM\OneToMany(
+     *  targetEntity="\Application\Entity\Price\Price",
+     *  mappedBy="dish"
+     * )
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    protected $price;
 
     /**
      * Construct
@@ -56,10 +72,16 @@ class Dish extends Entity {
     public function __construct($data = null)
     {
         $this->created = new DateTime('now', new DateTimeZone('UTC'));
+        $this->price = new ArrayCollection();
 
         return parent::__construct($data);
     }
 
+    public function setGroup(DishGroup $group)
+    {
+        $this->group = $group;
+        $group->addDish($this);
+    }
 
     public function toArray() {
         return [
@@ -69,4 +91,26 @@ class Dish extends Entity {
         ];
     }
 
+    public function addPrice(Price $price)
+    {
+        $this->price->add($price);
+    }
+
+    public function getCost()
+    {
+        if (count($this->price) == 0)
+            return 0;
+
+        $price = $this->price->last();
+        return $price->getCost();
+    }
+
+    public function getLastDatePrice()
+    {
+        if (count($this->price) == 0)
+            return 0;
+
+        $price = $this->price->last();
+        return $price->getDate();
+    }
 }

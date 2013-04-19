@@ -12,63 +12,6 @@ return [
 					],
 				],
 			],
-			'my' => [
-				'type' => 'Zend\Mvc\Router\Http\Literal',
-				'options' => [
-					'route' => '/my',
-					'defaults' => [
-						'controller' => 'Application\Controller\My',
-						'action'     => 'index',
-					],
-				],
-				'may_terminate' => true,
-				'child_routes' => [
-					'wall' => [
-						'type'    => 'Zend\Mvc\Router\Http\Segment',
-						'options' => [
-							'route'    => '/wall[/:param]',
-							'defaults' => [
-								'controller' => 'Application\Controller\My',
-								'action'     => 'wall',
-							],
-						],
-						'may_terminate' => true,
-					],
-					'res' => [
-						'type'    => 'Zend\Mvc\Router\Http\Segment',
-						'options' => [
-							'route'    => '/res[/:param]',
-							'defaults' => [
-								'controller' => 'Application\Controller\My',
-								'action'     => 'res',
-							],
-						],
-						'may_terminate' => true,
-					],
-					'sett' => [
-						'type'    => 'Zend\Mvc\Router\Http\Segment',
-						'options' => [
-							'route'    => '/sett[/:param]',
-							'defaults' => [
-								'controller' => 'Application\Controller\My',
-								'action'     => 'sett',
-							],
-						],
-						'may_terminate' => true,
-					],
-					'spec' => [
-						'type'    => 'Zend\Mvc\Router\Http\Segment',
-						'options' => [
-							'route'    => '/spec[/:param]',
-								'defaults' => [
-								'controller' => 'Application\Controller\My',
-								'action'     => 'spec',
-							],
-						],
-						'may_terminate' => true,
-					],					
-				],
-			],
             'deny' => [
 				'type' => 'Literal',
 				'options' => [
@@ -80,18 +23,39 @@ return [
 				],
 				'may_terminate' => true,
 			],
-                    'firms' => [
+            'menu' => [
 				'type' => 'Literal',
 				'options' => [
-					'route' => '/firms',
+					'route' => '/menu',
 					'defaults' => [
-						'controller' => 'Application\Controller\Index',
-						'action'     => 'firms',
+						'controller' => 'Application\Controller\Menu',
+						'action'     => 'index',
 					],
 				],
 				'may_terminate' => true,
 			],
-
+            'orders' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/orders',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Orders',
+                        'action'     => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
+            'catalog' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/catalog',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Catalog',
+                        'action'     => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
 			/*
 			 * API Controllers
 			*/
@@ -106,17 +70,61 @@ return [
 				],
 				'may_terminate' => false,
 				'child_routes' => [
-		            'walldelete' => [
+		            'updateCatalog' => [
 			            'type'    => 'Zend\Mvc\Router\Http\Segment',
 			            'options' => [
-				            'route'    => '/walldelete',
+				            'route'    => '/updateCatalog',
 				            'defaults' => [
 					            'controller' => 'Application\Controller\Api',
-					            'action'     => 'walldelete',
+					            'action'     => 'updateCatalog',
 				            ],
 			            ],
 			            'may_terminate' => true,
 		            ],
+                    'removeDish' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/removeDish',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'removeDish',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'removeDishGroup' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/removeDishGroup',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'removeDishGroup',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'addDish' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/addDish',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'addDish',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'addDishGroup' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/addDishGroup',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'addDishGroup',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
 				],
 			],
 			
