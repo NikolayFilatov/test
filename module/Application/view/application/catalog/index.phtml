@@ -2,23 +2,29 @@
 <div class="dcontent">
     <h3>Каталог блюд (данные сохраняются как только поле ввода потеряло фокус)</h3>
     <ul>
+        <li class="li_add_group">
+            <input type="text" class="geoTXT txt_group" />
+            <a href="#null" style="padding:3px 19px 4px" class="button3 btt_add_group">Добавить раздел</a>
+        </li>
+    </ul>
+    <ul>
         <?php foreach($this->groups as $group):?>
             <li>
                 <?php $dishs = $group->getDish();?>
-                <?php if(count($dishs) != 0):?>
-                    <ul>
-                        <li class="li_group">
-                            <table>
-                                <tr>
-                                    <td><input class="geoTXT txt_group" type="text" id="<?=$group->getId();?>" value="<?=$group->getName();?>" /></td>
-                                    <td><a href="#" id="<?=$group->getId();?>" class="button3">Добавить</a></td>
-                                    <td>
-                                        <a href="#" class="button2 btt_del">Удалить</a>
-                                        <a href="#" id="<?=$group->getId();?>" style="display: none;" class="button4 btt_confirm_group">Да!</a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
+                <ul>
+                    <li class="li_group">
+                        <table>
+                            <tr>
+                                <td><input class="geoTXT txt_group" type="text" id="<?=$group->getId();?>" value="<?=$group->getName();?>" /></td>
+                                <td><a href="#null" id="<?=$group->getId();?>" class="button3 btt_add_dish">Добавить</a></td>
+                                <td>
+                                    <a href="#null" class="button2 btt_del">Удалить</a>
+                                    <a href="#null" id="<?=$group->getId();?>" style="display: none;" class="button4 btt_confirm_group">Да!</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
+                    <?php if(count($dishs) != 0):?>
                         <?php foreach($dishs as $dish):?>
                             <li class="li_dish">
                                 <table>
@@ -26,15 +32,15 @@
                                         <td><input class="geoTXT txt_name" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getName()?>" /></td>
                                         <td><input class="geoTXT txt_cost" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getCost()?>" /></td>
                                         <td>
-                                            <a href="#" class="button2 btt_del">Удалить</a>
-                                            <a href="#" id="<?=$dish->getId();?>" style="display: none;" class="button4 btt_confirm_name">Да!</a>
+                                            <a href="#null" class="button2 btt_del">Удалить</a>
+                                            <a href="#null" id="<?=$dish->getId();?>" style="display: none;" class="button4 btt_confirm_name">Да!</a>
                                         </td>
                                     </tr>
                                 </table>
                             </li>
                         <?php endforeach;?>
-                    </ul>
-                <?php endif;?>
+                    <?php endif;?>
+                </ul>
             </li>
         <?php endforeach;?>
     </ul>

@@ -81,6 +81,50 @@ return [
 			            ],
 			            'may_terminate' => true,
 		            ],
+                    'removeDish' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/removeDish',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'removeDish',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'removeDishGroup' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/removeDishGroup',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'removeDishGroup',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'addDish' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/addDish',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'addDish',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'addDishGroup' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/addDishGroup',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'addDishGroup',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
 				],
 			],
 			

@@ -84,4 +84,124 @@ class ApiController extends AbstractActionController
 		}  	
     }
 
+    public function removeDishAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $param = $this->getRequest()->getContent();
+
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+
+            $id = $p[0];
+
+            $dishService = new DishService($em);
+            $dish = $dishService->getDishById($id);
+            $dishService->delete($dish);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+    public function removeDishGroupAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $param = $this->getRequest()->getContent();
+
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $id = $p[0];
+
+            $dishGroupService = new DishGroupService($em);
+            $group = $dishGroupService->getGroupById($id);
+            $dishGroupService->delete($group);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+    public function addDishGroupAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $param = $this->getRequest()->getContent();
+
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $name = urldecode($p[0]);
+
+            $groupService = new DishGroupService($em);
+            $groupService->createDishGroup(['name' => $name]);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+    public function addDishAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $param = $this->getRequest()->getContent();
+
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $id = $p[0];
+
+            $groupService = new DishGroupService($em);
+            $group = $groupService->getGroupById($id);
+
+            $dishService = new DishService($em);
+            $dishService->createDish([
+                'name' => 'Новое блюдо',
+                'group' => $group
+            ]);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
 }
