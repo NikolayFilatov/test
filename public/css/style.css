@@ -229,8 +229,9 @@ ul{
 }
 .button2:hover {
     outline: none;
-    border: solid 1px #c0c0c0;
-    background-color: #dddddd;
+    color:#FFF;
+    border: solid 1px #c01411;
+    background-color: #dd3525;
 }
 .button2 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -241,8 +242,9 @@ ul{
 }
 .button3:hover {
     outline: none;
-    border: solid 1px #c0c0c0;
-    background-color: #dddddd;
+    color:#FFF;
+    border: solid 1px #00c021;
+    background-color: #00c91e;
 }
 .button3 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -291,6 +293,7 @@ ul{
 .li_group{
     margin:10px 3px 0;
     background-color: #BEB;
+    border-radius: 12px 12px 0 0;
     /*border:1px solid #ADA;*/
 }
 .li_group .txt_group{
