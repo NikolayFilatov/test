@@ -53,6 +53,12 @@ class DishGroup extends Entity {
     protected $created;
 
     /**
+     * Очередность
+     * @ORM\Column(type = "integer")
+     */
+    protected $level;
+
+    /**
      * Construct
      * Instantiates user entity.
      *

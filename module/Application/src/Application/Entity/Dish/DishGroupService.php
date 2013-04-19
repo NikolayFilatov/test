@@ -94,4 +94,15 @@ class DishGroupService extends EntityRepository {
         return $group;
     }
 
+//    /**
+//     * @param $param boolean
+//     * @return DishGroup
+//     */
+//    public function changeLevel($param)
+//    {
+//        $repo = $this->_em->getRepository('\Application\Entity\Dish\DishGroup');
+//        $groups = $repo->findBy([], ['level' => 'ASC']);
+//
+//        return $groups;
+//    }
 }

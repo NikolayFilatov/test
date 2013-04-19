@@ -101,7 +101,7 @@ class DishGroup extends \Application\Entity\Dish\DishGroup implements \Doctrine\
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'name', 'created', 'dish');
+        return array('__isInitialized__', 'id', 'name', 'created', 'level', 'dish');
     }
 
     public function __clone()
