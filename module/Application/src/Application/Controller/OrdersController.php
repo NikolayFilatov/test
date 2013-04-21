@@ -2,6 +2,7 @@
 
 namespace Application\Controller;
 
+use Application\Entity\Order\Order;
 use Application\Entity\Order\OrderService;
 use Application\Entity\User\User;
 
@@ -31,11 +32,27 @@ class OrdersController extends AbstractActionController
 
         $orderService = new OrderService($em);
 
+        $orders = $orderService->getAllOrder();
+        foreach($orders as $order)
+        {
+            $item = $order->getItem();
+            foreach($item as $i)
+            {
+                echo "1";
+            }
+            echo "<br>";
+            //echo $total;
+        }
+
+
+
+        die();
+
         $date = new DateTime('now', new DateTimeZone('UTC'));
         $date = $this->DateFormat()->getDay($date);
 
         $orders = $orderService->findOrder([
-            'date' => $date,
+            //'date' => $date,
             'user' => $user,
         ]);
 

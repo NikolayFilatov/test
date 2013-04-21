@@ -66,6 +66,12 @@ class Dish extends \Application\Entity\Dish\Dish implements \Doctrine\ORM\Proxy\
         return parent::getCost();
     }
 
+    public function getLastDatePrice()
+    {
+        $this->__load();
+        return parent::getLastDatePrice();
+    }
+
     public function fromArray(array $data = array (
 ))
     {

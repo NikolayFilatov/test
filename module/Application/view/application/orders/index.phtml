@@ -6,7 +6,7 @@
         <div><?=$order->getCountItem();?></div>
         <?php $items = $order->getItem();?>
         <?php foreach($items as $item):?>
-            <div><?=$item->getCost()?></div>
+            <div><?php //$item->getCost()?></div>
         <?php endforeach;?>
     <?php endforeach;?>
 </div>
