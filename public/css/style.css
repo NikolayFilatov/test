@@ -4,7 +4,6 @@ body {
     line-height:1.4;
     margin:0;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size:14px;
     color:#333;
     background-color:#FFF;
 }
@@ -77,6 +76,7 @@ div.container .brand {
 }
 .content .left_col{
 	width:219px;
+    padding:10px;
 	float:left;
 }
 .content .center_col{
@@ -139,12 +139,6 @@ div.container .brand {
 	font-weight:bold;
 	color:#007DC9;
 }
-.r_content .rc_right .status{
-	font-size:11px;
-	color:#999;
-	border-bottom:1px solid #DDD;
-	padding:3px 0 5px;
-}
 .content .dcontent{
     padding:20px;
     min-height: 300px;
@@ -195,8 +189,7 @@ ul{
 	border:1px solid #AAA;
 	color:#222;
 	border-radius: 12px;
-	box-shadow: inset 1px 1px 5px rgba(0,0,0,.1);	
-	font-size: 12px;
+	box-shadow: inset 1px 1px 5px rgba(0,0,0,.1);
 	outline: none;
     margin: 0 2px;
 }
@@ -217,21 +210,23 @@ ul{
 }
 .button1:hover {
 	outline: none;
-    border: solid 1px #306CB7;
-    background-color: #0077bf;
+    color: #FFF;
+    border: solid 1px #3373c3;
+    background-color: #0085d6;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 .button1 {
-	box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-	color: #FFF;
-	border: solid 1px #3373c3;
-	text-decoration: none;
-	background-color: #0085d6;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: #3373c3;
+    border: solid 1px #bebebe;
+    text-decoration: none;
+    background-color: #ececec;
 }
 .button2:hover {
     outline: none;
     color:#FFF;
-    border: solid 1px #c01411;
-    background-color: #dd3525;
+    border: solid 1px #9d0400;
+    background-color: #cd1000;
 }
 .button2 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -243,8 +238,8 @@ ul{
 .button3:hover {
     outline: none;
     color:#FFF;
-    border: solid 1px #00c021;
-    background-color: #00c91e;
+    border: solid 1px #00a014;
+    background-color: #00b411;
 }
 .button3 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -280,15 +275,12 @@ ul{
     background-color: #EEE;
     /*border:1px solid #DDD;*/
     margin:0 3px;
-    font-size: 12px;
 }
 .li_dish .txt_name, .li_group .txt_group, .li_add_group .txt_group {
     width:505px;
-    font-size: 14px;
 }
 .li_dish .txt_cost {
     width:48px;
-    font-size: 14px;
 }
 .li_group{
     margin:10px 3px 0;
