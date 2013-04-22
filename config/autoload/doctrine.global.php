@@ -8,7 +8,7 @@
                         'host'     => 'localhost',
                         'port'     => '3306',
                         'user'     => 'root',
-                        'password' => 'pass',
+                        'password' => '',
                         'dbname'   => 'bludo',
                         'charset' => 'utf8',
                         'driverOptions' => array(

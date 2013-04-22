@@ -1,3 +1,48 @@
+<?php $this->headScript()->appendFile('/js/menu.js'); ?>
 <div class="dcontent">
-    Menu
+    <div style="margin-left: 10px;">
+        <?php foreach($this->dates as $date):?>
+            <a href="/menu/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
+        <?php endforeach;?>
+    </div>
+
+    <div style="margin: 10px 0; padding:10px; border-top:1px solid #EEE; border-bottom:1px solid #EEE;">
+        <input type="button" class="button3 create_menu_catalog" id="<?=$this->dateNow->getTimestamp()?>" value="Сформировать на основе каталога блюд" />
+    </div>
+
+    <?php if(count($this->menus) != 0):?>
+        <ul>
+        <?php
+            $group = "";
+            foreach($this->menus as $menu)
+            {
+                $dg = $menu->getDish()->getGroup()->getName();
+                if ($group != $dg)
+                {
+                    echo "<li class='li_group p10'>$dg";
+                }
+                echo "
+                    <li class='li_dish'>
+                        <table>
+                            <tr>
+                                <td style='width:520px; padding-left:10px;'>
+                                    {$menu->getDish()->getName()}
+                                </td>
+                                <td>
+                                    <button class='button2 fl_r exclude' id='{$menu->getId()}'>Исключить из меню</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>";
+                if ($group != $dg)
+                {
+                    $group = $dg;
+                    echo "</li>";
+                }
+            }
+        ?>
+        </ul>
+    <?php else:?>
+        <div>На этот день меню не сформировано</div>
+    <?php endif;?>
 </div>

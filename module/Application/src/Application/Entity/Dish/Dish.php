@@ -64,6 +64,13 @@ class Dish extends Entity {
     protected $price;
 
     /**
+     * Deleted
+     * @ORM\Column(type="integer")
+     * @var integer
+     */
+    protected $deleted = 0;
+
+    /**
      * Construct
      * Instantiates user entity.
      *
@@ -112,5 +119,20 @@ class Dish extends Entity {
 
         $price = $this->price->last();
         return $price->getDate();
+    }
+
+    public function markDelete()
+    {
+        $this->deleted = 1;
+    }
+
+    public function markUnDelete()
+    {
+        $this->deleted = 0;
+    }
+
+    public function isDeleted()
+    {
+        return $this->deleted;
     }
 }

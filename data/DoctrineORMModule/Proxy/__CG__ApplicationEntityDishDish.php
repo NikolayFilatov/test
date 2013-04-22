@@ -72,6 +72,24 @@ class Dish extends \Application\Entity\Dish\Dish implements \Doctrine\ORM\Proxy\
         return parent::getLastDatePrice();
     }
 
+    public function markDelete()
+    {
+        $this->__load();
+        return parent::markDelete();
+    }
+
+    public function markUnDelete()
+    {
+        $this->__load();
+        return parent::markUnDelete();
+    }
+
+    public function isDeleted()
+    {
+        $this->__load();
+        return parent::isDeleted();
+    }
+
     public function fromArray(array $data = array (
 ))
     {
@@ -119,7 +137,7 @@ class Dish extends \Application\Entity\Dish\Dish implements \Doctrine\ORM\Proxy\
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'name', 'created', 'group', 'price');
+        return array('__isInitialized__', 'id', 'name', 'created', 'deleted', 'group', 'price');
     }
 
     public function __clone()

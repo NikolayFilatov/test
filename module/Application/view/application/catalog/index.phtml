@@ -1,6 +1,7 @@
 <?php $this->headScript()->appendFile('/js/catalog.js'); ?>
 <div class="dcontent">
-    <h3>Каталог блюд (данные сохраняются как только поле ввода потеряло фокус)</h3>
+    <h3>Каталог блюд</h3>
+    <a href="#null" class="button1 showDeleted">Показать удаленные</a>
     <ul>
         <li class="li_add_group">
             <input type="text" class="geoTXT txt_group" />
@@ -26,26 +27,36 @@
                     </li>
                     <?php if(count($dishs) != 0):?>
                         <?php foreach($dishs as $dish):?>
-                            <li class="li_dish">
-                                <table>
-                                    <tr>
-                                        <td><input class="geoTXT txt_name" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getName()?>" /></td>
-                                        <td><input class="geoTXT txt_cost" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getCost()?>" /></td>
-                                        <td>
-                                            <a href="#null" class="button2 btt_del">Удалить</a>
-                                            <a href="#null" id="<?=$dish->getId();?>" style="display: none;" class="button4 btt_confirm_name">Да!</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </li>
+                            <?php if($dish->isDeleted()):?>
+                                <li class="li_dish li_dish_deleted">
+                                    <table>
+                                        <tr>
+                                            <td><input class="geoTXT txt_name" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getName()?>" /></td>
+                                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getCost()?>" /></td>
+                                            <td>
+                                                <a href='#null' id='<?=$dish->getId();?>' class='button3 btt_ret'>Вернуть</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            <?php else:?>
+                                <li class="li_dish <?=$d_class?>">
+                                    <table>
+                                        <tr>
+                                            <td><input class="geoTXT txt_name" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getName()?>" /></td>
+                                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getCost()?>" /></td>
+                                            <td>
+                                                <a href='#null' class='button2 btt_del'>Удалить</a>
+                                                <a href='#null' id='<?=$dish->getId();?>' style='display: none;' class='button4 btt_confirm_name'>Да!</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            <?php endif;?>
                         <?php endforeach;?>
                     <?php endif;?>
                 </ul>
             </li>
         <?php endforeach;?>
     </ul>
-    <br>
-    <?php //foreach($this->gl as $g):?>
-        <div><?php //echo $g->getName();?></div>
-    <?php //endforeach;?>
 </div>

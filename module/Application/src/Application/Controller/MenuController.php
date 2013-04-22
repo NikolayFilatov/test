@@ -19,7 +19,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Doctrine\ORM\EntityManager;
 use \DateTime;
-use \DateTimeZone;
 
 class MenuController extends AbstractActionController
 {
@@ -28,7 +27,8 @@ class MenuController extends AbstractActionController
     public function getEntityManager()
     {
         if (null === $this->em) {
-            $this->em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
+            $this->em = $this->getServiceLocator()
+                ->get('doctrine.entitymanager.orm_default');
         }
         return $this->em;
     }
@@ -39,92 +39,48 @@ class MenuController extends AbstractActionController
 
         $user = $this->zfcUserAuthentication()->getIdentity();
 
-        $vm = new ViewModel();
-        $vm->setTemplate('application/menu/index');
+        $timestamp =  $this->getEvent()->getRouteMatch()->getParam('timestamp');
+        if (!isset($timestamp))
+        {
+            $date = new DateTime('now');
+            $timestamp = $date->getTimestamp();
+        }
 
-        return $vm;
-    }
+        $date = new DateTime('now');
+        $date->setTimestamp($timestamp);
+        $date = $this->DateFormat()->getDay($date);
 
-    public function dishAction()
-    {
-        $em = $this->getEntityManager();
+        $dateNow = clone $date;
 
-        $user = $this->zfcUserAuthentication()->getIdentity();
+        //Создадим массив календаря +/- 7 дней от переданной даты
+        $date->sub(new \DateInterval('P4D'));
+        for($i = 0; $i < 9; $i++)
+        {
+            $d = $date->format('d.m.y');
+            $t = $date->getTimestamp();
+            $class = 'button1';
+            if ($i == 4)
+                $class = "button11";
+            $dates[] = [
+                'date' => $d,
+                'timestamp' => $t,
+                'class' => $class,
+            ];
 
-        $dishService = new DishService($em);
-        $dishGroupService = new DishGroupService($em);
+            $date->add(new \DateInterval('P1D'));
+        }
+
         $menuService = new MenuService($em);
-        $priceService = new PriceService($em);
-        $orderService = new OrderService($em);
-        $itemService = new OrderItemService($em);
+        $menus = $menuService->getMenuByDate($dateNow);
+        //$menus = $menuService->getAllMenu();
 
-        $date = new DateTime('now', new DateTimeZone('UTC'));
-
-
-        //создадим 5 групп и в каждой группе 5 блюд
-//        for($i = 0; $i < 5; $i++)
-//        {
-//            $group = $dishGroupService->createDishGroup([
-//                'name' => 'Group ' . $i,
-//            ]);
-//
-//            for($j = 0; $j < 5; $j++)
-//            {
-//                $name = 'Dish ' . $i . " - " . $j;
-//                $dish = $dishService->createDish([
-//                    'name' => $name,
-//                    'group' => $group,
-//                ]);
-//
-//                $iD = date('d', $date->getTimestamp());
-//                $iM = date('m', $date->getTimestamp());
-//                $iY = date('y', $date->getTimestamp());
-//
-//                $date->setTimestamp(mktime(0, 0, 0, $iM, $iD, $iY));
-//
-//                $price = $priceService->createPrice([
-//                    'cost' => mt_rand(10,100),
-//                    'dish' => $dish,
-//                    'date' => $date,
-//                ]);
-//
-//                $menu = $menuService->createMenu([
-//                    'date' => $date,
-//                    'dish' => $dish,
-//                ]);
-//            }
-//        }
-
-        //создадим заказ
-//        $order = $orderService->createOrder([
-//            'user' => $user,
-//            'date' => $date,
-//        ]);
-//
-//        //создадим элементы заказа с блюдами 7, 12, 19 из меню
-//        $menu = $menuService->findMenuById(7);
-//        $item = $itemService->createItem([
-//            'menu' => $menu,
-//            'order' => $order,
-//        ]);
-//        $menu = $menuService->findMenuById(12);
-//        $item = $itemService->createItem([
-//            'menu' => $menu,
-//            'order' => $order,
-//        ]);
-//        $menu = $menuService->findMenuById(19);
-//        $item = $itemService->createItem([
-//            'menu' => $menu,
-//            'order' => $order,
-//        ]);
-
-
-        $dg = $dishGroupService->getAllDishGroup();
-
-        $response = ['groups' => $dg];
-
+        $response = [
+            'dateNow' => $dateNow,
+            'dates' => $dates,
+            'menus' => $menus,
+        ];
         $vm = new ViewModel($response);
-        $vm->setTemplate('application/menu/dish');
+        $vm->setTemplate('application/menu/index');
 
         return $vm;
     }

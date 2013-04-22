@@ -21,7 +21,7 @@ class DateFormat extends AbstractPlugin {
 
     public function getCurDay()
     {
-        $date = new DateTime('now', new \DateTimeZone('UTC'));
+        $date = new DateTime('now');
 
         $iD = date('d', $date->getTimestamp());
         $iM = date('m', $date->getTimestamp());

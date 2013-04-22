@@ -44,6 +44,13 @@ class Menu extends Entity {
     protected $dish;
 
     /**
+     * Deleted
+     * @ORM\Column(type="integer")
+     * @var integer
+     */
+    protected $deleted = 0;
+
+    /**
      * Construct
      * Instantiates user entity.
      *
@@ -70,4 +77,18 @@ class Menu extends Entity {
         return $this->dish->getCost();
     }
 
+    public function markDelete()
+    {
+        $this->deleted = 1;
+    }
+
+    public function markUnDelete()
+    {
+        $this->deleted = 0;
+    }
+
+    public function isDeleted()
+    {
+        return $this->deleted;
+    }
 }

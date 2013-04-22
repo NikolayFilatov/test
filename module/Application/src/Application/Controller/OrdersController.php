@@ -10,7 +10,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 use \DateTime;
-use \DateTimeZone;
 
 class OrdersController extends AbstractActionController
 {
@@ -32,23 +31,7 @@ class OrdersController extends AbstractActionController
 
         $orderService = new OrderService($em);
 
-        $orders = $orderService->getAllOrder();
-        foreach($orders as $order)
-        {
-            $item = $order->getItem();
-            foreach($item as $i)
-            {
-                echo "1";
-            }
-            echo "<br>";
-            //echo $total;
-        }
-
-
-
-        die();
-
-        $date = new DateTime('now', new DateTimeZone('UTC'));
+        $date = new DateTime('now');
         $date = $this->DateFormat()->getDay($date);
 
         $orders = $orderService->findOrder([

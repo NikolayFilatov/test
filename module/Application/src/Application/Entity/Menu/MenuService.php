@@ -4,7 +4,7 @@ namespace Application\Entity\Menu;
 use Doctrine\ORM\EntityRepository;
 use Zend\ServiceManager\ServiceManager;
 use \Exception;
-use Zend\Stdlib\DateTime;
+use \DateTime;
 
 class MenuService extends EntityRepository {
 
@@ -81,7 +81,7 @@ class MenuService extends EntityRepository {
         return $repo->findAll();
     }
 
-    public function findMenuById($id)
+    public function getMenuById($id)
     {
         $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
         return $repo->find($id);
@@ -89,7 +89,8 @@ class MenuService extends EntityRepository {
 
     public function getMenuByDate(DateTime $date)
     {
-        return null;
+        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
+        return $repo->findBy(['date' => $date]);
     }
 
     public function createMenu($data = null)

@@ -60,6 +60,24 @@ class Menu extends \Application\Entity\Menu\Menu implements \Doctrine\ORM\Proxy\
         return parent::getCost();
     }
 
+    public function markDelete()
+    {
+        $this->__load();
+        return parent::markDelete();
+    }
+
+    public function markUnDelete()
+    {
+        $this->__load();
+        return parent::markUnDelete();
+    }
+
+    public function isDeleted()
+    {
+        $this->__load();
+        return parent::isDeleted();
+    }
+
     public function fromArray(array $data = array (
 ))
     {
@@ -107,7 +125,7 @@ class Menu extends \Application\Entity\Menu\Menu implements \Doctrine\ORM\Proxy\
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'date', 'dish');
+        return array('__isInitialized__', 'id', 'date', 'deleted', 'dish');
     }
 
     public function __clone()

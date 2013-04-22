@@ -32,6 +32,7 @@ div.container .brand {
 	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
 	text-decoration: none;
 	float:none;
+    font-size:14px;
 }
 .navbar .nav>li>a:hover{
     color: #FFF;
@@ -59,7 +60,7 @@ div.container .brand {
 	content: "";
 }
 .navbar .nav{
-	margin:20px 0 20px 0;
+	margin:16px 0 20px 0;
 	list-style: none;
 	float:right;
 }
@@ -194,7 +195,7 @@ ul{
     margin: 0 2px;
 }
 
-.button1, .button2, .button3, .button4, .button5, .buttonadm, .button_enter{
+.button1, .button11, .button2, .button3, .button4, .button5, .buttonadm, .button_enter{
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
@@ -221,6 +222,20 @@ ul{
     border: solid 1px #bebebe;
     text-decoration: none;
     background-color: #ececec;
+}
+.button11:hover {
+    outline: none;
+    color: #FFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: solid 1px #3a82dc;
+    background-color: #1c9dee;
+}
+.button11 {
+    text-decoration: none;
+    color: #FFF;
+    border: solid 1px #3373c3;
+    background-color: #0085d6;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 .button2:hover {
     outline: none;
@@ -276,6 +291,9 @@ ul{
     /*border:1px solid #DDD;*/
     margin:0 3px;
 }
+.li_dish_deleted{
+    background-color: #ff9c93;
+}
 .li_dish .txt_name, .li_group .txt_group, .li_add_group .txt_group {
     width:505px;
 }
@@ -298,4 +316,12 @@ ul{
 }
 .li_add_group .txt_group{
     font-weight: bold;
+}
+.calendar{
+    padding:0;
+    background-color: #EEE;
+    border-bottom: 1px solid #DDD;
+}
+.p10{
+    padding:3px 10px;
 }

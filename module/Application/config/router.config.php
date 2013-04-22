@@ -24,9 +24,9 @@ return [
 				'may_terminate' => true,
 			],
             'menu' => [
-				'type' => 'Literal',
+				'type' => 'Segment',
 				'options' => [
-					'route' => '/menu',
+					'route' => '/menu[/:timestamp]',
 					'defaults' => [
 						'controller' => 'Application\Controller\Menu',
 						'action'     => 'index',
@@ -92,6 +92,17 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
+                    'restoreDish' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/restoreDish',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'restoreDish',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
                     'removeDishGroup' => [
                         'type'    => 'Zend\Mvc\Router\Http\Segment',
                         'options' => [
@@ -121,6 +132,28 @@ return [
                             'defaults' => [
                                 'controller' => 'Application\Controller\Api',
                                 'action'     => 'addDishGroup',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'createMenuCatalog' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/createMenuCatalog',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'createMenuCatalog',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'excludeMenu' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/excludeMenu',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'excludeMenu',
                             ],
                         ],
                         'may_terminate' => true,
