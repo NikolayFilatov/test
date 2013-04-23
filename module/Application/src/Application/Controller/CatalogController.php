@@ -28,11 +28,8 @@ class CatalogController extends AbstractActionController
         $dishGroupService = new DishGroupService($em);
         $groups = $dishGroupService->getAllDishGroup();
 
-//        $gl = $dishGroupService->changeLevel(true);
-
         $response = [
             'groups' => $groups,
-//            'gl' => $gl,
         ];
 
         $vm = new ViewModel($response);

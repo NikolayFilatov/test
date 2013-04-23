@@ -56,6 +56,17 @@ return [
                 ],
                 'may_terminate' => true,
             ],
+            'order' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/order',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Order',
+                        'action'     => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
 			/*
 			 * API Controllers
 			*/
@@ -154,6 +165,39 @@ return [
                             'defaults' => [
                                 'controller' => 'Application\Controller\Api',
                                 'action'     => 'excludeMenu',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'includeMenu' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/includeMenu',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'includeMenu',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'addItemToOrder' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/addItemToOrder',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'addItemToOrder',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'removeItemToOrder' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/removeItemToOrder',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'removeItemToOrder',
                             ],
                         ],
                         'may_terminate' => true,

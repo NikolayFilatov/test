@@ -9,7 +9,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use \DateTime;
 
-class MenuController extends AbstractActionController
+class OrderController extends AbstractActionController
 {
     protected $em;
 
@@ -69,7 +69,7 @@ class MenuController extends AbstractActionController
             'menus' => $menus,
         ];
         $vm = new ViewModel($response);
-        $vm->setTemplate('application/menu/index');
+        $vm->setTemplate('application/order/index');
 
         return $vm;
     }

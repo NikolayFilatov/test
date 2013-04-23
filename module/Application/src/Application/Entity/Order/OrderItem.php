@@ -28,10 +28,10 @@ class OrderItem extends Entity {
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\Application\Entity\Menu\Menu")
-     * @var \Application\Entity\Menu\Menu
+     * @ORM\ManyToOne(targetEntity="\Application\Entity\Dish\Dish")
+     * @var \Application\Entity\Dish\Dish
      */
-    protected $menu;
+    protected $dish;
 
     /**
      * @ORM\ManyToOne(targetEntity="\Application\Entity\Order\Order")
@@ -64,6 +64,6 @@ class OrderItem extends Entity {
 
     public function getCost()
     {
-        return $this->menu->getCost() * $this->count;
+        return $this->dish->getCost() * $this->count;
     }
 }

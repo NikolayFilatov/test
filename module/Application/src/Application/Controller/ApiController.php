@@ -5,6 +5,8 @@ namespace Application\Controller;
 use Application\Entity\Dish\DishGroupService;
 use Application\Entity\Dish\DishService;
 use Application\Entity\Menu\MenuService;
+use Application\Entity\Order\OrderItemService;
+use Application\Entity\Order\OrderService;
 use Application\Entity\Price\PriceService;
 use Application\Entity\User\ZfcUser;
 use Application\Entity\User\UserService;
@@ -33,7 +35,6 @@ class ApiController extends AbstractActionController
 			$em = $this->getEntityManager();
 
 			$param = $this->getRequest()->getContent();
-			
 			$param = explode("&", $param);
 			$p = [];
 			foreach ($param as $par)
@@ -92,7 +93,6 @@ class ApiController extends AbstractActionController
             $em = $this->getEntityManager();
 
             $param = $this->getRequest()->getContent();
-
             $param = explode("&", $param);
             $p = [];
             foreach ($param as $par)
@@ -123,7 +123,6 @@ class ApiController extends AbstractActionController
             $em = $this->getEntityManager();
 
             $param = $this->getRequest()->getContent();
-
             $param = explode("&", $param);
             $p = [];
             foreach ($param as $par)
@@ -154,7 +153,6 @@ class ApiController extends AbstractActionController
             $em = $this->getEntityManager();
 
             $param = $this->getRequest()->getContent();
-
             $param = explode("&", $param);
             $p = [];
             foreach ($param as $par)
@@ -183,7 +181,6 @@ class ApiController extends AbstractActionController
             $em = $this->getEntityManager();
 
             $param = $this->getRequest()->getContent();
-
             $param = explode("&", $param);
             $p = [];
             foreach ($param as $par)
@@ -211,7 +208,6 @@ class ApiController extends AbstractActionController
             $em = $this->getEntityManager();
 
             $param = $this->getRequest()->getContent();
-
             $param = explode("&", $param);
             $p = [];
             foreach ($param as $par)
@@ -245,7 +241,6 @@ class ApiController extends AbstractActionController
             $em = $this->getEntityManager();
 
             $param = $this->getRequest()->getContent();
-
             $param = explode("&", $param);
             $p = [];
             foreach ($param as $par)
@@ -275,10 +270,11 @@ class ApiController extends AbstractActionController
                 $dishs = $group->getDish();
                 foreach($dishs as $dish)
                 {
-                    $menuService->createMenu([
-                        'date' => $date,
-                        'dish' => $dish,
-                    ]);
+                    if (!$dish->isDeleted())
+                        $menuService->createMenu([
+                            'date' => $date,
+                            'dish' => $dish,
+                        ]);
                 }
             }
 
@@ -297,7 +293,6 @@ class ApiController extends AbstractActionController
             $em = $this->getEntityManager();
 
             $param = $this->getRequest()->getContent();
-
             $param = explode("&", $param);
             $p = [];
             foreach ($param as $par)
@@ -311,6 +306,129 @@ class ApiController extends AbstractActionController
             $menuService = new MenuService($em);
             $menu = $menuService->getMenuById($id);
             $menu->markDelete();
+            $menuService->save($menu);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+    public function includeMenuAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $id = $p[0];
+
+            //исключим из меню на заданную дату пункт с id
+            $menuService = new MenuService($em);
+            $menu = $menuService->getMenuById($id);
+            $menu->markUnDelete();
+            $menuService->save($menu);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+    public function addItemToOrderAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $user = $this->zfcUserAuthentication()->getIdentity();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $id = $p[0];
+            $timestamp = $p[1];
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            //ищем заказ этого юзера на эту дату.
+            $orderService = new OrderService($em);
+            $order = $orderService->findOrder([
+                'user' => $user,
+                'date' => $date,
+            ]);
+
+            //заказа нет, создадим его.
+            if(!$order)
+                $order = $orderService->createOrder([
+                    'user' => $user,
+                    'date' => $date,
+                ]);
+
+            if(is_array($order))
+                $order = array_shift($order);
+
+            //получим блюдо по id
+            $dishService = new DishService($em);
+            $dish = $dishService->getDishById($id);
+
+            //создадим item для заказа и добавим его в заказ
+            $orderItemService = new OrderItemService($em);
+            $item = $orderItemService->createItem([
+                'order' => $order,
+                'dish' => $dish,
+            ]);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+
+    public function removeItemToOrderAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $id = $p[0];
+            $timestamp = $p[1];
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            //исключим из меню на заданную дату пункт с id
+            $menuService = new MenuService($em);
+            $menu = $menuService->getMenuById($id);
+            $menu->markUnDelete();
             $menuService->save($menu);
 
             $result = [
