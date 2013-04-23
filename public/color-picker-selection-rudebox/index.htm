@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/themes.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Miltonian+Tattoo' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/colorpicker.min.js"></script>
+    <title>Color Picker - простой скрипт для выбора цвета | Демонстрация для сайта RUDEBOX</title>
+
+   </head>
+  <body>
+
+    <div id="header">
+<br><br><br><br>
+    </div>
+    <div id="main">
+        <div id="example">
+            <span class="start-mark">&lt;</span>
+            <pre>
+            &lt;html&gt;
+              &lt;head&gt;
+                &lt;script type="text/javascript" 
+                        src="colorpicker.js"&gt;&lt;/script&gt;
+                &lt;style type="text/css"&gt;
+                  #picker { width: 200px; height: 200px }
+                  #slide { width: 30px; height: 200px }
+                &lt;/style&gt;
+              &lt;/head&gt;
+              &lt;body&gt;
+                &lt;div id="picker"&gt;&lt;/div&gt;
+                &lt;div id="slide"&gt;&lt;/div&gt;
+                &lt;script type="text/javascript"&gt;
+                  ColorPicker(
+                    document.getElementById('slide'),
+                    document.getElementById('picker'),
+                    function(hex, hsv, rgb) {
+                      document.body.style.backgroundColor = hex;
+                    });
+                &lt;/script&gt;
+              &lt;/body&gt;
+            &lt;/html&gt;
+            </pre>
+         </div>
+        <div id="color-picker" class="cp-default">
+            <div class="picker-wrapper">
+                <div id="picker" class="picker"></div>
+                <div id="picker-indicator" class="picker-indicator"></div>
+            </div>
+            <div class="slide-wrapper">
+                <div id="slide" class="slide"></div>
+                <div id="slide-indicator" class="slide-indicator"></div>
+            </div>
+        </div>
+        <div id="browsers">
+            <img src="img/firefox.png"/><span>FF 3.5+</span><br/>
+            <img src="img/chrome.png"/><span>Chrome 4+</span><br/>
+            <img src="img/ie7.png"/><span>IE 7</span><br/>
+            <img src="img/ie8.png"/><span>IE 8</span><br/>
+            <img src="img/ie8.png"/><span>IE 9</span><br/>
+            <img src="img/safari.png"/><span>Safari 4+</span><br/>
+            <img src="img/opera.png"/><span>Opera 9+</span><br/>
+            <img src="img/opera.png"/><span>Opera Mobile 11</span><br/>
+            <img src="img/opera.png"/><span>Opera Mini (partially)</span><br/>
+            <img src="img/safari-ios.png"/><span>Safari iOS</span>
+        </div>
+        <ul id="color-values">
+            <li><label>RGB:</label><span id="rgb">rgb(255,0,0)</span></li>
+            <li><label>HSV:</label><span id="hsv">hsv(0.2,1,1)</span></li>
+            <li><label>HEX:</label><span id="hex">#FF0000</span></li>
+        </ul>
+        <script type="text/javascript">
+            cp = ColorPicker(document.getElementById('slide'), document.getElementById('picker'), 
+                function(hex, hsv, rgb, mousePicker, mouseSlide) {
+                    currentColor = hex;
+                    ColorPicker.positionIndicators(
+                        document.getElementById('slide-indicator'),
+                        document.getElementById('picker-indicator'),
+                        mouseSlide, mousePicker
+                    );
+                    document.body.style.backgroundColor = hex;
+                    document.getElementById('hex').innerHTML = hex;
+                    document.getElementById('rgb').innerHTML = 'rgb(' + rgb.r.toFixed() + ',' + rgb.g.toFixed() + ',' + rgb.b.toFixed() + ')';
+                    document.getElementById('hsv').innerHTML = 'hsv(' + hsv.h.toFixed() + ',' + hsv.s.toFixed(2) + ',' + hsv.v.toFixed(2) + ')';
+            });
+            cp.setHex('#D4EDFB');
+        </script>
+        <br class="clear"/>
+    </div>
+    
+ </body>
+</html>

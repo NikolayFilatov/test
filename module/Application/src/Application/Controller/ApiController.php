@@ -404,7 +404,6 @@ class ApiController extends AbstractActionController
         }
     }
 
-
     public function removeItemFromOrderAction()
     {
         if($this->getRequest()->isPost())

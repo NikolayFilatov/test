@@ -17,7 +17,6 @@ use \DateTimeZone;
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-
 class ZfcUser extends BaseEntity implements UserInterface {
 
     protected $protectedProperties = [
@@ -63,6 +62,20 @@ class ZfcUser extends BaseEntity implements UserInterface {
      * @var \DateTime
      */
     protected $created;
+
+    /**
+     * Background
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    protected $backcolor;
+
+    /**
+     * Color
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    protected $color;
 
     /**
      * Construct

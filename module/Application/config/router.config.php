@@ -35,9 +35,9 @@ return [
 				'may_terminate' => true,
 			],
             'orders' => [
-                'type' => 'Literal',
+                'type' => 'Segment',
                 'options' => [
-                    'route' => '/orders',
+                    'route' => '/orders[/:timestamp]',
                     'defaults' => [
                         'controller' => 'Application\Controller\Orders',
                         'action'     => 'index',
@@ -46,9 +46,9 @@ return [
                 'may_terminate' => true,
             ],
             'catalog' => [
-                'type' => 'Literal',
+                'type' => 'Segment',
                 'options' => [
-                    'route' => '/catalog',
+                    'route' => '/catalog[/:timestamp]',
                     'defaults' => [
                         'controller' => 'Application\Controller\Catalog',
                         'action'     => 'index',
@@ -57,9 +57,9 @@ return [
                 'may_terminate' => true,
             ],
             'order' => [
-                'type' => 'Literal',
+                'type' => 'Segment',
                 'options' => [
-                    'route' => '/order',
+                    'route' => '/order[/:timestamp]',
                     'defaults' => [
                         'controller' => 'Application\Controller\Order',
                         'action'     => 'index',

@@ -15,7 +15,6 @@
         $form->get('submit')->setLabel('Зарегистрировать');
         $form->setAttribute('method', 'post');
         ?>
-
         <?php echo $this->form()->openTag($form) ?>
             <dl class="zend_form">
             <?php foreach ($form as $element): ?>
@@ -32,7 +31,6 @@
                             $error = strip_tags($this->formElementErrors($element));
                             echo $this->formInput($element);
                             echo $this->translate($error);
-
                         ?>
                     </dd>
                 <?php endif ?>

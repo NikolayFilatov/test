@@ -2,7 +2,7 @@
 -- Хост:                         127.0.0.1
 -- Версия сервера:               5.5.27-log - MySQL Community Server (GPL)
 -- ОС Сервера:                   Win32
--- HeidiSQL Версия:              7.0.0.4389
+-- HeidiSQL Версия:              7.0.0.4390
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `dish` (
   KEY `name` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.dish: ~20 rows (приблизительно)
+-- Дамп данных таблицы bludo.dish: ~21 rows (приблизительно)
 DELETE FROM `dish`;
 /*!40000 ALTER TABLE `dish` DISABLE KEYS */;
 INSERT INTO `dish` (`id`, `name`, `group_id`, `created`, `deleted`) VALUES
@@ -88,9 +88,9 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `deleted` int(10) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `dish_id` (`dish_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=157 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.menu: ~24 rows (приблизительно)
+-- Дамп данных таблицы bludo.menu: ~83 rows (приблизительно)
 DELETE FROM `menu`;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`id`, `date`, `dish_id`, `deleted`) VALUES
@@ -156,7 +156,27 @@ INSERT INTO `menu` (`id`, `date`, `dish_id`, `deleted`) VALUES
 	(153, '2013-04-23 00:00:00', 54, 0),
 	(154, '2013-04-23 00:00:00', 55, 0),
 	(155, '2013-04-23 00:00:00', 57, 0),
-	(156, '2013-04-23 00:00:00', 58, 0);
+	(156, '2013-04-23 00:00:00', 58, 0),
+	(157, '2013-04-24 00:00:00', 31, 0),
+	(158, '2013-04-24 00:00:00', 32, 0),
+	(159, '2013-04-24 00:00:00', 33, 0),
+	(160, '2013-04-24 00:00:00', 34, 0),
+	(161, '2013-04-24 00:00:00', 35, 0),
+	(162, '2013-04-24 00:00:00', 36, 0),
+	(163, '2013-04-24 00:00:00', 39, 0),
+	(164, '2013-04-24 00:00:00', 40, 0),
+	(165, '2013-04-24 00:00:00', 46, 0),
+	(166, '2013-04-24 00:00:00', 47, 0),
+	(167, '2013-04-24 00:00:00', 48, 0),
+	(168, '2013-04-24 00:00:00', 49, 0),
+	(169, '2013-04-24 00:00:00', 50, 0),
+	(170, '2013-04-24 00:00:00', 51, 0),
+	(171, '2013-04-24 00:00:00', 52, 0),
+	(172, '2013-04-24 00:00:00', 53, 0),
+	(173, '2013-04-24 00:00:00', 54, 0),
+	(174, '2013-04-24 00:00:00', 55, 0),
+	(175, '2013-04-24 00:00:00', 57, 0),
+	(176, '2013-04-24 00:00:00', 58, 0);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
 
@@ -168,14 +188,13 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.orders: ~2 rows (приблизительно)
+-- Дамп данных таблицы bludo.orders: ~3 rows (приблизительно)
 DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 INSERT INTO `orders` (`id`, `user_id`, `date`) VALUES
-	(1, 1, '2013-04-17 22:00:00'),
-	(2, 2, '2013-04-17 22:00:00');
+	(4, 1, '2013-04-23 00:00:00');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 
@@ -183,22 +202,20 @@ INSERT INTO `orders` (`id`, `user_id`, `date`) VALUES
 DROP TABLE IF EXISTS `order_item`;
 CREATE TABLE IF NOT EXISTS `order_item` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `menu_id` int(10) DEFAULT NULL,
+  `dish_id` int(10) DEFAULT NULL,
   `order_id` int(10) DEFAULT NULL,
   `count` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `menu_id` (`menu_id`),
+  KEY `menu_id` (`dish_id`),
   KEY `order_id` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы bludo.order_item: ~4 rows (приблизительно)
 DELETE FROM `order_item`;
 /*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
-INSERT INTO `order_item` (`id`, `menu_id`, `order_id`, `count`) VALUES
-	(1, 11, 1, 1),
-	(3, 25, 1, 1),
-	(5, 12, 2, 1),
-	(6, 19, 2, 1);
+INSERT INTO `order_item` (`id`, `dish_id`, `order_id`, `count`) VALUES
+	(9, 34, 4, 1),
+	(10, 33, 4, 1);
 /*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
 
 
@@ -212,9 +229,9 @@ CREATE TABLE IF NOT EXISTS `price` (
   PRIMARY KEY (`id`),
   KEY `date` (`date`),
   KEY `dish_id` (`dish_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.price: ~20 rows (приблизительно)
+-- Дамп данных таблицы bludo.price: ~21 rows (приблизительно)
 DELETE FROM `price`;
 /*!40000 ALTER TABLE `price` DISABLE KEYS */;
 INSERT INTO `price` (`id`, `date`, `dish_id`, `cost`) VALUES
@@ -237,7 +254,8 @@ INSERT INTO `price` (`id`, `date`, `dish_id`, `cost`) VALUES
 	(87, '2013-04-18 22:00:00', 54, 40),
 	(88, '2013-04-18 22:00:00', 55, 25),
 	(89, '2013-04-18 22:00:00', 57, 160),
-	(90, '2013-04-18 22:00:00', 58, 160);
+	(90, '2013-04-18 22:00:00', 58, 160),
+	(91, '2013-04-23 00:00:00', 31, 35);
 /*!40000 ALTER TABLE `price` ENABLE KEYS */;
 
 

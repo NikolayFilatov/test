@@ -1,12 +1,39 @@
+<?php $this->headScript()->appendFile('/js/orders.js'); ?>
 <div class="dcontent">
-    <?php foreach($this->orders as $order):?>
-        <div><?=$order->getUser()->getEmail();?></div>
-        <div><?=$order->getDate()->format('d-m-Y');?></div>
-        <div><?=$order->getTotal();?></div>
-        <div><?=$order->getCountItem();?></div>
-        <?php $items = $order->getItem();?>
-        <?php foreach($items as $item):?>
-            <div><?php //$item->getCost()?></div>
+    <div style="margin-left: 10px;">
+        <?php foreach($this->dates as $date):?>
+            <a href="/orders/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
         <?php endforeach;?>
-    <?php endforeach;?>
+    </div>
+    <div class="top">
+        <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">Всего заказов - <?=count($this->orders)?></div>
+    </div>
+    <?php if(count($this->orders) != 0):?>
+        <ul>
+            <?php
+            $group = "";
+            foreach($this->orders as $order)
+            {
+                echo "
+                    <li class='li_dish'>
+                        <table>
+                            <tr>
+                                <td style='width:490px; padding-left:10px; font-size: 14px'>
+                                    {$order->getUser()->getUsername()}
+                                </td>
+                                <td width=30>
+                                    {$order->getTotal()}
+                                </td>
+                                <td width=140>
+                                    <button class='button3 fl_r btt_add' id='{$order->getId()}'>Посмотреть</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>";
+            }
+            ?>
+        </ul>
+    <?php else:?>
+        <div>На этот день меню не сформировано</div>
+    <?php endif;?>
 </div>

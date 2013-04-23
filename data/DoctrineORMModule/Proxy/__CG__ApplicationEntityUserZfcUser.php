@@ -170,7 +170,7 @@ class ZfcUser extends \Application\Entity\User\ZfcUser implements \Doctrine\ORM\
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'username', 'email', 'password', 'state', 'created');
+        return array('__isInitialized__', 'id', 'username', 'email', 'password', 'state', 'created', 'backcolor', 'color');
     }
 
     public function __clone()

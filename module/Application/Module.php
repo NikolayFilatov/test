@@ -39,6 +39,47 @@ class Module
         Container::setDefaultManager($sessionManager);
         //event for set locale for traslator
         $eventManager->attach(MvcEvent::EVENT_DISPATCH, array($this, 'setLocale'));
+
+
+
+        $events = $e->getApplication()->getEventManager()->getSharedManager();
+        $events->attach('ZfcUser\Form\Register','init', function($e) {
+            $form = $e->getTarget();
+            $form->add(array(
+                'name' => 'username',
+                'attributes' => array(
+                    'type'  => 'text',
+                ),
+                'options' => array(
+                    'label' => 'Ваше имя',
+                ),
+            ));
+            // Do what you please with the form instance ($form)
+        });
+
+        $events->attach('ZfcUser\Form\RegisterFilter','init', function($e) {
+            $filter = $e->getTarget();
+
+            $filter->add(array(
+                'name'       => 'username',
+                'required'   => true,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'min' => 3,
+                            'max' => 255,
+                        ),
+                    ),
+                ),
+            ));
+        });
+
+
     }
 
     //function for set translator locale
