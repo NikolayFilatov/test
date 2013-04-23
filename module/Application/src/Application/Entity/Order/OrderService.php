@@ -69,27 +69,39 @@ class OrderService extends EntityRepository {
         return $order;
     }
 
+    /**
+     * @return array
+     */
     public function getAllOrder()
     {
         $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
         return $repo->findAll();
     }
 
+    /**
+     * @param $id
+     * @return object
+     */
     public function findOrderById($id)
     {
         $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
         return $repo->find($id);
     }
 
+    /**
+     * @param $data
+     * @return array
+     */
     public function findOrder($data)
     {
         $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
-
-        $order = $repo->findBy($data);
-
-        return $order;
+        return $repo->findBy($data);
     }
 
+    /**
+     * @param null $data
+     * @return Order
+     */
     public function createOrder($data = null)
     {
         $order = new Order($data);
@@ -98,6 +110,11 @@ class OrderService extends EntityRepository {
         return $order;
     }
 
+    /**
+     * @param OrderItem $item
+     * @param Order $order
+     * @return $this
+     */
     public function addItemToOrder(OrderItem $item, Order $order)
     {
         $order->setItem($item);

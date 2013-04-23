@@ -405,11 +405,13 @@ class ApiController extends AbstractActionController
     }
 
 
-    public function removeItemToOrderAction()
+    public function removeItemFromOrderAction()
     {
         if($this->getRequest()->isPost())
         {
             $em = $this->getEntityManager();
+
+            $user = $this->zfcUserAuthentication()->getIdentity();
 
             $param = $this->getRequest()->getContent();
             $param = explode("&", $param);
@@ -425,11 +427,46 @@ class ApiController extends AbstractActionController
             $date = new \DateTime('now');
             $date->setTimestamp($timestamp);
 
-            //исключим из меню на заданную дату пункт с id
-            $menuService = new MenuService($em);
-            $menu = $menuService->getMenuById($id);
-            $menu->markUnDelete();
-            $menuService->save($menu);
+            //получим блюдо по id
+            $dishService = new DishService($em);
+            $dish = $dishService->getDishById($id);
+
+            $orderService = new OrderService($em);
+            $order = $orderService->findOrder([
+                'user' => $user,
+                'date' => $date,
+            ]);
+
+            //создадим item для заказа и добавим его в заказ
+            $orderItemService = new OrderItemService($em);
+            $item = $orderItemService->findItem([
+                'dish' => $dish,
+                'order' => $order,
+            ]);
+
+            if(count($item) == 0)
+            {
+                $result = [
+                    'response' => "no item",
+                ];
+                $vm = new JsonModel($result);
+                return $vm;
+            }
+
+            $item = array_shift($item);
+            if($item->getCount() == 0)
+            {
+                $result = [
+                    'response' => "no count",
+                ];
+                $vm = new JsonModel($result);
+                return $vm;
+            }
+
+            $item->setCount($item->getCount() -1);
+            $orderItemService->save($item);
+            if ($item->getCount() == 0)
+                $orderItemService->delete($item);
 
             $result = [
                 'response' => "ok",

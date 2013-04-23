@@ -5,9 +5,14 @@
             <a href="/menu/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
         <?php endforeach;?>
     </div>
+    <?php
+        $total = 0;
+        if($this->order)
+            $total = $this->order->getTotal();
+    ?>
 
     <div class="top">
-        <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">Стоимость заказа - </div>
+        <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">Стоимость заказа - <?=$total?></div>
     </div>
     <?php if(count($this->menus) != 0):?>
         <ul>
@@ -21,6 +26,16 @@
                     echo "<li class='li_group p10'>$dg";
                 }
 
+                $count = 0;
+                $items = [];
+                if($this->order)
+                    $items = $this->order->getItem();
+                foreach($items as $item)
+                {
+                    if ($item->getDish()->getId() == $menu->getDish()->getId())
+                        $count = $item->getCount();
+                }
+
                 echo "
                     <li class='li_dish'>
                         <table>
@@ -32,7 +47,7 @@
                                     {$menu->getDish()->getCost()}
                                 </td>
                                 <td width=30>
-                                    <div class='count'>0</div>
+                                    <div class='count'>$count</div>
                                 </td>
                                 <td width=140>
                                     <button class='button3 fl_r btt_add' id='{$menu->getDish()->getId()}'>Добавить</button>

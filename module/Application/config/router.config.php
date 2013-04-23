@@ -191,13 +191,13 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
-                    'removeItemToOrder' => [
+                    'removeItemFromOrder' => [
                         'type'    => 'Zend\Mvc\Router\Http\Segment',
                         'options' => [
-                            'route'    => '/removeItemToOrder',
+                            'route'    => '/removeItemFromOrder',
                             'defaults' => [
                                 'controller' => 'Application\Controller\Api',
-                                'action'     => 'removeItemToOrder',
+                                'action'     => 'removeItemFromOrder',
                             ],
                         ],
                         'may_terminate' => true,

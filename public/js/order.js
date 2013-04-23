@@ -21,16 +21,32 @@ $(document).ready(function(){
             'date': date
         };
 
-        console.info(data);
-
         xhttp = $.ajax({
             type: "POST",
             url: "/api/addItemToOrder",
             data: data,
             async: true,
             success: function(e){
-                console.info(e);
-                //document.location.reload();
+                document.location.reload();
+            }
+        });
+    });
+
+    $('.btt_remove').click(function(){
+        id = $(this).attr('id');
+        date = $('.label').attr('id');
+        data = {
+            'id': id,
+            'date': date
+        };
+
+        xhttp = $.ajax({
+            type: "POST",
+            url: "/api/removeItemFromOrder",
+            data: data,
+            async: true,
+            success: function(e){
+                document.location.reload();
             }
         });
     });

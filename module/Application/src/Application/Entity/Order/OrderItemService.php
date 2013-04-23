@@ -69,16 +69,40 @@ class OrderItemService extends EntityRepository {
         return $orderItem;
     }
 
-    public function findOrderItemById($id)
+    public function getItemById($id)
     {
-        $repo = $this->_em->getRepository('\Application\Entity\OrderItem\OrderItem');
+        $repo = $this->_em->getRepository('\Application\Entity\Order\OrderItem');
         return $repo->find($id);
+    }
+
+    /**
+     * @param $data
+     * @return array
+     */
+    public function findItem($data)
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Order\OrderItem');
+        return $repo->findBy($data);
     }
 
     public function createItem($data = null)
     {
-        $item = new OrderItem($data);
-        $this->save($item);
+        //ищем в заказе такое блюдо
+        $repo = $this->_em->getRepository('\Application\Entity\Order\OrderItem');
+        $item = $repo->findOneBy([
+            'order' => $data['order'],
+            'dish' => $data['dish'],
+        ]);
+
+        if($item)   //в заказе такое блюдо уже есть, увеличим кол-во
+        {
+            $item->setCount($item->getCount() + 1);
+            $this->save($item);
+        } else      //в заказе такого блюда нет, создадим item
+        {
+            $item = new OrderItem($data);
+            $this->save($item);
+        }
 
         return $item;
     }

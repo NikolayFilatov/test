@@ -3,6 +3,7 @@
 namespace Application\Controller;
 
 use Application\Entity\Menu\MenuService;
+use Application\Entity\Order\OrderService;
 use Application\Entity\User\User;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -59,14 +60,22 @@ class OrderController extends AbstractActionController
             $date->add(new \DateInterval('P1D'));
         }
 
+        $orderService = new OrderService($em);
+        $order = $orderService->findOrder([
+            'user' => $user,
+            'date' => $dateNow,
+        ]);
+        if(count($order) > 0)
+            $order = array_shift($order);
+
         $menuService = new MenuService($em);
         $menus = $menuService->getMenuByDate($dateNow);
-        //$menus = $menuService->getAllMenu();
 
         $response = [
             'dateNow' => $dateNow,
             'dates' => $dates,
             'menus' => $menus,
+            'order' => $order,
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/order/index');
