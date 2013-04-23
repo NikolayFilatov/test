@@ -1,8 +1,46 @@
 <?php $this->headScript()->appendFile('/js/user.js'); ?>
-<div style="padding:20px;min-height: 300px;">
-    <h3><?php echo $this->zfcUserDisplayName() ?>!</h3>
-    <div style="clear:both;"></div>
+<?php $this->headScript()->appendFile('/js/colorpicker.min.js'); ?>
+<style type="text/css">
+    #picker, #picker-color { width: 150px; height: 150px; cursor: crosshair }
+    #slide, #slide-color { width: 30px; height: 150px; cursor: crosshair; }
+    #example { padding:5px 20px; font-size: 18px; font-weight: bold; float:left; border-radius: 12px; }
+    #slide-color{ margin-left:20px; }
+</style>
 
+<div style="padding:20px;min-height: 300px;">
+
+    <table>
+        <tr>
+            <td colspan="3">
+                <div id="example" style="background-color: <?=$this->zfcUserIdentity()->getBackcolor()?>; color: <?=$this->zfcUserIdentity()->getColor()?>"><?=$this->zfcUserDisplayName() ?>!</div>
+            </td>
+            <td>
+                <div id="mess">Данные сохранены</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align=center>Цвет фона</td>
+            <td colspan="2" align=center style="padding-left:20px;">Цвет текста</td>
+        </tr>
+        <tr>
+            <td>
+                <div id="slide"></div>
+            </td>
+            <td>
+                <div id="picker"></div>
+            </td>
+            <td>
+                <div id="slide-color"></div>
+            </td>
+            <td>
+                <div id="picker-color"></div>
+            </td>
+        </tr>
+    </table>
+    <div id="asd">hex</div>
+
+    <script type="text/javascript">
+    </script>
 
 
 </div>

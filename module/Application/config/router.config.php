@@ -202,6 +202,28 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
+                    'updateUserColor' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/updateUserColor',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'updateUserColor',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'updateUserBack' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/updateUserBack',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'updateUserBack',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
 				],
 			],
 			

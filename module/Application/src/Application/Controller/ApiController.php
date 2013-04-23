@@ -474,4 +474,64 @@ class ApiController extends AbstractActionController
             return $vm;
         }
     }
+
+    public function updateUserColorAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $user = $this->zfcUserAuthentication()->getIdentity();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $hex = urldecode($p[0]);
+
+            $user->setColor($hex);
+            $userService = new UserService($em);
+            $userService->save($user);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+    public function updateUserBackAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $user = $this->zfcUserAuthentication()->getIdentity();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $hex = urldecode($p[0]);
+
+            $user->setBackcolor($hex);
+            $userService = new UserService($em);
+            $userService->save($user);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
 }
