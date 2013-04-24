@@ -153,6 +153,9 @@ class OrderService extends EntityRepository {
             ->getRepository('\Application\Entity\Order\OrderStorage');
         $storage = $repo->findOneBy(['date' => $date]);
 
+        if(!$storage)
+            return null;
+
         $orders = $storage->getOrder();
 
         $result = 0;
@@ -168,6 +171,9 @@ class OrderService extends EntityRepository {
         $repo = $this->_em
             ->getRepository('\Application\Entity\Order\OrderStorage');
         $storage = $repo->findOneBy(['date' => $date]);
+
+        if(!$storage)
+            return null;
 
         $orders = $storage->getOrder();
 

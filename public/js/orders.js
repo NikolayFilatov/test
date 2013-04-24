@@ -17,7 +17,7 @@ $(document).ready(function(){
             data: data,
             async: true,
             success: function(e){
-                console.info(e);
+
             }
         });
     });
@@ -38,7 +38,7 @@ $(document).ready(function(){
             data: data,
             async: true,
             success: function(e){
-                console.info(e);
+
             }
         });
     });

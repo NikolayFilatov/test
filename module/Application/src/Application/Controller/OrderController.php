@@ -4,6 +4,7 @@ namespace Application\Controller;
 
 use Application\Entity\Menu\MenuService;
 use Application\Entity\Order\OrderService;
+use Application\Entity\Order\OrderStorageService;
 use Application\Entity\User\User;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -60,6 +61,19 @@ class OrderController extends AbstractActionController
             $date->add(new \DateInterval('P1D'));
         }
 
+        $storageService = new OrderStorageService($em);
+        $storage = $storageService->findStorage([
+            'date' => $dateNow,
+        ]);
+
+        $class = "li_group";
+        if($storage)
+        {
+            $storage = array_shift($storage);
+            $class = $storage->getStatus() ==
+                "close" ? "li_group_close" : "li_group";
+        }
+
         $orderService = new OrderService($em);
         $order = $orderService->findOrder($dateNow, $user);
         if(count($order) > 0)
@@ -73,6 +87,7 @@ class OrderController extends AbstractActionController
             'dates' => $dates,
             'menus' => $menus,
             'order' => $order,
+            'class' => $class,
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/order/index');

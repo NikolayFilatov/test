@@ -23,10 +23,10 @@
                 <?php $items = $order->getItem();?>
                 <?php foreach($items as $item):?>
                     <tr>
-                        <td class="t_val">
+                        <td class="t_val" style="width:270px;">
                             <?=$item->getDish()->getName();?>
                         </td>
-                        <td class="t_val">
+                        <td class="t_val" style="width:30px">
                             <?=$item->getCount();?>
                         </td>
                     </tr>
