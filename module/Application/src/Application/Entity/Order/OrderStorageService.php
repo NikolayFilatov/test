@@ -125,7 +125,7 @@ class OrderStorageService extends EntityRepository {
         return $this;
     }
 
-    public function closeStorage(OrderStorage $storage, $date)
+    public function closeStorage(OrderStorage $storage)
     {
         $storage->setStatus('close');
         $this->save($storage);
@@ -133,7 +133,7 @@ class OrderStorageService extends EntityRepository {
         return $storage;
     }
 
-    public function openStorage(OrderStorage $storage, $date)
+    public function openStorage(OrderStorage $storage)
     {
         $storage->setStatus('open');
         $this->save($storage);

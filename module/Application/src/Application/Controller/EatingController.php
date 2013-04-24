@@ -60,9 +60,7 @@ class EatingController extends AbstractActionController
         }
 
         $orderService = new OrderService($em);
-        $orders = $orderService->findOrder([
-            'date' => $dateNow,
-        ]);
+        $orders = $orderService->findOrder($dateNow);
 
         $response = [
             'orders' => $orders,

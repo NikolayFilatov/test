@@ -4,6 +4,7 @@ namespace Application\Controller;
 
 use Application\Entity\Order\OrderItemService;
 use Application\Entity\Order\OrderService;
+use Application\Entity\Order\OrderStorageService;
 use Application\Entity\User\User;
 
 use Zend\Mvc\Controller\AbstractActionController;
@@ -63,10 +64,22 @@ class OrdersController extends AbstractActionController
             $date->add(new \DateInterval('P1D'));
         }
 
-        $orderService = new OrderService($em);
-        $orders = $orderService->findOrder([
+
+        $storageService = new OrderStorageService($em);
+        $storage = $storageService->findStorage([
             'date' => $dateNow,
         ]);
+
+        $class = "li_group";
+        if($storage)
+        {
+            $storage = array_shift($storage);
+            $class = $storage->getStatus() ==
+                "close" ? "li_group_close" : "li_group";
+        }
+
+        $orderService = new OrderService($em);
+        $orders = $orderService->findOrder($dateNow);
 
         $total = $orderService->getTotal($dateNow);
 
@@ -75,6 +88,7 @@ class OrdersController extends AbstractActionController
             'dates' => $dates,
             'dateNow' => $dateNow,
             'total' => $total,
+            'class' => $class,
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/orders/user');
@@ -118,12 +132,20 @@ class OrdersController extends AbstractActionController
         }
 
         $orderService = new OrderService($em);
-
-        $class = "li_group";
-
-        $items = $orderService->findItems([
+        $storageService = new OrderStorageService($em);
+        $storage = $storageService->findStorage([
             'date' => $dateNow,
         ]);
+
+        $class = "li_group";
+        if($storage)
+        {
+            $storage = array_shift($storage);
+            $class = $storage->getStatus() ==
+                "close" ? "li_group_close" : "li_group";
+        }
+
+        $items = $orderService->findItems($dateNow);
 
         $total = $orderService->getTotal($dateNow);
 

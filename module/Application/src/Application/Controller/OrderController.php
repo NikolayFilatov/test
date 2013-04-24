@@ -61,10 +61,7 @@ class OrderController extends AbstractActionController
         }
 
         $orderService = new OrderService($em);
-        $order = $orderService->findOrder([
-            'user' => $user,
-            'date' => $dateNow,
-        ]);
+        $order = $orderService->findOrder($dateNow, $user);
         if(count($order) > 0)
             $order = array_shift($order);
 
@@ -81,6 +78,26 @@ class OrderController extends AbstractActionController
         $vm->setTemplate('application/order/index');
 
         return $vm;
+    }
+
+    public function testAction()
+    {
+        $em = $this->getEntityManager();
+        $user = $this->zfcUserAuthentication()->getIdentity();
+
+        $orderService = new OrderService($em);
+        $date = $this->DateFormat()->getCurDay();
+
+        $order = $orderService->createOrder([
+            'user' => $user,
+            'date' => $date,
+        ]);
+
+        $vm = new ViewModel();
+        $vm->setTemplate('application/order/test');
+
+        return $vm;
+
     }
 
 }

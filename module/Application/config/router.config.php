@@ -102,9 +102,21 @@ return [
                 ],
                 'may_terminate' => true,
             ],
-			/*
-			 * API Controllers
-			*/
+            'test' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/test',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Order',
+                        'action'     => 'test',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
+
+            /*
+             * API Controllers
+            */
 			'api' => [
 				'type'    => 'Literal',
 				'options' => [

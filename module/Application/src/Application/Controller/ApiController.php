@@ -7,6 +7,7 @@ use Application\Entity\Dish\DishService;
 use Application\Entity\Menu\MenuService;
 use Application\Entity\Order\OrderItemService;
 use Application\Entity\Order\OrderService;
+use Application\Entity\Order\OrderStorageService;
 use Application\Entity\Price\PriceService;
 use Application\Entity\User\ZfcUser;
 use Application\Entity\User\UserService;
@@ -370,10 +371,7 @@ class ApiController extends AbstractActionController
 
             //ищем заказ этого юзера на эту дату.
             $orderService = new OrderService($em);
-            $order = $orderService->findOrder([
-                'user' => $user,
-                'date' => $date,
-            ]);
+            $order = $orderService->findOrder($date, $user);
 
             //заказа нет, создадим его.
             if(!$order)
@@ -431,10 +429,7 @@ class ApiController extends AbstractActionController
             $dish = $dishService->getDishById($id);
 
             $orderService = new OrderService($em);
-            $order = $orderService->findOrder([
-                'user' => $user,
-                'date' => $date,
-            ]);
+            $order = $orderService->findOrder($date, $user);
 
             //создадим item для заказа и добавим его в заказ
             $orderItemService = new OrderItemService($em);
@@ -586,8 +581,12 @@ class ApiController extends AbstractActionController
             $date = new \DateTime('now');
             $date->setTimestamp($timestamp);
 
-            $orderService = new OrderService($em);
-            $orderService->closeOrders($date);
+            $storageService = new OrderStorageService($em);
+            $storage = $storageService->findStorage([
+                'date' => $date
+            ]);
+            if ($storage)
+                $storageService->closeStorage($storage[0]);
 
             $result = [
                 'response' => "ok",
@@ -619,7 +618,11 @@ class ApiController extends AbstractActionController
             $date->setTimestamp($timestamp);
 
             $storageService = new OrderStorageService($em);
-            
+            $storage = $storageService->findStorage([
+                'date' => $date
+            ]);
+            if($storage)
+                $storageService->openStorage($storage[0]);
 
             $result = [
                 'response' => "ok",

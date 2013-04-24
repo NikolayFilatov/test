@@ -28,14 +28,6 @@ class Order extends Entity {
     protected $id;
 
     /**
-     * Order for date
-     *
-     * @ORM\Column(type = "datetime")
-     * @var \DateTime
-     */
-    protected $date;
-
-    /**
      * Ссылка на запись заказа
      *
      * @ORM\OneToMany(
@@ -76,19 +68,6 @@ class Order extends Entity {
         return [
             'id' => $this->id,
         ];
-    }
-
-    public function setDate(DateTime $date)
-    {
-        $iD = date('d', $date->getTimestamp());
-        $iM = date('m', $date->getTimestamp());
-        $iY = date('y', $date->getTimestamp());
-
-        $date->setTimestamp(mktime(0, 0, 0, $iM, $iD, $iY));
-
-        $this->date = $date;
-
-        return $this;
     }
 
     public function getTotal()

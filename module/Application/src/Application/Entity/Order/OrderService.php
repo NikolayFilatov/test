@@ -92,9 +92,19 @@ class OrderService extends EntityRepository {
      * @param $data
      * @return array
      */
-    public function findOrder($data)
+    public function findOrder(\DateTime $date, ZfcUser $user = null)
     {
+        $repo = $this->_em
+            ->getRepository('\Application\Entity\Order\OrderStorage');
+        $storage = $repo->findOneBy(['date' => $date]);
+
         $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+
+        if (is_null($user))
+            $data = ['storage' => $storage];
+        else
+            $data = ['user' => $user, 'storage' => $storage];
+
         return $repo->findBy($data);
     }
 
@@ -104,6 +114,20 @@ class OrderService extends EntityRepository {
      */
     public function createOrder($data = null)
     {
+        //найдем зранилище, если его нет то создадим
+        $repo = $this->_em
+            ->getRepository('\Application\Entity\Order\OrderStorage');
+        $storage = $repo->findOneBy(['date' => $data['date']]);
+
+        if(!$storage)
+        {
+            $storageService = new OrderStorageService($this->_em);
+            $storage = $storageService->createStorage([
+                'date' => $data['date']
+            ]);
+        }
+
+        $data['storage'] = $storage;
         $order = new Order($data);
         $this->save($order);
 
@@ -125,8 +149,11 @@ class OrderService extends EntityRepository {
 
     public function getTotal($date)
     {
-        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
-        $orders = $repo->findBy(['date' => $date]);
+        $repo = $this->_em
+            ->getRepository('\Application\Entity\Order\OrderStorage');
+        $storage = $repo->findOneBy(['date' => $date]);
+
+        $orders = $storage->getOrder();
 
         $result = 0;
         foreach($orders as $order)
@@ -136,11 +163,13 @@ class OrderService extends EntityRepository {
         return $result;
     }
 
-    public function findItems($data)
+    public function findItems($date)
     {
-        //получим все заказы за эту дату
-        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
-        $orders = $repo->findBy($data);
+        $repo = $this->_em
+            ->getRepository('\Application\Entity\Order\OrderStorage');
+        $storage = $repo->findOneBy(['date' => $date]);
+
+        $orders = $storage->getOrder();
 
         $result = [];
         $count = [];
@@ -173,7 +202,6 @@ class OrderService extends EntityRepository {
             $ret['cost'] = $cost[$i];
             $return[] = $ret;
         }
-
         return $return;
     }
 
