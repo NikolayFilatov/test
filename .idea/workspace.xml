@@ -2,34 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\www\test\public\color-picker-selection-rudebox\css\style.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\www\test\public\color-picker-selection-rudebox\css\themes.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\www\test\public\color-picker-selection-rudebox\index.htm" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/view/application/orders/dish.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/orders.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/view/application/orders/user.phtml" />
+      <change type="DELETED" beforePath="D:\www\test\module\Application\view\application\orders\index.phtml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" afterPath="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" afterPath="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/config/router.config.php" afterPath="$PROJECT_DIR$/module/Application/config/router.config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/user.js" afterPath="$PROJECT_DIR$/public/js/user.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\chrome.png" afterPath="$PROJECT_DIR$/public/img/chrome.png" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\firefox.png" afterPath="$PROJECT_DIR$/public/img/firefox.png" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\header.jpg" afterPath="$PROJECT_DIR$/public/img/header.jpg" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\ie7.png" afterPath="$PROJECT_DIR$/public/img/ie7.png" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\ie8.png" afterPath="$PROJECT_DIR$/public/img/ie8.png" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\opera.png" afterPath="$PROJECT_DIR$/public/img/opera.png" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\safari-ios.png" afterPath="$PROJECT_DIR$/public/img/safari-ios.png" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\img\safari.png" afterPath="$PROJECT_DIR$/public/img/safari.png" />
-      <change type="MOVED" beforePath="D:\www\test\public\color-picker-selection-rudebox\js\colorpicker.min.js" afterPath="$PROJECT_DIR$/public/js/colorpicker.min.js" />
     </list>
     <ignored path="test.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366707366498" ignored="false" />
+    <file path="/Dummy.txt" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366781328884" ignored="false" />
     <file path="/layout.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366717222522" ignored="false" />
     <file path="/style.css" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366718883361" ignored="false" />
-    <file path="/index.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366723853133" ignored="false" />
-    <file path="/OrdersController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366715291408" ignored="false" />
+    <file path="/index.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366783883556" ignored="false" />
+    <file path="/OrdersController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366784301924" ignored="false" />
     <file path="/Dish.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366611222571" ignored="false" />
-    <file path="/ApiController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366723722797" ignored="false" />
+    <file path="/ApiController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366782448857" ignored="false" />
     <file path="/catalog.js" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366611790377" ignored="false" />
     <file path="/Menu.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366612094802" ignored="false" />
     <file path="/MenuController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366618407031" ignored="false" />
@@ -41,10 +34,13 @@
     <file path="/OrderController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366704072073" ignored="false" />
     <file path="/order.js" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366705468959" ignored="false" />
     <file path="/OrderItemService.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366705757515" ignored="false" />
-    <file path="/OrderService.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366703749545" ignored="false" />
+    <file path="/OrderService.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366782742722" ignored="false" />
     <file path="/register.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366715897987" ignored="false" />
     <file path="/ZfcUser.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366717369963" ignored="false" />
-    <file path="/user.js" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366723959028" ignored="false" />
+    <file path="/user.js" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366782403417" ignored="false" />
+    <file path="/orders.js" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366783299750" ignored="false" />
+    <file path="/router.config.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366783950643" ignored="false" />
+    <file path="/dish.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366784356280" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,13 +59,13 @@
     <favorites_list name="test" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5026375">
+    <splitter split-orientation="horizontal" split-proportion="0.4969419">
       <split-first>
         <leaf>
-          <file leaf-file-name="ApiController.php" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="ApiController.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="494" column="0" selection-start="13710" selection-end="13710" vertical-scroll-proportion="0.19565217">
+                <state line="557" column="38" selection-start="15432" selection-end="15432" vertical-scroll-proportion="-20.807692">
                   <folding>
                     <element signature="e#42#87#0" expanded="true" />
                   </folding>
@@ -80,7 +76,88 @@
           <file leaf-file-name="OrderItemService.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItemService.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="85" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-12.307693">
+                <state line="85" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OrdersController.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="130" column="10" selection-start="3439" selection-end="3439" vertical-scroll-proportion="-23.346153">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="dish.phtml" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/module/Application/view/application/orders/dish.phtml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="15" column="10" selection-start="645" selection-end="645" vertical-scroll-proportion="0.32818532">
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                    <marker date="1366784461552" expanded="true" signature="928:1630" placeholder="..." />
+                    <marker date="1366784461552" expanded="true" signature="960:1604" placeholder="..." />
+                    <marker date="1366784461552" expanded="true" signature="993:1571" placeholder="..." />
+                    <marker date="1366784461552" expanded="false" signature="1038:1085" placeholder="..." />
+                    <marker date="1366784461552" expanded="true" signature="1086:1195" placeholder="..." />
+                    <marker date="1366784461552" expanded="true" signature="1241:1336" placeholder="..." />
+                    <marker date="1366784461552" expanded="true" signature="1383:1537" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="user.phtml" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/view/application/orders/user.phtml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="16" column="25" selection-start="671" selection-end="671" vertical-scroll-proportion="-10.461538">
+                  <folding>
+                    <marker date="1366784456816" expanded="true" signature="923:1625" placeholder="..." />
+                    <marker date="1366784456816" expanded="true" signature="955:1599" placeholder="..." />
+                    <marker date="1366784456816" expanded="true" signature="988:1566" placeholder="..." />
+                    <marker date="1366784456816" expanded="false" signature="1033:1080" placeholder="..." />
+                    <marker date="1366784456816" expanded="true" signature="1081:1190" placeholder="..." />
+                    <marker date="1366784456816" expanded="true" signature="1236:1331" placeholder="..." />
+                    <marker date="1366784456816" expanded="true" signature="1378:1532" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OrderController.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/OrderController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.84615386">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="order.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/js/order.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OrderService.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="126" column="5" selection-start="2671" selection-end="2671" vertical-scroll-proportion="-20.807692">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Order.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/Order.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="36.307693">
                   <folding />
                 </state>
               </provider>
@@ -89,29 +166,58 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="vertical" split-proportion="0.60784316">
+        <splitter split-orientation="vertical" split-proportion="0.67128026">
           <split-first>
             <leaf>
               <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/module/Application/view/application/menu/index.phtml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="20" column="17" selection-start="841" selection-end="841" vertical-scroll-proportion="-7.8461537">
+                    <state line="20" column="17" selection-start="841" selection-end="841" vertical-scroll-proportion="-0.65384614">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/public/js/user.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="54" column="11" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="14" column="46" selection-start="644" selection-end="651" vertical-scroll-proportion="0.3808554">
                       <folding>
-                        <marker date="1366715482771" expanded="true" signature="1405:1863" placeholder="..." />
-                        <marker date="1366715482771" expanded="true" signature="1437:1837" placeholder="..." />
-                        <marker date="1366715482771" expanded="true" signature="1470:1804" placeholder="..." />
-                        <marker date="1366715482771" expanded="true" signature="1515:1546" placeholder="..." />
-                        <marker date="1366715482771" expanded="true" signature="1547:1651" placeholder="..." />
-                        <marker date="1366715482771" expanded="true" signature="1688:1770" placeholder="..." />
+                        <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+                        <marker date="1366782326564" expanded="true" signature="940:965" placeholder="..." />
+                        <marker date="1366782326564" expanded="true" signature="1108:1150" placeholder="..." />
+                        <marker date="1366782326564" expanded="true" signature="1125:1150" placeholder="..." />
+                        <marker date="1366782326564" expanded="true" signature="1199:1224" placeholder="..." />
+                        <marker date="1366782326564" expanded="true" signature="1274:1299" placeholder="..." />
+                        <marker date="1366782326564" expanded="true" signature="1354:1379" placeholder="..." />
                       </folding>
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/module/Application/view/application/catalog/index.phtml">
+              <file leaf-file-name="orders.js" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/public/js/orders.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="7" column="33" selection-start="254" selection-end="254" vertical-scroll-proportion="-0.65384614">
+                    <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/public/js/menu.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="0" column="0" selection-start="0" selection-end="29" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -120,7 +226,7 @@
               <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/module/Application/view/application/order/index.phtml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="0" column="0" selection-start="0" selection-end="57" vertical-scroll-proportion="-0.0">
+                    <state line="0" column="0" selection-start="0" selection-end="57" vertical-scroll-proportion="0.0">
                       <folding>
                         <marker date="1366714603832" expanded="true" signature="1325:2316" placeholder="..." />
                         <marker date="1366714603832" expanded="true" signature="1357:2290" placeholder="..." />
@@ -135,63 +241,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/public/js/menu.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="21" column="17" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/module/Application/view/application/orders/index.phtml">
+                <entry file="file://$PROJECT_DIR$/module/Application/view/application/catalog/index.phtml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="15" column="13" selection-start="622" selection-end="622" vertical-scroll-proportion="-9.807693">
-                      <folding>
-                        <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                        <marker date="1366717108147" expanded="true" signature="685:1053" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="685:1387" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="717:1053" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="750:1053" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="795:842" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="843:952" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="998:1093" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="998:1053" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-                        <marker date="1366717108147" expanded="true" signature="1140:1217" placeholder="..." />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="38" column="12" selection-start="1391" selection-end="1391" vertical-scroll-proportion="-5.0701756">
-                      <folding>
-                        <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                        <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-                        <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
-                        <marker date="1366723855062" expanded="true" signature="786:811" placeholder="..." />
-                        <marker date="1366723855062" expanded="true" signature="885:910" placeholder="..." />
-                        <marker date="1366723855062" expanded="true" signature="1053:1095" placeholder="..." />
-                        <marker date="1366723855062" expanded="true" signature="1070:1095" placeholder="..." />
-                        <marker date="1366723855062" expanded="true" signature="1144:1169" placeholder="..." />
-                        <marker date="1366723855062" expanded="true" signature="1219:1244" placeholder="..." />
-                        <marker date="1366723855062" expanded="true" signature="1299:1324" placeholder="..." />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="user.js" pinned="false" current="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/public/js/user.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="10" column="18" selection-start="317" selection-end="317" vertical-scroll-proportion="0.35789475">
+                    <state line="7" column="33" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0">
                       <folding />
                     </state>
                   </provider>
@@ -204,16 +257,7 @@
               <file leaf-file-name="module.config.php" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/module/Application/config/module.config.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="66" column="9" selection-start="2642" selection-end="2642" vertical-scroll-proportion="0.9135338">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/public/css/style.css">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="330" column="16" selection-start="6172" selection-end="6172" vertical-scroll-proportion="0.0">
+                    <state line="66" column="9" selection-start="2642" selection-end="2642" vertical-scroll-proportion="4.834123">
                       <folding />
                     </state>
                   </provider>
@@ -222,7 +266,16 @@
               <file leaf-file-name="router.config.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/module/Application/config/router.config.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="221" column="63" selection-start="8886" selection-end="8886" vertical-scroll-proportion="-19.461538">
+                    <state line="47" column="25" selection-start="1220" selection-end="1224" vertical-scroll-proportion="-7.3076925">
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/public/css/style.css">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state line="193" column="18" selection-start="3286" selection-end="3300" vertical-scroll-proportion="-6.645161">
                       <folding />
                     </state>
                   </provider>
@@ -250,22 +303,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/Application/view/application/orders/index.phtml" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishGroupService.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Price/Price.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItem.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/Order.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Menu/Menu.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/DishGroup.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/css/style_cp.css" />
         <option value="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
-        <option value="$PROJECT_DIR$/module/Application/config/router.config.php" />
         <option value="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" />
         <option value="$PROJECT_DIR$/public/js/user.js" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php" />
+        <option value="$PROJECT_DIR$/public/js/orders.js" />
+        <option value="$PROJECT_DIR$/module/Application/view/application/orders/index.phtml" />
+        <option value="$PROJECT_DIR$/module/Application/config/router.config.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php" />
+        <option value="$PROJECT_DIR$/module/Application/view/application/orders/user.phtml" />
+        <option value="$PROJECT_DIR$/module/Application/view/application/orders/dish.phtml" />
       </list>
     </option>
   </component>
@@ -275,6 +328,71 @@
     <option name="y" value="-8" />
     <option name="width" value="1696" />
     <option name="height" value="1026" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>ActionScript specificJavaScript</id>
+          </State>
+          <State>
+            <id>Assignment issuesJavaScript</id>
+          </State>
+          <State>
+            <id>Bitwise operation issuesJavaScript</id>
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript function metricsJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>PHP</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsCoffeeScript</id>
+          </State>
+          <State>
+            <id>Probable bugsJavaScript</id>
+          </State>
+          <State>
+            <id>Probably bugPHP</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -302,7 +420,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -346,24 +463,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -447,7 +546,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orders" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -687,22 +816,53 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="options.lastSelected" value="preferences.sourceCode.General" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -753,10 +913,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18688725" sideWeight="0.67128026" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1985294" sideWeight="0.67128026" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -765,6 +924,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -831,158 +991,141 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Dish/Dish.php">
+    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/Module.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="14" selection-start="379" selection-end="379" vertical-scroll-proportion="0.12546125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/application/menu/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="17" selection-start="841" selection-end="841" vertical-scroll-proportion="-7.8461537">
-          <folding>
-            <marker date="1366715482771" expanded="true" signature="1405:1863" placeholder="..." />
-            <marker date="1366715482771" expanded="true" signature="1437:1837" placeholder="..." />
-            <marker date="1366715482771" expanded="true" signature="1470:1804" placeholder="..." />
-            <marker date="1366715482771" expanded="true" signature="1515:1546" placeholder="..." />
-            <marker date="1366715482771" expanded="true" signature="1547:1651" placeholder="..." />
-            <marker date="1366715482771" expanded="true" signature="1688:1770" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/catalog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="82" selection-end="428" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/layout/layout.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="69" selection-start="585" selection-end="585" vertical-scroll-proportion="0.42183623">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/application/orders/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="622" selection-end="622" vertical-scroll-proportion="-9.807693">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1366717108147" expanded="true" signature="685:1053" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="685:1387" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="717:1053" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="750:1053" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="795:842" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="843:952" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="998:1093" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="998:1053" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="1140:1294" placeholder="..." />
-            <marker date="1366717108147" expanded="true" signature="1140:1217" placeholder="..." />
-          </folding>
-        </state>
+        <state line="61" column="24" selection-start="2115" selection-end="2130" vertical-scroll-proportion="0.22018349" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="16" selection-start="6172" selection-end="6172" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="17" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/application/order/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="57" vertical-scroll-proportion="-0.0">
-          <folding>
-            <marker date="1366714603832" expanded="true" signature="1325:2316" placeholder="..." />
-            <marker date="1366714603832" expanded="true" signature="1357:2290" placeholder="..." />
-            <marker date="1366714603832" expanded="true" signature="1390:2257" placeholder="..." />
-            <marker date="1366714603832" expanded="false" signature="1435:1482" placeholder="..." />
-            <marker date="1366714603832" expanded="true" signature="1483:1587" placeholder="..." />
-            <marker date="1366714603832" expanded="true" signature="1633:1737" placeholder="..." />
-            <marker date="1366714603832" expanded="true" signature="1783:1889" placeholder="..." />
-            <marker date="1366714603832" expanded="true" signature="1936:2223" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/config/router.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="63" selection-start="8886" selection-end="8886" vertical-scroll-proportion="-19.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/User/ZfcUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.6900369">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderItemService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="5" selection-start="1979" selection-end="1979" vertical-scroll-proportion="-12.307693">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/config/module.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="9" selection-start="2642" selection-end="2642" vertical-scroll-proportion="0.9135338">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zf-commons/zfc-user/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="24" selection-start="2115" selection-end="2130" vertical-scroll-proportion="0.22018349">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="12" selection-start="1391" selection-end="1391" vertical-scroll-proportion="-5.0701756">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1366723855062" expanded="true" signature="786:811" placeholder="..." />
-            <marker date="1366723855062" expanded="true" signature="885:910" placeholder="..." />
-            <marker date="1366723855062" expanded="true" signature="1053:1095" placeholder="..." />
-            <marker date="1366723855062" expanded="true" signature="1070:1095" placeholder="..." />
-            <marker date="1366723855062" expanded="true" signature="1144:1169" placeholder="..." />
-            <marker date="1366723855062" expanded="true" signature="1219:1244" placeholder="..." />
-            <marker date="1366723855062" expanded="true" signature="1299:1324" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="18" selection-start="317" selection-end="317" vertical-scroll-proportion="0.35789475">
+        <state line="193" column="18" selection-start="3286" selection-end="3300" vertical-scroll-proportion="-6.645161">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="494" column="0" selection-start="13710" selection-end="13710" vertical-scroll-proportion="0.19565217">
+        <state line="557" column="38" selection-start="15432" selection-end="15432" vertical-scroll-proportion="-20.807692">
           <folding>
             <element signature="e#42#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="11" selection-start="1430" selection-end="1430" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="36.307693">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="5" selection-start="2671" selection-end="2671" vertical-scroll-proportion="-20.807692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.84615386">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="29" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="46" selection-start="644" selection-end="651" vertical-scroll-proportion="0.3808554">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1366782326564" expanded="true" signature="940:965" placeholder="..." />
+            <marker date="1366782326564" expanded="true" signature="1108:1150" placeholder="..." />
+            <marker date="1366782326564" expanded="true" signature="1125:1150" placeholder="..." />
+            <marker date="1366782326564" expanded="true" signature="1199:1224" placeholder="..." />
+            <marker date="1366782326564" expanded="true" signature="1274:1299" placeholder="..." />
+            <marker date="1366782326564" expanded="true" signature="1354:1379" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/config/router.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="25" selection-start="1220" selection-end="1224" vertical-scroll-proportion="-7.3076925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/config/module.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="9" selection-start="2642" selection-end="2642" vertical-scroll-proportion="4.834123">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="10" selection-start="3439" selection-end="3439" vertical-scroll-proportion="-23.346153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/application/orders/user.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="25" selection-start="671" selection-end="671" vertical-scroll-proportion="-10.461538">
+          <folding>
+            <marker date="1366784456816" expanded="true" signature="923:1625" placeholder="..." />
+            <marker date="1366784456816" expanded="true" signature="955:1599" placeholder="..." />
+            <marker date="1366784456816" expanded="true" signature="988:1566" placeholder="..." />
+            <marker date="1366784456816" expanded="false" signature="1033:1080" placeholder="..." />
+            <marker date="1366784456816" expanded="true" signature="1081:1190" placeholder="..." />
+            <marker date="1366784456816" expanded="true" signature="1236:1331" placeholder="..." />
+            <marker date="1366784456816" expanded="true" signature="1378:1532" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/application/orders/dish.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="10" selection-start="645" selection-end="645" vertical-scroll-proportion="0.32818532">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1366784461552" expanded="true" signature="928:1630" placeholder="..." />
+            <marker date="1366784461552" expanded="true" signature="960:1604" placeholder="..." />
+            <marker date="1366784461552" expanded="true" signature="993:1571" placeholder="..." />
+            <marker date="1366784461552" expanded="false" signature="1038:1085" placeholder="..." />
+            <marker date="1366784461552" expanded="true" signature="1086:1195" placeholder="..." />
+            <marker date="1366784461552" expanded="true" signature="1241:1336" placeholder="..." />
+            <marker date="1366784461552" expanded="true" signature="1383:1537" placeholder="..." />
           </folding>
         </state>
       </provider>

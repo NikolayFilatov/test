@@ -37,13 +37,37 @@ return [
             'orders' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => '/orders[/:timestamp]',
+                    'route' => '/orders',
                     'defaults' => [
                         'controller' => 'Application\Controller\Orders',
                         'action'     => 'index',
                     ],
                 ],
                 'may_terminate' => true,
+                'child_routes' => [
+                    'dish' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/dish[/:timestamp]',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Orders',
+                                'action'     => 'dish',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'user' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/user[/:timestamp]',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Orders',
+                                'action'     => 'user',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                ],
             ],
             'catalog' => [
                 'type' => 'Segment',
@@ -220,6 +244,17 @@ return [
                             'defaults' => [
                                 'controller' => 'Application\Controller\Api',
                                 'action'     => 'updateUserBack',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'updateUserName' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/updateUserName',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'updateUserName',
                             ],
                         ],
                         'may_terminate' => true,

@@ -3,7 +3,7 @@
 <style type="text/css">
     #picker, #picker-color { width: 150px; height: 150px; cursor: crosshair }
     #slide, #slide-color { width: 30px; height: 150px; cursor: crosshair; }
-    #example { padding:5px 20px; font-size: 18px; font-weight: bold; float:left; border-radius: 12px; }
+    #example { width:300px; text-align: center; outline: none; padding:5px 20px; font-size: 18px; font-weight: bold; border-radius: 12px; }
     #slide-color{ margin-left:20px; }
 </style>
 
@@ -11,11 +11,11 @@
 
     <table>
         <tr>
-            <td colspan="3">
-                <div id="example" style="background-color: <?=$this->zfcUserIdentity()->getBackcolor()?>; color: <?=$this->zfcUserIdentity()->getColor()?>"><?=$this->zfcUserDisplayName() ?>!</div>
-            </td>
-            <td>
-                <div id="mess">Данные сохранены</div>
+            <td colspan="4" align=center>
+                <input type="text" id="example" value="<?=$this->zfcUserDisplayName()?>"
+                       style="
+                           background-color: <?=$this->zfcUserIdentity()->getBackcolor()?>;
+                           color: <?=$this->zfcUserIdentity()->getColor()?>" />
             </td>
         </tr>
         <tr>
@@ -37,10 +37,6 @@
             </td>
         </tr>
     </table>
-    <div id="asd">hex</div>
-
     <script type="text/javascript">
     </script>
-
-
 </div>

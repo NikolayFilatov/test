@@ -41,4 +41,17 @@ $(document).ready(function(){
             });
         });
 
+    $('#example').blur(function(){
+        data = {'name': $(this).val()};
+
+        xhttp = $.ajax({
+            type: "POST",
+            url: "/api/updateUserName",
+            data: data,
+            async: true,
+            success: function(e){
+
+            }
+        });
+    })
 });

@@ -1,0 +1,46 @@
+<?php $this->headScript()->appendFile('/js/orders.js'); ?>
+<div class="dcontent">
+    <div style="margin-left: 10px;">
+        <?php foreach($this->dates as $date):?>
+            <a href="/orders/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
+        <?php endforeach;?>
+    </div>
+    <div class="top">
+        <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">
+            Всего заказов - <?=count($this->orders)?>
+        </div>
+        <div class="label fl_l" style="padding-left: 10px;" id="<?=$this->dateNow->getTimestamp()?>">
+            на сумму - <?=$this->total?>
+        </div>
+
+    </div>
+    <a href="/orders/user" class="button1">По сотрудникам</a>
+    <?php if(count($this->orders) != 0):?>
+        <ul>
+            <?php
+            $group = "";
+            foreach($this->orders as $order)
+            {
+                echo "
+                    <li class='li_dish'>
+                        <table>
+                            <tr>
+                                <td style='width:490px; padding-left:10px; font-size: 14px'>
+                                    {$order->getUser()->getUsername()}
+                                </td>
+                                <td width=30>
+                                    {$order->getTotal()}
+                                </td>
+                                <td width=140>
+                                    <button class='button3 fl_r btt_add' id='{$order->getId()}'>Посмотреть</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>";
+            }
+            ?>
+        </ul>
+    <?php else:?>
+        <div>На этот день заказов пока нет</div>
+    <?php endif;?>
+</div>

@@ -534,4 +534,34 @@ class ApiController extends AbstractActionController
             return $vm;
         }
     }
+
+    public function updateUserNameAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $user = $this->zfcUserAuthentication()->getIdentity();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $name = urldecode($p[0]);
+
+            $user->setUsername($name);
+            $userService = new UserService($em);
+            $userService->save($user);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
 }

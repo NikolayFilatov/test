@@ -123,6 +123,18 @@ class OrderService extends EntityRepository {
         return $this;
     }
 
+    public function getTotal($date)
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+        $orders = $repo->findBy(['date' => $date]);
+
+        $result = 0;
+        foreach($orders as $order)
+        {
+            $result = $result + $order->getTotal();
+        }
+        return $result;
+    }
 
 
 }

@@ -6,8 +6,15 @@
         <?php endforeach;?>
     </div>
     <div class="top">
-        <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">Всего заказов - <?=count($this->orders)?></div>
+        <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">
+            Всего заказов - <?=count($this->orders)?>
+        </div>
+        <div class="label fl_l" style="padding-left: 10px;" id="<?=$this->dateNow->getTimestamp()?>">
+            на сумму - <?=$this->total?>
+        </div>
+
     </div>
+    <a href="/orders/dish" class="button1">По блюдам</a>
     <?php if(count($this->orders) != 0):?>
         <ul>
             <?php
@@ -34,6 +41,6 @@
             ?>
         </ul>
     <?php else:?>
-        <div>На этот день меню не сформировано</div>
+        <div>На этот день заказов пока нет</div>
     <?php endif;?>
 </div>
