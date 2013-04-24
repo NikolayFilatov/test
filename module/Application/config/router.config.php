@@ -270,6 +270,28 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
+                    'closeOrder' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/closeOrder',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'closeOrder',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'openOrder' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/openOrder',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'openOrder',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
 				],
 			],
 			

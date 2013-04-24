@@ -1,4 +1,8 @@
 <?php $this->headScript()->appendFile('/js/orders.js'); ?>
+<?php
+    $style1 = $this->class == 'li_group_close' ? 'style="display: none;"' : '';
+    $style2 = $this->class == 'li_group_close' ? '' : 'style="display: none;"';
+?>
 <div class="dcontent">
     <div style="margin-left: 10px;">
         <?php foreach($this->dates as $date):?>
@@ -13,12 +17,12 @@
             на сумму - <?=$this->total?>
         </div>
         <a href="/orders/user/<?=$this->dateNow->getTimestamp()?>" class="button1 fl_r">По сотрудникам</a>
-        <a href="#null" id="<?=$this->dateNow->getTimestamp()?>" class="button2 fl_r close_order">Закрыть заказ</a>
-        <a href="#null" id="<?=$this->dateNow->getTimestamp()?>" class="button3 fl_r open_order" style="display:none">Открыть заказ</a>
+        <a href="#null" id="<?=$this->dateNow->getTimestamp()?>" class="button2 fl_r close_order" <?=$style1?>>Закрыть заказ</a>
+        <a href="#null" id="<?=$this->dateNow->getTimestamp()?>" class="button3 fl_r open_order" <?=$style2?>>Открыть заказ</a>
     </div>
     <?php if(count($this->items) != 0):?>
         <ul>
-            <li class='li_group p10'>
+            <li class='<?=$this->class?> p10'>
                 <table>
                     <tr>
                         <td style='width:490px; padding-left:10px;'>

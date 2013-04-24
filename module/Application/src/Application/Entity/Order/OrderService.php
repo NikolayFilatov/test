@@ -176,4 +176,30 @@ class OrderService extends EntityRepository {
 
         return $return;
     }
+
+    public function closeOrders($date)
+    {
+        //получим все заказы за эту дату
+        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+        $orders = $repo->findBy(['date' => $date]);
+
+        foreach($orders as $order)
+        {
+            $order->setStatus('close');
+            $this->save($order);
+        }
+    }
+
+    public function openOrders($date)
+    {
+        //получим все заказы за эту дату
+        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+        $orders = $repo->findBy(['date' => $date]);
+
+        foreach($orders as $order)
+        {
+            $order->setStatus('open');
+            $this->save($order);
+        }
+    }
 }

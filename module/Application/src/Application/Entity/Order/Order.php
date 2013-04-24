@@ -54,11 +54,12 @@ class Order extends Entity {
     protected $user;
 
     /**
-     * Status
-     * @ORM\Column(type="string", length=10)
-     * @var string
+     * OrderStorage
+     *
+     * @ORM\ManyToOne(targetEntity="\Application\Entity\Order\OrderStorage")
+     * @var \Application\Entity\Order\OrderStorage
      */
-    protected $status;
+    protected $storage;
 
     /**
      * Construct

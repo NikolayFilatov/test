@@ -119,6 +119,8 @@ class OrdersController extends AbstractActionController
 
         $orderService = new OrderService($em);
 
+        $class = "li_group";
+
         $items = $orderService->findItems([
             'date' => $dateNow,
         ]);
@@ -130,6 +132,7 @@ class OrdersController extends AbstractActionController
             'dates' => $dates,
             'dateNow' => $dateNow,
             'total' => $total,
+            'class' => $class,
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/orders/dish');

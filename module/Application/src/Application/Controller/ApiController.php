@@ -564,4 +564,71 @@ class ApiController extends AbstractActionController
             return $vm;
         }
     }
+
+    public function closeOrderAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $user = $this->zfcUserAuthentication()->getIdentity();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $timestamp = $p[0];
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            $orderService = new OrderService($em);
+            $orderService->closeOrders($date);
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+        }
+    }
+
+    public function openOrderAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $user = $this->zfcUserAuthentication()->getIdentity();
+
+            $param = $this->getRequest()->getContent();
+            $param = explode("&", $param);
+            $p = [];
+            foreach ($param as $par)
+            {
+                $par = explode("=", $par);
+                $p[] = $par[1];
+            }
+            $timestamp = $p[0];
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            $storageService = new OrderStorageService($em);
+            
+
+            $result = [
+                'response' => "ok",
+            ];
+            $vm = new JsonModel($result);
+            return $vm;
+
+        }
+    }
+
+
 }
