@@ -20,46 +20,49 @@
             $group = "";
             foreach($this->menus as $menu)
             {
-                $dg = $menu->getDish()->getGroup()->getName();
-                if ($group != $dg)
-                {
-                    echo "<li class='li_group p10'>$dg";
-                }
+                if (!$menu->isDeleted()){
+                    $dg = $menu->getDish()->getGroup()->getName();
+                    if ($group != $dg)
+                    {
+                        echo "<li class='li_group p10'>$dg";
+                    }
 
-                $count = 0;
-                $items = [];
-                if($this->order)
-                    $items = $this->order->getItem();
-                foreach($items as $item)
-                {
-                    if ($item->getDish()->getId() == $menu->getDish()->getId())
-                        $count = $item->getCount();
-                }
+                    $count = 0;
+                    $items = [];
+                    if($this->order)
+                        $items = $this->order->getItem();
 
-                echo "
-                    <li class='li_dish'>
-                        <table>
-                            <tr>
-                                <td style='width:435px; padding-left:10px; font-size: 14px'>
-                                    {$menu->getDish()->getName()}
-                                </td>
-                                <td width=50>
-                                    {$menu->getDish()->getCost()}
-                                </td>
-                                <td width=30>
-                                    <div class='count'>$count</div>
-                                </td>
-                                <td width=140>
-                                    <button class='button3 fl_r btt_add' id='{$menu->getDish()->getId()}'>Добавить</button>
-                                    <button class='button2 fl_r btt_remove' id='{$menu->getDish()->getId()}'>Убрать</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </li>";
-                if ($group != $dg)
-                {
-                    $group = $dg;
-                    echo "</li>";
+                    foreach($items as $item)
+                    {
+                        if ($item->getDish()->getId() == $menu->getDish()->getId())
+                            $count = $item->getCount();
+                    }
+
+                    echo "
+                        <li class='li_dish'>
+                            <table>
+                                <tr>
+                                    <td style='width:435px; padding-left:10px; font-size: 14px'>
+                                        {$menu->getDish()->getName()}
+                                    </td>
+                                    <td width=50>
+                                        {$menu->getDish()->getCost()}
+                                    </td>
+                                    <td width=30>
+                                        <div class='count'>$count</div>
+                                    </td>
+                                    <td width=140>
+                                        <button class='button3 fl_r btt_add' id='{$menu->getDish()->getId()}'>Добавить</button>
+                                        <button class='button2 fl_r btt_remove' id='{$menu->getDish()->getId()}'>Убрать</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>";
+                    if ($group != $dg)
+                    {
+                        $group = $dg;
+                        echo "</li>";
+                    }
                 }
             }
             ?>

@@ -30,6 +30,7 @@ return [
             'Application\Controller\Orders' => 'Application\Controller\OrdersController',
             'Application\Controller\Catalog' => 'Application\Controller\CatalogController',
             'Application\Controller\Order' => 'Application\Controller\OrderController',
+            'Application\Controller\Eating' => 'Application\Controller\EatingController',
             'Application\Controller\Api' => 'Application\Controller\ApiController',
         ],
     ],

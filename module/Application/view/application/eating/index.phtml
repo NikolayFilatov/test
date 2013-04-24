@@ -1,0 +1,40 @@
+<?php $this->headScript()->appendFile('/js/eating.js'); ?>
+<div class="dcontent">
+    <div style="margin-left: 10px;">
+        <?php foreach($this->dates as $date):?>
+            <a href="/eating/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
+        <?php endforeach;?>
+    </div>
+    <div class="top">
+        <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">
+            Всего заказов - <?=count($this->orders)?>
+        </div>
+    </div>
+    <?php if(count($this->orders) != 0):?>
+        <?php foreach($this->orders as $order): ?>
+            <table class="t_print">
+                <tr>
+                    <td colspan="2" class="t_capt" style="
+                        background-color: <?=$order->getUser()->getBackcolor()?>;
+                        color: <?=$order->getUser()->getColor()?>;">
+                        <b><?=$order->getUser()->getUsername()?></b>
+                    </td>
+                </tr>
+                <?php $items = $order->getItem();?>
+                <?php foreach($items as $item):?>
+                    <tr>
+                        <td class="t_val">
+                            <?=$item->getDish()->getName();?>
+                        </td>
+                        <td class="t_val">
+                            <?=$item->getCount();?>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+            </table>
+        <?php endforeach;?>
+        <div class="clearfloat"></div>
+    <?php else:?>
+        <div>На этот день заказов пока нет</div>
+    <?php endif;?>
+</div>

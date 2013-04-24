@@ -2,6 +2,7 @@
 
 namespace Application\Controller;
 
+use Application\Entity\Order\OrderItemService;
 use Application\Entity\Order\OrderService;
 use Application\Entity\User\User;
 
@@ -117,14 +118,15 @@ class OrdersController extends AbstractActionController
         }
 
         $orderService = new OrderService($em);
-        $orders = $orderService->findOrder([
+
+        $items = $orderService->findItems([
             'date' => $dateNow,
         ]);
 
         $total = $orderService->getTotal($dateNow);
 
         $response = [
-            'orders' => $orders,
+            'items' => $items,
             'dates' => $dates,
             'dateNow' => $dateNow,
             'total' => $total,

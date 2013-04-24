@@ -2,7 +2,7 @@
 <div class="dcontent">
     <div style="margin-left: 10px;">
         <?php foreach($this->dates as $date):?>
-            <a href="/orders/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
+            <a href="/orders/user/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
         <?php endforeach;?>
     </div>
     <div class="top">
@@ -12,27 +12,35 @@
         <div class="label fl_l" style="padding-left: 10px;" id="<?=$this->dateNow->getTimestamp()?>">
             на сумму - <?=$this->total?>
         </div>
-
+        <a href="/orders/dish/<?=$this->dateNow->getTimestamp()?>" class="button1 fl_r">По блюдам</a>
     </div>
-    <a href="/orders/dish" class="button1">По блюдам</a>
     <?php if(count($this->orders) != 0):?>
         <ul>
+            <li class='li_group p10'>
+                <table>
+                    <tr>
+                        <td style='width:530px; padding-left:10px;'>
+                            Сотрудник
+                        </td>
+                        <td width=30>
+                            Стоимость
+                        </td>
+                    </tr>
+                </table>
+            </li>
             <?php
             $group = "";
             foreach($this->orders as $order)
             {
                 echo "
-                    <li class='li_dish'>
+                    <li class='li_dish p10'>
                         <table>
                             <tr>
-                                <td style='width:490px; padding-left:10px; font-size: 14px'>
+                                <td style='width:530px; padding-left:10px; font-size: 14px'>
                                     {$order->getUser()->getUsername()}
                                 </td>
                                 <td width=30>
                                     {$order->getTotal()}
-                                </td>
-                                <td width=140>
-                                    <button class='button3 fl_r btt_add' id='{$order->getId()}'>Посмотреть</button>
                                 </td>
                             </tr>
                         </table>

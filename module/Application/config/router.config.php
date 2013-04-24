@@ -91,6 +91,17 @@ return [
                 ],
                 'may_terminate' => true,
             ],
+            'eating' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/eating[/:timestamp]',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Eating',
+                        'action'     => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
 			/*
 			 * API Controllers
 			*/

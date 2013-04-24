@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $('#l_catalog').addClass('button11');
 
     $('.li_dish_deleted').css('display', 'none');
 

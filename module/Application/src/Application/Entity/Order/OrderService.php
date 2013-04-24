@@ -136,5 +136,44 @@ class OrderService extends EntityRepository {
         return $result;
     }
 
+    public function findItems($data)
+    {
+        //получим все заказы за эту дату
+        $repo = $this->_em->getRepository('\Application\Entity\Order\Order');
+        $orders = $repo->findBy($data);
 
+        $result = [];
+        $count = [];
+        $cost = [];
+        //получим все item по полученным заказам
+        foreach($orders as $order)
+        {
+            $items = $order->getItem();
+            foreach ($items as $item)
+            {
+                $nameItem = $item->getDish()->getName();
+                $c = $item->getDish()->getCost();
+                $key = array_search($nameItem, $result);
+                if($key === false)
+                {
+                    $count[] = $item->getCount();
+                    $result[] = $nameItem;
+                    $cost[] = $c;
+                } else {
+                    $count[$key] = $count[$key] + $item->getCount();
+                }
+            }
+        }
+
+        $return = [];
+        for($i = 0; $i < count($result); $i++)
+        {
+            $ret['dish'] = $result[$i];
+            $ret['count'] = $count[$i];
+            $ret['cost'] = $cost[$i];
+            $return[] = $ret;
+        }
+
+        return $return;
+    }
 }

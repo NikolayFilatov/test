@@ -2,37 +2,59 @@
 <div class="dcontent">
     <div style="margin-left: 10px;">
         <?php foreach($this->dates as $date):?>
-            <a href="/orders/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
+            <a href="/orders/dish/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
         <?php endforeach;?>
     </div>
     <div class="top">
         <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>">
-            Всего заказов - <?=count($this->orders)?>
+            Всего позиций - <?=count($this->items)?>
         </div>
         <div class="label fl_l" style="padding-left: 10px;" id="<?=$this->dateNow->getTimestamp()?>">
             на сумму - <?=$this->total?>
         </div>
-
+        <a href="/orders/user/<?=$this->dateNow->getTimestamp()?>" class="button1 fl_r">По сотрудникам</a>
+        <a href="#null" id="<?=$this->dateNow->getTimestamp()?>" class="button2 fl_r close_order">Закрыть заказ</a>
+        <a href="#null" id="<?=$this->dateNow->getTimestamp()?>" class="button3 fl_r open_order" style="display:none">Открыть заказ</a>
     </div>
-    <a href="/orders/user" class="button1">По сотрудникам</a>
-    <?php if(count($this->orders) != 0):?>
+    <?php if(count($this->items) != 0):?>
         <ul>
+            <li class='li_group p10'>
+                <table>
+                    <tr>
+                        <td style='width:490px; padding-left:10px;'>
+                            Список блюд
+                        </td>
+                        <td width=60>
+                            Цена
+                        </td>
+                        <td width=60>
+                            Кол-во
+                        </td>
+                        <td width=60>
+                            Сумма
+                        </td>
+                    </tr>
+                </table>
+            </li>
             <?php
             $group = "";
-            foreach($this->orders as $order)
+            foreach($this->items as $item)
             {
                 echo "
-                    <li class='li_dish'>
+                    <li class='li_dish p10'>
                         <table>
                             <tr>
                                 <td style='width:490px; padding-left:10px; font-size: 14px'>
-                                    {$order->getUser()->getUsername()}
+                                    {$item['dish']}
                                 </td>
-                                <td width=30>
-                                    {$order->getTotal()}
+                                <td width=60>
+                                    {$item['cost']}
                                 </td>
-                                <td width=140>
-                                    <button class='button3 fl_r btt_add' id='{$order->getId()}'>Посмотреть</button>
+                                <td width=60>
+                                    {$item['count']}
+                                </td>
+                                <td width=60>
+                                    " . $item['count'] * $item['cost'] . "
                                 </td>
                             </tr>
                         </table>

@@ -54,6 +54,13 @@ class Order extends Entity {
     protected $user;
 
     /**
+     * Status
+     * @ORM\Column(type="string", length=10)
+     * @var string
+     */
+    protected $status;
+
+    /**
      * Construct
      * Instantiates user entity.
      *

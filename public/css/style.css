@@ -236,6 +236,7 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
     border: solid 1px #3373c3;
     background-color: #0085d6;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-weight: bold;
 }
 .button2:hover {
     outline: none;
@@ -284,7 +285,7 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
 .a_fancy {
     width:202px;
 }
-.li_dish, .li_group, .li_add_group{
+.li_dish, .li_group, .li_group_close, .li_add_group{
     padding:0 3px;
     /*border-radius: 12px;*/
     background-color: #EEE;
@@ -304,6 +305,12 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
     margin:10px 3px 0;
     background-color: #BEB;
     border-radius: 12px 12px 0 0;
+}
+.li_group_close{
+    margin:10px 3px 0;
+    background-color: #ee9592;
+    border-radius: 12px 12px 0 0;
+    color:#fff;
 }
 .li_group .txt_group{
     font-weight: bold;
@@ -335,4 +342,19 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
     font-size: 14px;
     color:#087fCf;
     padding-top:10px;
+}
+.t_print {
+    width:320px;
+    float:left;
+    margin:5px 10px;
+    border:1px solid #777;
+}
+.t_capt{
+    padding:3px 7px;
+    font-size:14px;
+    border-bottom:1px solid #777;
+}
+.t_val{
+    padding:3px 7px;
+    font-size:13px;
 }
