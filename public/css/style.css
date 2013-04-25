@@ -223,13 +223,13 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
     text-decoration: none;
     background-color: #EEE;
 }
-.button11:hover {
-    outline: none;
-    color: #FFF;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border: solid 1px #48D;
-    background-color: #2AE;
-}
+/*.button11:hover {*/
+    /*outline: none;*/
+    /*color: #FFF;*/
+    /*box-shadow: 0 1px 3px rgba(0,0,0,0.1);*/
+    /*border: solid 1px #48D;*/
+    /*background-color: #2AE;*/
+/*}*/
 .button11 {
     text-decoration: none;
     color: #FFF;

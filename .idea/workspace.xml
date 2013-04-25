@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/Module.php" afterPath="$PROJECT_DIR$/module/Application/Module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/application/catalog/index.phtml" afterPath="$PROJECT_DIR$/module/Application/view/application/catalog/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" afterPath="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/config/router.config.php" afterPath="$PROJECT_DIR$/module/Application/config/router.config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -14,7 +15,7 @@
     <file path="/layout.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366868349707" ignored="false" />
     <file path="/style.css" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366877605031" ignored="false" />
     <file path="/index.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366877724135" ignored="false" />
-    <file path="/OrdersController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366876816846" ignored="false" />
+    <file path="/OrdersController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366878263737" ignored="false" />
     <file path="/Dish.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366611222571" ignored="false" />
     <file path="/ApiController.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366877702967" ignored="false" />
     <file path="/catalog.js" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366876578459" ignored="false" />
@@ -42,6 +43,7 @@
     <file path="/OrderStorage.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366871089121" ignored="false" />
     <file path="/OrderStorageService.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366873855915" ignored="false" />
     <file path="/test.phtml" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366806334816" ignored="false" />
+    <file path="/Module.php" changelist="c3dee05e-cfc6-4bf4-a39c-5cda7add5de5" time="1366878473231" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,10 +65,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.49694186">
       <split-first>
         <leaf>
-          <file leaf-file-name="ApiController.php" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="ApiController.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="218" column="0" selection-start="6270" selection-end="6270" vertical-scroll-proportion="0.643038">
+                <state line="211" column="5" selection-start="6125" selection-end="6125" vertical-scroll-proportion="-14.961538">
                   <folding />
                 </state>
               </provider>
@@ -130,10 +132,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="OrdersController.php" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="OrdersController.php" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="148" column="29" selection-start="4052" selection-end="4052" vertical-scroll-proportion="-17.461538">
+                <state line="42" column="36" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.74388677">
                   <folding />
                 </state>
               </provider>
@@ -142,7 +144,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="vertical" split-proportion="0.7628866">
+        <splitter split-orientation="vertical" split-proportion="0.4071511">
           <split-first>
             <leaf>
               <file leaf-file-name="user.phtml" pinned="false" current="false" current-in-tab="false">
@@ -224,10 +226,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="layout.phtml" pinned="false" current="false" current-in-tab="false">
+              <file leaf-file-name="layout.phtml" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/module/Application/view/layout/layout.phtml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="34" column="18" selection-start="1849" selection-end="1849" vertical-scroll-proportion="-22.23077">
+                    <state line="39" column="29" selection-start="2098" selection-end="2098" vertical-scroll-proportion="1.167939">
                       <folding />
                     </state>
                   </provider>
@@ -260,10 +262,10 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="true">
+              <file leaf-file-name="index.phtml" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/module/Application/view/application/catalog/index.phtml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="28" column="25" selection-start="1378" selection-end="1378" vertical-scroll-proportion="0.41754386">
+                    <state line="28" column="25" selection-start="1378" selection-end="1378" vertical-scroll-proportion="-9.153846">
                       <folding />
                     </state>
                   </provider>
@@ -273,19 +275,10 @@
           </split-first>
           <split-second>
             <leaf>
-              <file leaf-file-name="module.config.php" pinned="false" current="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/module/Application/config/module.config.php">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state line="71" column="29" selection-start="2829" selection-end="2829" vertical-scroll-proportion="-6.230769">
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/public/css/style.css">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="135" column="21" selection-start="2292" selection-end="2292" vertical-scroll-proportion="14.525316">
+                    <state line="227" column="19" selection-start="4063" selection-end="4063" vertical-scroll-proportion="0.41149426">
                       <folding />
                     </state>
                   </provider>
@@ -305,7 +298,7 @@
               <file leaf-file-name="router.config.php" pinned="false" current="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/module/Application/config/router.config.php">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state line="103" column="14" selection-start="3477" selection-end="3477" vertical-scroll-proportion="0.0">
+                    <state line="38" column="30" selection-start="881" selection-end="881" vertical-scroll-proportion="-0.8245614">
                       <folding />
                     </state>
                   </provider>
@@ -333,22 +326,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderService.php" />
-        <option value="$PROJECT_DIR$/module/Application/view/application/eating/index.phtml" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/OrderController.php" />
         <option value="$PROJECT_DIR$/module/Application/view/application/order/index.phtml" />
         <option value="$PROJECT_DIR$/module/Application/view/zfc-user/user/index.phtml" />
         <option value="$PROJECT_DIR$/module/Application/view/application/menu/index.phtml" />
-        <option value="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderStorage.php" />
         <option value="$PROJECT_DIR$/module/Application/view/application/orders/dish.phtml" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Entity/Order/OrderStorageService.php" />
         <option value="$PROJECT_DIR$/public/js/menu.js" />
         <option value="$PROJECT_DIR$/public/js/catalog.js" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php" />
         <option value="$PROJECT_DIR$/module/Application/view/application/catalog/index.phtml" />
+        <option value="$PROJECT_DIR$/module/Application/Module.php" />
+        <option value="$PROJECT_DIR$/module/Application/config/router.config.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php" />
+        <option value="$PROJECT_DIR$/module/Application/view/layout/layout.phtml" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -733,45 +726,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/Application/view/application/order/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="54" selection-start="3683" selection-end="3683" vertical-scroll-proportion="-11.423077">
-          <folding>
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1366867981149" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/orders.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="9" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/application/eating/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="61" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/application/orders/user.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="40" selection-start="848" selection-end="848" vertical-scroll-proportion="-0.65384614">
@@ -841,30 +795,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="29" selection-start="4052" selection-end="4052" vertical-scroll-proportion="-17.461538">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="21" selection-start="2292" selection-end="2292" vertical-scroll-proportion="14.525316">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/application/catalog/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="25" selection-start="1378" selection-end="1378" vertical-scroll-proportion="0.41754386">
+        <state line="28" column="25" selection-start="1378" selection-end="1378" vertical-scroll-proportion="-9.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/config/module.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="29" selection-start="2829" selection-end="2829" vertical-scroll-proportion="0.41379312">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="0" selection-start="6270" selection-end="6270" vertical-scroll-proportion="0.643038">
+        <state line="211" column="5" selection-start="6125" selection-end="6125" vertical-scroll-proportion="-14.961538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="7" selection-start="844" selection-end="844" vertical-scroll-proportion="0.02254642">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/config/router.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="30" selection-start="881" selection-end="881" vertical-scroll-proportion="-0.8245614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/layout/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="29" selection-start="2098" selection-end="2098" vertical-scroll-proportion="1.167939">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="19" selection-start="4063" selection-end="4063" vertical-scroll-proportion="0.41149426">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/OrdersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="36" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.74388677">
           <folding />
         </state>
       </provider>

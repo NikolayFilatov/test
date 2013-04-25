@@ -22,7 +22,7 @@ class Module
     {
         $e->getApplication()->getServiceManager()->get('translator');
         $eventManager        = $e->getApplication()->getEventManager();
-        
+
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
        
@@ -39,8 +39,6 @@ class Module
         Container::setDefaultManager($sessionManager);
         //event for set locale for traslator
         $eventManager->attach(MvcEvent::EVENT_DISPATCH, array($this, 'setLocale'));
-
-
 
         $events = $e->getApplication()->getEventManager()->getSharedManager();
         $events->attach('ZfcUser\Form\Register','init', function($e) {

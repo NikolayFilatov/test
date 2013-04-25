@@ -26,7 +26,7 @@ class OrdersController extends AbstractActionController
 
     public function indexAction()
     {
-        $this->redirect()->toRoute('orders/dish');
+        $this->redirect()->toRoute('allorder/dish');
     }
 
     public function userAction()

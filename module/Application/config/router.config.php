@@ -34,10 +34,10 @@ return [
 				],
 				'may_terminate' => true,
 			],
-            'orders' => [
-                'type' => 'Segment',
+            'allorder' => [
+                'type' => 'Literal',
                 'options' => [
-                    'route' => '/orders',
+                    'route' => '/allorder',
                     'defaults' => [
                         'controller' => 'Application\Controller\Orders',
                         'action'     => 'index',
