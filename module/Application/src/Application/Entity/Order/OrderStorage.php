@@ -75,4 +75,5 @@ class OrderStorage extends Entity {
     {
         return $this->order->count();
     }
+
 }

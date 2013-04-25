@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `dish` (
 DELETE FROM `dish`;
 /*!40000 ALTER TABLE `dish` DISABLE KEYS */;
 INSERT INTO `dish` (`id`, `name`, `group_id`, `created`, `deleted`) VALUES
-	(31, 'Суп грибной', 9, '2013-04-18 12:30:39', 0),
+	(31, 'Суп грибной 1/2', 9, '2013-04-18 12:30:39', 0),
 	(32, 'Щи свежие', 9, '2013-04-18 12:30:40', 0),
 	(33, 'Суп гороховый', 9, '2013-04-18 12:30:40', 0),
 	(34, 'Окрошка', 9, '2013-04-18 12:30:40', 0),
@@ -88,9 +88,9 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `deleted` int(10) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `dish_id` (`dish_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=257 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.menu: ~83 rows (приблизительно)
+-- Дамп данных таблицы bludo.menu: ~122 rows (приблизительно)
 DELETE FROM `menu`;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`id`, `date`, `dish_id`, `deleted`) VALUES
@@ -136,27 +136,6 @@ INSERT INTO `menu` (`id`, `date`, `dish_id`, `deleted`) VALUES
 	(133, '2013-04-22 00:00:00', 55, 0),
 	(134, '2013-04-22 00:00:00', 57, 0),
 	(135, '2013-04-22 00:00:00', 58, 0),
-	(136, '2013-04-23 00:00:00', 31, 0),
-	(137, '2013-04-23 00:00:00', 32, 0),
-	(138, '2013-04-23 00:00:00', 33, 1),
-	(139, '2013-04-23 00:00:00', 34, 0),
-	(140, '2013-04-23 00:00:00', 35, 0),
-	(141, '2013-04-23 00:00:00', 36, 0),
-	(142, '2013-04-23 00:00:00', 39, 0),
-	(143, '2013-04-23 00:00:00', 40, 0),
-	(144, '2013-04-23 00:00:00', 46, 0),
-	(145, '2013-04-23 00:00:00', 47, 0),
-	(146, '2013-04-23 00:00:00', 48, 0),
-	(147, '2013-04-23 00:00:00', 49, 0),
-	(148, '2013-04-23 00:00:00', 50, 0),
-	(149, '2013-04-23 00:00:00', 59, 0),
-	(150, '2013-04-23 00:00:00', 51, 0),
-	(151, '2013-04-23 00:00:00', 52, 0),
-	(152, '2013-04-23 00:00:00', 53, 0),
-	(153, '2013-04-23 00:00:00', 54, 0),
-	(154, '2013-04-23 00:00:00', 55, 0),
-	(155, '2013-04-23 00:00:00', 57, 0),
-	(156, '2013-04-23 00:00:00', 58, 0),
 	(157, '2013-04-24 00:00:00', 31, 0),
 	(158, '2013-04-24 00:00:00', 32, 0),
 	(159, '2013-04-24 00:00:00', 33, 0),
@@ -176,7 +155,67 @@ INSERT INTO `menu` (`id`, `date`, `dish_id`, `deleted`) VALUES
 	(173, '2013-04-24 00:00:00', 54, 0),
 	(174, '2013-04-24 00:00:00', 55, 0),
 	(175, '2013-04-24 00:00:00', 57, 0),
-	(176, '2013-04-24 00:00:00', 58, 0);
+	(176, '2013-04-24 00:00:00', 58, 0),
+	(197, '1970-01-01 01:00:00', 31, 0),
+	(198, '1970-01-01 01:00:00', 32, 0),
+	(199, '1970-01-01 01:00:00', 33, 0),
+	(200, '1970-01-01 01:00:00', 34, 0),
+	(201, '1970-01-01 01:00:00', 35, 0),
+	(202, '1970-01-01 01:00:00', 36, 0),
+	(203, '1970-01-01 01:00:00', 39, 0),
+	(204, '1970-01-01 01:00:00', 40, 0),
+	(205, '1970-01-01 01:00:00', 46, 0),
+	(206, '1970-01-01 01:00:00', 47, 0),
+	(207, '1970-01-01 01:00:00', 48, 0),
+	(208, '1970-01-01 01:00:00', 49, 0),
+	(209, '1970-01-01 01:00:00', 50, 0),
+	(210, '1970-01-01 01:00:00', 51, 0),
+	(211, '1970-01-01 01:00:00', 52, 0),
+	(212, '1970-01-01 01:00:00', 53, 0),
+	(213, '1970-01-01 01:00:00', 54, 0),
+	(214, '1970-01-01 01:00:00', 55, 0),
+	(215, '1970-01-01 01:00:00', 57, 0),
+	(216, '1970-01-01 01:00:00', 58, 0),
+	(217, '2013-04-23 00:00:00', 31, 0),
+	(218, '2013-04-23 00:00:00', 32, 0),
+	(219, '2013-04-23 00:00:00', 33, 0),
+	(220, '2013-04-23 00:00:00', 34, 0),
+	(221, '2013-04-23 00:00:00', 35, 0),
+	(222, '2013-04-23 00:00:00', 36, 0),
+	(223, '2013-04-23 00:00:00', 39, 0),
+	(224, '2013-04-23 00:00:00', 40, 0),
+	(225, '2013-04-23 00:00:00', 46, 0),
+	(226, '2013-04-23 00:00:00', 47, 0),
+	(227, '2013-04-23 00:00:00', 48, 0),
+	(228, '2013-04-23 00:00:00', 49, 0),
+	(229, '2013-04-23 00:00:00', 50, 0),
+	(230, '2013-04-23 00:00:00', 51, 0),
+	(231, '2013-04-23 00:00:00', 52, 0),
+	(232, '2013-04-23 00:00:00', 53, 0),
+	(233, '2013-04-23 00:00:00', 54, 0),
+	(234, '2013-04-23 00:00:00', 55, 0),
+	(235, '2013-04-23 00:00:00', 57, 0),
+	(236, '2013-04-23 00:00:00', 58, 0),
+	(237, '2013-04-25 00:00:00', 31, 0),
+	(238, '2013-04-25 00:00:00', 32, 1),
+	(239, '2013-04-25 00:00:00', 33, 1),
+	(240, '2013-04-25 00:00:00', 34, 0),
+	(241, '2013-04-25 00:00:00', 35, 0),
+	(242, '2013-04-25 00:00:00', 36, 0),
+	(243, '2013-04-25 00:00:00', 39, 0),
+	(244, '2013-04-25 00:00:00', 40, 1),
+	(245, '2013-04-25 00:00:00', 46, 0),
+	(246, '2013-04-25 00:00:00', 47, 1),
+	(247, '2013-04-25 00:00:00', 48, 1),
+	(248, '2013-04-25 00:00:00', 49, 0),
+	(249, '2013-04-25 00:00:00', 50, 0),
+	(250, '2013-04-25 00:00:00', 51, 1),
+	(251, '2013-04-25 00:00:00', 52, 0),
+	(252, '2013-04-25 00:00:00', 53, 0),
+	(253, '2013-04-25 00:00:00', 54, 0),
+	(254, '2013-04-25 00:00:00', 55, 1),
+	(255, '2013-04-25 00:00:00', 57, 1),
+	(256, '2013-04-25 00:00:00', 58, 1);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
 
@@ -185,16 +224,20 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` int(10) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
+  `storage_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  KEY `user_id` (`user_id`),
+  KEY `storage_id` (`storage_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.orders: ~3 rows (приблизительно)
+-- Дамп данных таблицы bludo.orders: ~4 rows (приблизительно)
 DELETE FROM `orders`;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` (`id`, `user_id`, `date`) VALUES
-	(4, 1, '2013-04-23 00:00:00');
+INSERT INTO `orders` (`id`, `user_id`, `storage_id`) VALUES
+	(13, 1, 2),
+	(14, 2, 2),
+	(15, 2, 3),
+	(16, 3, 2);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 
@@ -208,15 +251,44 @@ CREATE TABLE IF NOT EXISTS `order_item` (
   PRIMARY KEY (`id`),
   KEY `menu_id` (`dish_id`),
   KEY `order_id` (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.order_item: ~4 rows (приблизительно)
+-- Дамп данных таблицы bludo.order_item: ~12 rows (приблизительно)
 DELETE FROM `order_item`;
 /*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
 INSERT INTO `order_item` (`id`, `dish_id`, `order_id`, `count`) VALUES
-	(9, 34, 4, 1),
-	(10, 33, 4, 1);
+	(41, 31, 13, 1),
+	(44, 36, 13, 1),
+	(45, 36, 14, 1),
+	(46, 33, 14, 1),
+	(47, 52, 14, 1),
+	(48, 33, 15, 1),
+	(49, 48, 15, 1),
+	(50, 49, 15, 1),
+	(51, 55, 15, 1),
+	(52, 55, 16, 1),
+	(53, 35, 16, 1),
+	(54, 54, 16, 1);
 /*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица bludo.order_storage
+DROP TABLE IF EXISTS `order_storage`;
+CREATE TABLE IF NOT EXISTS `order_storage` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `date` datetime DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `date` (`date`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы bludo.order_storage: ~2 rows (приблизительно)
+DELETE FROM `order_storage`;
+/*!40000 ALTER TABLE `order_storage` DISABLE KEYS */;
+INSERT INTO `order_storage` (`id`, `date`, `status`) VALUES
+	(2, '2013-04-24 00:00:00', 'close'),
+	(3, '2013-04-23 00:00:00', 'close');
+/*!40000 ALTER TABLE `order_storage` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица bludo.price
@@ -268,15 +340,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(128) DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
+  `backcolor` varchar(7) DEFAULT 'FFFFFF',
+  `color` varchar(7) DEFAULT '000000',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы bludo.user: ~2 rows (приблизительно)
+-- Дамп данных таблицы bludo.user: ~4 rows (приблизительно)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `state`, `created`) VALUES
-	(1, NULL, '2519483@gmail.com', '$2y$14$y8bIOoBBFJ.NFbQN9lqMAeKA3dzWQDerlWCA60UheTJn4ZETEYfNW', NULL, '2013-04-18 07:15:34'),
-	(2, NULL, '333@333.ru', '$2y$14$KIPU1NpIjk06G4xL9BJ4y.1tDnaTLHKjim8z9OnediLU15XOtr75u', NULL, '2013-04-18 13:23:21');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `state`, `created`, `backcolor`, `color`) VALUES
+	(1, 'Николай Филатов', '2519483@gmail.com', '$2y$14$y8bIOoBBFJ.NFbQN9lqMAeKA3dzWQDerlWCA60UheTJn4ZETEYfNW', NULL, '2013-04-18 07:15:34', '#3b8cd9', '#fdf6f6'),
+	(2, 'Три три три', '333@333.ru', '$2y$14$KIPU1NpIjk06G4xL9BJ4y.1tDnaTLHKjim8z9OnediLU15XOtr75u', NULL, '2013-04-18 13:23:21', '#26ff00', '#ff4900'),
+	(3, 'Иванов Иван', '111@111.ru', '$2y$14$njqvOyBndlW4Hd6cJMP4OedTpUpa/AG3Cl9wRvEd3s6kVy2E9RDdu', NULL, '2013-04-23 11:33:57', '#b56eb7', '#0a0000'),
+	(4, 'Двойки', '222@222.ru', '$2y$14$Fodszef3Q1/T15ub1Ye3g.nQH/jLE7Ud0zM2i3BSJE3kuuVGtkM.O', NULL, '2013-04-23 11:38:52', '#53d0f9', '#2c54c0');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

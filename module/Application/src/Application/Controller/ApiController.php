@@ -35,18 +35,10 @@ class ApiController extends AbstractActionController
 		{
 			$em = $this->getEntityManager();
 
-			$param = $this->getRequest()->getContent();
-			$param = explode("&", $param);
-			$p = [];
-			foreach ($param as $par)
-			{
-				$par = explode("=", $par);
-				$p[] = $par[1];
-			}
-			
-			$id = $p[0];
-            $data = urldecode($p[1]);
-            $type = $p[2];
+            $param = $this->getRequest()->getPost();
+			$id = $param['id'];
+            $data = $param['data'];
+            $type = $param['type'];
 
             switch($type)
             {
@@ -93,16 +85,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-
-            $id = $p[0];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
 
             $dishService = new DishService($em);
             $dish = $dishService->getDishById($id);
@@ -123,16 +107,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-
-            $id = $p[0];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
 
             $dishService = new DishService($em);
             $dish = $dishService->getDishById($id);
@@ -153,15 +129,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $id = $p[0];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
 
             $dishGroupService = new DishGroupService($em);
             $group = $dishGroupService->getGroupById($id);
@@ -181,15 +150,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $name = urldecode($p[0]);
+            $param = $this->getRequest()->getPost();
+            $name = $param['name'];
 
             $groupService = new DishGroupService($em);
             $groupService->createDishGroup(['name' => $name]);
@@ -208,15 +170,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $id = $p[0];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
 
             $groupService = new DishGroupService($em);
             $group = $groupService->getGroupById($id);
@@ -241,16 +196,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $timestamp = $p[0];
-
+            $param = $this->getRequest()->getPost();
+            $timestamp = $param['timestamp'];
 
             $date = new \DateTime('now');
             $date->setTimestamp($timestamp);
@@ -293,15 +240,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $id = $p[0];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
 
             //исключим из меню на заданную дату пункт с id
             $menuService = new MenuService($em);
@@ -323,15 +263,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $id = $p[0];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
 
             //исключим из меню на заданную дату пункт с id
             $menuService = new MenuService($em);
@@ -355,16 +288,9 @@ class ApiController extends AbstractActionController
 
             $user = $this->zfcUserAuthentication()->getIdentity();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $id = $p[0];
-            $timestamp = $p[1];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
+            $timestamp = $param['date'];
 
             $date = new \DateTime('now');
             $date->setTimestamp($timestamp);
@@ -410,16 +336,9 @@ class ApiController extends AbstractActionController
 
             $user = $this->zfcUserAuthentication()->getIdentity();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $id = $p[0];
-            $timestamp = $p[1];
+            $param = $this->getRequest()->getPost();
+            $id = $param['id'];
+            $timestamp = $param['date'];
 
             $date = new \DateTime('now');
             $date->setTimestamp($timestamp);
@@ -478,15 +397,8 @@ class ApiController extends AbstractActionController
 
             $user = $this->zfcUserAuthentication()->getIdentity();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $hex = urldecode($p[0]);
+            $param = $this->getRequest()->getPost();
+            $hex = $param['hex'];
 
             $user->setColor($hex);
             $userService = new UserService($em);
@@ -508,15 +420,8 @@ class ApiController extends AbstractActionController
 
             $user = $this->zfcUserAuthentication()->getIdentity();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $hex = urldecode($p[0]);
+            $param = $this->getRequest()->getPost();
+            $hex = $param['hex'];
 
             $user->setBackcolor($hex);
             $userService = new UserService($em);
@@ -538,15 +443,8 @@ class ApiController extends AbstractActionController
 
             $user = $this->zfcUserAuthentication()->getIdentity();
 
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $name = urldecode($p[0]);
+            $param = $this->getRequest()->getPost();
+            $name = $param['name'];
 
             $user->setUsername($name);
             $userService = new UserService($em);
@@ -566,17 +464,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $user = $this->zfcUserAuthentication()->getIdentity();
-
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $timestamp = $p[0];
+            $param = $this->getRequest()->getPost();
+            $timestamp = $param['date'];
 
             $date = new \DateTime('now');
             $date->setTimestamp($timestamp);
@@ -602,17 +491,8 @@ class ApiController extends AbstractActionController
         {
             $em = $this->getEntityManager();
 
-            $user = $this->zfcUserAuthentication()->getIdentity();
-
-            $param = $this->getRequest()->getContent();
-            $param = explode("&", $param);
-            $p = [];
-            foreach ($param as $par)
-            {
-                $par = explode("=", $par);
-                $p[] = $par[1];
-            }
-            $timestamp = $p[0];
+            $param = $this->getRequest()->getPost();
+            $timestamp = $param['date'];
 
             $date = new \DateTime('now');
             $date->setTimestamp($timestamp);

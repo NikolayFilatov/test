@@ -295,7 +295,7 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
 .li_dish_deleted{
     background-color: #ff9c93;
 }
-.li_dish .txt_name, .li_group .txt_group, .li_add_group .txt_group {
+.li_dish .txt_name, .li_group .txt_group, .li_add_group .txt_group, .li_add_group .txt_group_add {
     width:505px;
 }
 .li_dish .txt_cost {
@@ -357,4 +357,7 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
 .t_val{
     padding:3px 7px;
     font-size:13px;
+}
+.d_n {
+    display: none;
 }

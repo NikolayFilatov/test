@@ -17,28 +17,32 @@
     <?php if(count($this->menus) != 0):?>
         <ul>
             <?php
-            $group = "";
-            foreach($this->menus as $menu)
+
+            if ($this->class == 'li_group')
             {
-                if (!$menu->isDeleted()){
-                    $dg = $menu->getDish()->getGroup()->getName();
-                    if ($group != $dg)
-                    {
-                        echo "<li class='" . $this->class . " p10'>$dg";
-                    }
+                $group = "";
+                foreach($this->menus as $menu)
+                {
+                    if (!$menu->isDeleted()){
+                        $dg = $menu->getDish()->getGroup()->getName();
 
-                    $count = 0;
-                    $items = [];
-                    if($this->order)
-                        $items = $this->order->getItem();
+                        $count = 0;
+                        $items = [];
+                        if($this->order)
+                            $items = $this->order->getItem();
 
-                    foreach($items as $item)
-                    {
-                        if ($item->getDish()->getId() == $menu->getDish()->getId())
-                            $count = $item->getCount();
-                    }
+                        foreach($items as $item)
+                        {
+                            if ($item->getDish()->getId() == $menu->getDish()->getId())
+                                $count = $item->getCount();
+                        }
 
-                    echo "
+                        if ($group != $dg)
+                        {
+                            echo "<li class='" . $this->class . " p10'>$dg";
+                        }
+
+                        echo "
                         <li class='li_dish'>
                             <table>
                                 <tr>
@@ -52,24 +56,41 @@
                                         <div class='count'>$count</div>
                                     </td>
                                     <td width=140>";
-                    if ($this->class == "li_group"){
-                        echo "
+                        if ($this->class == "li_group"){
+                            echo "
                                         <button class='button3 fl_r btt_add' id='{$menu->getDish()->getId()}'>Добавить</button>
                                         <button class='button2 fl_r btt_remove' id='{$menu->getDish()->getId()}'>Убрать</button>
                              ";
-                    }
-                    echo "
+                        }
+                        echo "
                                     </td>
                                 </tr>
                             </table>
                         </li>";
-                    if ($group != $dg)
-                    {
-                        $group = $dg;
-                        echo "</li>";
+                        if ($group != $dg)
+                        {
+                            $group = $dg;
+                            echo "</li>";
+                        }
                     }
                 }
+            } else {
+                echo "<li class='li_group_close p10'>Ваш заказ</li>";
+                $orderItems = $this->order->getItem();
+                foreach($orderItems as $item)
+                {
+                    echo "
+                        <li class='li_dish'>
+                            <table><tr>
+                                <td width=480 style='padding-left:10px;'>" . $item->getDish()->getName() . "</td>
+                                <td width=40>" . $item->getCount() . "</td>
+                                <td class='button3 d_n'>Вкусно</td>
+                                <td class='button2 d_n'>Не вкусно</td>
+                            </tr></table>
+                        </li>";
+                }
             }
+
             ?>
         </ul>
     <?php else:?>

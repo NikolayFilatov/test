@@ -4,19 +4,19 @@ $(document).ready(function(){
     $('.li_dish_deleted').css('display', 'none');
 
     $('.showDeleted').click(function(){
-        if($(this).html() == 'Показать удаленные')
+        if($(this).html() == 'Показать исключенные')
         {
             $('.li_dish_deleted').css('display', 'block');
-            $(this).html('Скрыть удаленные');
+            $(this).html('Скрыть исключенные');
         } else {
             $('.li_dish_deleted').css('display', 'none');
-            $(this).html('Показать удаленные');
+            $(this).html('Показать исключенные');
         }
     });
 
     $('.create_menu_catalog').click(function(){
         id = $(this).attr('id');
-        data = {'id': id};
+        data = {'timestamp': id};
 
         xhttp = $.ajax({
             type: "POST",

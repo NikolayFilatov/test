@@ -76,7 +76,7 @@ $(document).ready(function(){
             data: data,
             async: true,
             success: function(e){
-                document.location.reload();
+                //document.location.reload();
             }
         });
     });
@@ -97,7 +97,7 @@ $(document).ready(function(){
     });
 
 
-    $('.txt_group').blur(function(){
+    $('.txt_group').change(function(){
         id = $(this).attr('id');
         d = $(this).val();
         type = 'group';
@@ -105,7 +105,7 @@ $(document).ready(function(){
         updateData(type, d, id)
     });
 
-    $('.txt_name').blur(function(){
+    $('.txt_name').change(function(){
         id = $(this).attr('id');
         d = $(this).val();
         type = 'name';
@@ -113,7 +113,7 @@ $(document).ready(function(){
         updateData(type, d, id)
     });
 
-    $('.txt_cost').blur(function(){
+    $('.txt_cost').change(function(){
         id = $(this).attr('id');
         d = $(this).val();
         type = 'cost';
@@ -134,7 +134,7 @@ $(document).ready(function(){
             data: data,
             async: true,
             success: function(e){
-                console.info(e);
+
             }
         });
     }

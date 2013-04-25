@@ -6,6 +6,10 @@ use Zend\ServiceManager\ServiceManager;
 use \Exception;
 use Zend\Stdlib\DateTime;
 
+use Zend\Config\Config;
+use Zend\Config\Writer\Ini;
+use Zend\View\Model\ViewModel;
+
 class OrderStorageService extends EntityRepository {
 
     protected $_em;
@@ -140,4 +144,44 @@ class OrderStorageService extends EntityRepository {
 
         return $storage;
     }
+
+    public function getXml($date)
+    {
+        $orderService = new OrderService($this->_em);
+        $items = $orderService->findItems($date);
+
+        if(!$items)
+            return;
+
+        $writer = new Ini();
+        $config = new Config([], true);
+        $total_count = 0;
+        $total = 0;
+        $total_pos = 0;
+        foreach($items as $item)
+        {
+            $conf = new Config([], true);
+            $conf->количество = $item['count'];
+            $conf->стоимость = $item['cost'];
+            $conf->сумма = $item['count'] * $item['cost'];
+
+            $total_count += $item['count'];
+            $total += $item['count'] * $item['cost'];
+            $total_pos++;
+
+            $name = str_replace(" ", "_", $item['dish']);
+
+            $config->$name = $conf;
+        }
+        $conf = new Config([], true);
+        $conf->Сумма = $total;
+        $conf->Количество_блюд = $total_count;
+        $conf->Количество_позиций = $total_pos;
+        $config->Итого = $conf;
+
+        $writer->toFile("public/orders/order_" . $date->format('d.m.Y') . ".ini", $config);
+
+        return $this;
+    }
+
 }
