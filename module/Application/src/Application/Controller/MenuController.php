@@ -26,8 +26,6 @@ class MenuController extends AbstractActionController
     {
         $em = $this->getEntityManager();
 
-        $user = $this->zfcUserAuthentication()->getIdentity();
-
         $timestamp =  $this->getEvent()->getRouteMatch()->getParam('timestamp');
         if (!isset($timestamp))
         {
@@ -61,7 +59,6 @@ class MenuController extends AbstractActionController
 
         $menuService = new MenuService($em);
         $menus = $menuService->getMenuByDate($dateNow);
-        //$menus = $menuService->getAllMenu();
 
         $response = [
             'dateNow' => $dateNow,
@@ -70,6 +67,68 @@ class MenuController extends AbstractActionController
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/menu/index');
+
+        return $vm;
+    }
+
+    public function newMenuAction()
+    {
+        $em = $this->getEntityManager();
+
+        $timestamp =  $this->getEvent()->getRouteMatch()->getParam('timestamp');
+        if (!isset($timestamp))
+        {
+            $date = new DateTime('now');
+            $timestamp = $date->getTimestamp();
+        }
+
+        $date = new DateTime('now');
+
+        $date->setTimestamp($timestamp);
+        $date = $this->DateFormat()->getDay($date);
+
+        $month = '';
+
+        //Создадим массив недель
+        //Определим дату понедельника этой недели
+        $offsetDay = date("w", $timestamp) - 1;
+        $offsetDay = $offsetDay == -1 ? 6 : $offsetDay;
+        $date->sub(new \DateInterval('P' . $offsetDay . 'D'));
+
+        //текущая дата в данном случае это дата понедельника текущей недели.
+        $dateNow = clone $date;
+
+        //получим список недель для календаря
+        //сместимся на 4 недели назад
+        $date->sub(new \DateInterval('P4W'));
+        for($i = 0; $i < 9; $i++)
+        {
+            $d = $date->format('d.m.y');
+            $t = $date->getTimestamp();
+            $class = 'button1';
+            if ($i == 4)
+                $class = "button11";
+            $dates[] = [
+                'date' => $d,
+                'timestamp' => $t,
+                'class' => $class,
+            ];
+            $date->add(new \DateInterval('P1W'));
+        }
+
+        //получим меню на текущую неделю для knockout
+        $menuService = new MenuService($em);
+        $week_menu = $menuService->getMenuToWeek($dateNow);
+
+
+        $response = [
+            'dateNow'   => $dateNow,
+            'month'     => $month,
+            'dates'     => $dates,
+            'weekMenu'  => $week_menu,
+        ];
+        $vm = new ViewModel($response);
+        $vm->setTemplate('application/menu/new_menu');
 
         return $vm;
     }

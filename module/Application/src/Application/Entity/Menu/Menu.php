@@ -63,7 +63,8 @@ class Menu extends Entity {
 
     public function toArray() {
         return [
-            'id' => $this->id,
+            'id'    => $this->id,
+            'dish'  => $this->dish->toArray(),
         ];
     }
 

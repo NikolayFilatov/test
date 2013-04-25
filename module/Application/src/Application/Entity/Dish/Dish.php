@@ -92,9 +92,11 @@ class Dish extends Entity {
 
     public function toArray() {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'cost' => 1,
+            'id'        => $this->id,
+            'name'      => $this->name,
+            'cost'      => $this->getCost(),
+            'groupName' => $this->group->getName(),
+            'groupId'   => $this->group->getId(),
         ];
     }
 

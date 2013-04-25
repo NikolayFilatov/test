@@ -23,9 +23,9 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-<!--                    <a href="--><?//=$this->url('home')?><!--">-->
-<!--                    	<img class="brand" src="--><?php //echo $this->basePath() . "/images/logo.png" ?><!--" />-->
-<!--                    </a>-->
+                    <a style="text-decoration: none;" href="<?=$this->url('order')?>">
+                    	<div class="logo">Обеды</div>
+                    </a>
                     <ul class="nav" style="float:right;">
                         <li><a href="/order">Сделать заказ</a></li>
                         <li><a href="/user">Мои данные</a></li>
@@ -38,6 +38,7 @@
         	<div class='left_col'>
                 <a href="/catalog" id="l_catalog" class="button1" style="width:180px;font-size:14px;"><li>Каталог блюд</li></a><br>
                 <a href="/menu" id="l_menu" class="button1" style="width:180px;font-size:14px;"><li>Создать меню</li></a><br>
+                <a href="/newMenu" id="l_menu_new" class="button1" style="width:180px;font-size:14px;"><li>Создать меню (новое)</li></a><br>
                 <a href="/allorder" id="l_orders" class="button1" style="width:180px;font-size:14px;"><li>Все заказы</li></a><br>
                 <a href="/eating" id="l_eating" class="button1" style="width:180px;font-size:14px;"><li>Кто что ест</li></a><br>
             </div>

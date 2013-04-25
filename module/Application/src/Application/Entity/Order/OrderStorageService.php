@@ -8,7 +8,6 @@ use Zend\Stdlib\DateTime;
 
 use Zend\Config\Config;
 use Zend\Config\Writer\Ini;
-use Zend\View\Model\ViewModel;
 
 class OrderStorageService extends EntityRepository {
 
@@ -145,7 +144,7 @@ class OrderStorageService extends EntityRepository {
         return $storage;
     }
 
-    public function getXml($date)
+    public function getFile($date)
     {
         $orderService = new OrderService($this->_em);
         $items = $orderService->findItems($date);
@@ -173,6 +172,7 @@ class OrderStorageService extends EntityRepository {
 
             $config->$name = $conf;
         }
+
         $conf = new Config([], true);
         $conf->Сумма = $total;
         $conf->Количество_блюд = $total_count;
@@ -181,7 +181,7 @@ class OrderStorageService extends EntityRepository {
 
         $writer->toFile("public/orders/order_" . $date->format('d.m.Y') . ".ini", $config);
 
-        return $this;
+        return "order_" . $date->format('d.m.Y') . ".ini";
     }
 
 }

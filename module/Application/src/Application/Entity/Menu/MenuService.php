@@ -87,12 +87,6 @@ class MenuService extends EntityRepository {
         return $repo->find($id);
     }
 
-    public function getMenuByDate(DateTime $date)
-    {
-        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
-        return $repo->findBy(['date' => $date]);
-    }
-
     public function createMenu($data = null)
     {
         $menu = new Menu($data);
@@ -101,4 +95,64 @@ class MenuService extends EntityRepository {
         return $menu;
     }
 
+    public function getMenuByDate(DateTime $date)
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
+        return $repo->findBy(['date' => $date]);
+    }
+
+    /**
+     * @param DateTime $date
+     * @return array
+     */
+    public function getMenuToWeek(DateTime $date)
+    {
+
+        $menu_day = []; //меню на каждый день недели
+        for($i = 1; $i <= 7; $i++)
+        {
+            //получим массив сущностей пунктов меню
+            $dm = $this->getMenuByDate($date);
+
+            $arr = [];
+            foreach($dm as $m)
+            {
+                $arr[] = $m->toArray();
+            }
+
+            $menu_day[$date->format('d.m.Y')] = $arr;
+            $date->add(new \DateInterval('P1D'));
+        }
+
+        //приведем массив к виду
+        // group -- name-cost-1-1-0-0-1-0-0
+        //          name-cost-1-0-1-0-1-0-0
+
+        $return = [];
+        foreach($menu_day as $key => $val)
+        {
+            $arrDate = [];
+            foreach($val as $m)
+            {
+                $id_menu = $m['id'];
+                $dish = $m['dish'];
+                $name = $dish['name'];
+                $gname = $dish['groupName'];
+                $cost = $dish['cost'];
+
+                $date = $key;
+
+                if(isset($return[$gname][$name]['date']))
+                    $arrDate = $return[$gname][$name]['date'];
+
+                $arrDate[] = $key;
+                $return[$gname][$name] = [
+                    'cost' => $cost,
+                    'date' => $arrDate,
+                ];
+            }
+        }
+
+        return $return;
+    }
 }

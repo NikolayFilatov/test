@@ -11,6 +11,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use \DateTime;
 
+
 class OrderController extends AbstractActionController
 {
     protected $em;
@@ -97,21 +98,6 @@ class OrderController extends AbstractActionController
 
     public function testAction()
     {
-        $em = $this->getEntityManager();
-        $user = $this->zfcUserAuthentication()->getIdentity();
-
-        $orderService = new OrderService($em);
-        $date = $this->DateFormat()->getCurDay();
-
-        $order = $orderService->createOrder([
-            'user' => $user,
-            'date' => $date,
-        ]);
-
-        $vm = new ViewModel();
-        $vm->setTemplate('application/order/test');
-
-        return $vm;
 
     }
 

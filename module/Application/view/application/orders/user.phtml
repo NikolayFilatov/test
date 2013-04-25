@@ -2,7 +2,7 @@
 <div class="dcontent">
     <div style="margin-left: 10px;">
         <?php foreach($this->dates as $date):?>
-            <a href="/orders/user/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
+            <a href="/allorder/user/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
         <?php endforeach;?>
     </div>
     <div class="top">
@@ -12,7 +12,7 @@
         <div class="label fl_l" style="padding-left: 10px;" id="<?=$this->dateNow->getTimestamp()?>">
             на сумму - <?=$this->total?>
         </div>
-        <a href="/orders/dish/<?=$this->dateNow->getTimestamp()?>" class="button1 fl_r">По блюдам</a>
+        <a href="/allorder/dish/<?=$this->dateNow->getTimestamp()?>" class="button1 fl_r">По блюдам</a>
     </div>
     <?php if(count($this->orders) != 0):?>
         <ul>

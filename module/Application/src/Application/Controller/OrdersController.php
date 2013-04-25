@@ -2,7 +2,6 @@
 
 namespace Application\Controller;
 
-use Application\Entity\Order\OrderItemService;
 use Application\Entity\Order\OrderService;
 use Application\Entity\Order\OrderStorageService;
 use Application\Entity\User\User;
@@ -11,6 +10,10 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 use \DateTime;
+
+use Zend\Config\Config;
+use Zend\Config\Writer\Ini;
+
 
 class OrdersController extends AbstractActionController
 {
@@ -101,13 +104,11 @@ class OrdersController extends AbstractActionController
         $em = $this->getEntityManager();
 
         $timestamp =  $this->getEvent()->getRouteMatch()->getParam('timestamp');
-        if (!isset($timestamp))
-        {
-            $date = new DateTime('now');
-            $timestamp = $date->getTimestamp();
-        }
 
         $date = new DateTime('now');
+        if (!isset($timestamp))
+            $timestamp = $date->getTimestamp();
+
         $date->setTimestamp($timestamp);
         $date = $this->DateFormat()->getDay($date);
 
@@ -157,6 +158,29 @@ class OrdersController extends AbstractActionController
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/orders/dish');
+
+        return $vm;
+    }
+
+    public function getFileAction()
+    {
+        $em = $this->getEntityManager();
+
+        $timestamp =  $this->getEvent()->getRouteMatch()->getParam('timestamp');
+
+        $date = new DateTime('now');
+        if (!isset($timestamp))
+            $timestamp = $date->getTimestamp();
+
+        $date->setTimestamp($timestamp);
+        $date = $this->DateFormat()->getDay($date);
+
+        $storageService = new OrderStorageService($em);
+        $file = $storageService->getFile($date);
+
+
+        $vm = new ViewModel(['file' => $file]);
+        $vm->setTemplate('application/orders/xml_order');
 
         return $vm;
     }

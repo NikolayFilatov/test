@@ -34,6 +34,17 @@ return [
 				],
 				'may_terminate' => true,
 			],
+            'newMenu' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => '/newMenu[/:timestamp]',
+                    'defaults' => [
+                        'controller' => 'Application\Controller\Menu',
+                        'action'     => 'newMenu',
+                    ],
+                ],
+                'may_terminate' => true,
+            ],
             'allorder' => [
                 'type' => 'Literal',
                 'options' => [
@@ -63,6 +74,17 @@ return [
                             'defaults' => [
                                 'controller' => 'Application\Controller\Orders',
                                 'action'     => 'user',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'getFile' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/getFile[/:timestamp]',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Orders',
+                                'action'     => 'getFile',
                             ],
                         ],
                         'may_terminate' => true,

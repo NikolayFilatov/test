@@ -76,18 +76,20 @@
                 }
             } else {
                 echo "<li class='li_group_close p10'>Ваш заказ</li>";
-                $orderItems = $this->order->getItem();
-                foreach($orderItems as $item)
-                {
-                    echo "
-                        <li class='li_dish'>
-                            <table><tr>
-                                <td width=480 style='padding-left:10px;'>" . $item->getDish()->getName() . "</td>
-                                <td width=40>" . $item->getCount() . "</td>
-                                <td class='button3 d_n'>Вкусно</td>
-                                <td class='button2 d_n'>Не вкусно</td>
-                            </tr></table>
-                        </li>";
+                if($this->order){
+                    $orderItems = $this->order->getItem();
+                    foreach($orderItems as $item)
+                    {
+                        echo "
+                            <li class='li_dish'>
+                                <table><tr>
+                                    <td width=480 style='padding-left:10px;'>" . $item->getDish()->getName() . "</td>
+                                    <td width=40>" . $item->getCount() . "</td>
+                                    <td class='button3 d_n'>Вкусно</td>
+                                    <td class='button2 d_n'>Не вкусно</td>
+                                </tr></table>
+                            </li>";
+                    }
                 }
             }
 
