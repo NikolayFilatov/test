@@ -146,9 +146,6 @@ class OrdersController extends AbstractActionController
         }
 
         $items = $orderService->findItems($dateNow);
-
-        $storageService->getXml($dateNow);
-
         $total = $orderService->getTotal($dateNow);
 
         $response = [

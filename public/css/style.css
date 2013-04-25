@@ -138,7 +138,7 @@ div.container .brand {
 }
 .r_content .rc_right .name{
 	font-weight:bold;
-	color:#007DC9;
+	color:#08C;
 }
 .content .dcontent{
     padding:20px;
@@ -169,7 +169,7 @@ ul{
 	border-bottom:0;
 }
 .gor_mnu_li:hover{
-	color:#007DC9;
+	color:#08C;
 }
 .gor_mnu_li_focus{
 	margin:5px 5px 0;
@@ -179,8 +179,8 @@ ul{
 	cursor:pointer;
 	font-weight:bold;
 
-	background-color:#007DC9;
-	border:1px solid #306CB7;
+	background-color:#08D;
+	border:1px solid #37B;
 	color:#FFF;
 	border-bottom:0;
 }
@@ -206,75 +206,75 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
 	margin:5px 2px;
 	line-height:150%;
 	border-radius: 12px;
-	border:1px solid #087fCf;
+	border:1px solid #17C;
 	outline-style:none;
 }
 .button1:hover {
 	outline: none;
     color: #FFF;
-    border: solid 1px #3373c3;
-    background-color: #0085d6;
+    border: solid 1px #37C;
+    background-color: #08D;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 .button1 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    color: #3373c3;
-    border: solid 1px #bebebe;
+    color: #37C;
+    border: solid 1px #BBB;
     text-decoration: none;
-    background-color: #ececec;
+    background-color: #EEE;
 }
 .button11:hover {
     outline: none;
     color: #FFF;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border: solid 1px #3a82dc;
-    background-color: #1c9dee;
+    border: solid 1px #48D;
+    background-color: #2AE;
 }
 .button11 {
     text-decoration: none;
     color: #FFF;
-    border: solid 1px #3373c3;
-    background-color: #0085d6;
+    border: solid 1px #37C;
+    background-color: #08D;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     font-weight: bold;
 }
 .button2:hover {
     outline: none;
     color:#FFF;
-    border: solid 1px #9d0400;
-    background-color: #cd1000;
+    border: solid 1px #A00;
+    background-color: #C10;
 }
 .button2 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     color: #dd0000;
-    border: solid 1px #bebebe;
+    border: solid 1px #BBB;
     text-decoration: none;
-    background-color: #ececec;
+    background-color: #EEE;
 }
 .button3:hover {
     outline: none;
     color:#FFF;
-    border: solid 1px #00a014;
-    background-color: #00b411;
+    border: solid 1px #0A1;
+    background-color: #0B1;
 }
 .button3 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    color: #00a112;
+    color: #0A1;
     border: solid 1px #bebebe;
     text-decoration: none;
     background-color: #ececec;
 }
 .button4:hover {
     outline: none;
-    border: solid 1px #890100;
-    background-color: #c30100;
+    border: solid 1px #900;
+    background-color: #C00;
 }
 .button4 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     color: #ffffff;
-    border: solid 1px #9a0001;
+    border: solid 1px #A00;
     text-decoration: none;
-    background-color: #ec0700;
+    background-color: #E10;
     font-weight: bold;
     padding: 3px 19px 4px 19px;
 }
@@ -292,8 +292,8 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
     /*border:1px solid #DDD;*/
     margin:0 3px;
 }
-.li_dish_deleted{
-    background-color: #ff9c93;
+.li_dish_deleted, .li_group_close{
+    background-color: #E88;
 }
 .li_dish .txt_name, .li_group .txt_group, .li_add_group .txt_group, .li_add_group .txt_group_add {
     width:505px;
@@ -308,7 +308,6 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
 }
 .li_group_close{
     margin:10px 3px 0;
-    background-color: #ee9592;
     border-radius: 12px 12px 0 0;
     color:#fff;
 }
@@ -340,7 +339,7 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
 }
 .top .label{
     font-size: 14px;
-    color:#087fCf;
+    color:#18D;
     padding-top:10px;
 }
 .t_print {

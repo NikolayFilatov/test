@@ -13,7 +13,7 @@
     <ul>
         <?php foreach($this->groups as $group):?>
             <li>
-                <?php $dishs = $group->getDish();?>
+                <?php $dishes = $group->getDish();?>
                 <ul>
                     <li class="li_group">
                         <table>
@@ -27,8 +27,8 @@
                             </tr>
                         </table>
                     </li>
-                    <?php if(count($dishs) != 0):?>
-                        <?php foreach($dishs as $dish):?>
+                    <?php if(count($dishes) != 0):?>
+                        <?php foreach($dishes as $dish):?>
                             <?php if($dish->isDeleted()):?>
                                 <li class="li_dish li_dish_deleted">
                                     <table>

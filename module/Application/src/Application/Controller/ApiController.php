@@ -69,13 +69,8 @@ class ApiController extends AbstractActionController
                     break;
             }
 
-			$result = [
-                'id' => $id,
-                'type' => $type,
-                'data' => $data,
-            ];
-			$vm = new JsonModel($result);
-			return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
 		}  	
     }
 
@@ -93,11 +88,8 @@ class ApiController extends AbstractActionController
             $dish->markDelete();
             $dishService->save($dish);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -115,11 +107,8 @@ class ApiController extends AbstractActionController
             $dish->markUnDelete();
             $dishService->save($dish);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -136,11 +125,8 @@ class ApiController extends AbstractActionController
             $group = $dishGroupService->getGroupById($id);
             $dishGroupService->delete($group);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -156,11 +142,8 @@ class ApiController extends AbstractActionController
             $groupService = new DishGroupService($em);
             $groupService->createDishGroup(['name' => $name]);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -182,11 +165,8 @@ class ApiController extends AbstractActionController
                 'group' => $group
             ]);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -215,8 +195,8 @@ class ApiController extends AbstractActionController
 
             foreach($groups as $group)
             {
-                $dishs = $group->getDish();
-                foreach($dishs as $dish)
+                $dishes = $group->getDish();
+                foreach($dishes as $dish)
                 {
                     if (!$dish->isDeleted())
                         $menuService->createMenu([
@@ -226,11 +206,8 @@ class ApiController extends AbstractActionController
                 }
             }
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -249,11 +226,8 @@ class ApiController extends AbstractActionController
             $menu->markDelete();
             $menuService->save($menu);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -272,11 +246,8 @@ class ApiController extends AbstractActionController
             $menu->markUnDelete();
             $menuService->save($menu);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -320,11 +291,8 @@ class ApiController extends AbstractActionController
                 'dish' => $dish,
             ]);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -381,11 +349,8 @@ class ApiController extends AbstractActionController
             if ($item->getCount() == 0)
                 $orderItemService->delete($item);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -404,11 +369,8 @@ class ApiController extends AbstractActionController
             $userService = new UserService($em);
             $userService->save($user);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -427,11 +389,8 @@ class ApiController extends AbstractActionController
             $userService = new UserService($em);
             $userService->save($user);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -450,11 +409,8 @@ class ApiController extends AbstractActionController
             $userService = new UserService($em);
             $userService->save($user);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -477,11 +433,8 @@ class ApiController extends AbstractActionController
             if ($storage)
                 $storageService->closeStorage($storage[0]);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
@@ -504,14 +457,26 @@ class ApiController extends AbstractActionController
             if($storage)
                 $storageService->openStorage($storage[0]);
 
-            $result = [
-                'response' => "ok",
-            ];
-            $vm = new JsonModel($result);
-            return $vm;
-
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
         }
     }
 
+    public function getXmlAction()
+    {
+        if($this->getRequest()->isPost())
+        {
+            $em = $this->getEntityManager();
+
+            $param = $this->getRequest()->getPost();
+            $date = $param['date'];
+
+            $storageService = new OrderStorageService($em);
+            $storageService->getXml($date);
+
+            $result = ['response' => 'ok'];
+            return new JsonModel($result);
+        }
+    }
 
 }
