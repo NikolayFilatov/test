@@ -15,6 +15,8 @@ use Application\Entity\User\UserService;
 use Zend\Mvc\Controller\AbstractActionController;
 
 use Zend\View\Model\JsonModel;
+use DateTime;
+use DateInterval;
 
 class ApiController extends AbstractActionController
 {
@@ -475,6 +477,31 @@ class ApiController extends AbstractActionController
             $storageService->getXml($date);
 
             $result = ['response' => 'ok'];
+            return new JsonModel($result);
+        }
+    }
+
+    public function getAjaxMenuAction()
+    {
+        if($this->getRequest()->isGet())
+        {
+            $em = $this->getEntityManager();
+
+            $timestamp = $this->getRequest()->getQuery()->date;
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            $d = $date->format('d.m.Y');
+
+            $menuService = new MenuService($em);
+            $menu = $menuService->getMenuToWeek($date);
+
+            $result = [
+                'menu'      => $menu,
+                'test'      => $d,
+            ];
+
             return new JsonModel($result);
         }
     }

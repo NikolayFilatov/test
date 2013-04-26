@@ -97,6 +97,7 @@ class MenuController extends AbstractActionController
 
         //текущая дата в данном случае это дата понедельника текущей недели.
         $dateNow = clone $date;
+        $dateRet = clone $date;
 
         //получим список недель для календаря
         //сместимся на 4 недели назад
@@ -118,11 +119,11 @@ class MenuController extends AbstractActionController
 
         //получим меню на текущую неделю для knockout
         $menuService = new MenuService($em);
+
         $week_menu = $menuService->getMenuToWeek($dateNow);
 
-
         $response = [
-            'dateNow'   => $dateNow,
+            'dateNow'   => $dateRet,
             'month'     => $month,
             'dates'     => $dates,
             'weekMenu'  => $week_menu,

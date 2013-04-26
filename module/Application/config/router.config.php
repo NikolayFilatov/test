@@ -326,6 +326,17 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
+                    'getAjaxMenu' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/getAjaxMenu',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'getAjaxMenu',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
 				],
 			],
 			

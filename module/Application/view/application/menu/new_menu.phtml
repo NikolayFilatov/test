@@ -1,8 +1,8 @@
-<?php $this->headScript()->appendFile('/js/new_menu.js'); ?>
 <?php $this->headScript()->appendFile('/js/knockout.js'); ?>
+<?php $this->headScript()->appendFile('/js/new_menu.js'); ?>
 <div class="dcontent">
 
-    <div style="margin-left: 10px;">
+    <div style="margin-left: 10px;" id="<?=$this->dateNow->getTimestamp()?>" class="curDate">
         <?php foreach($this->dates as $date):?>
             <a href="/newMenu/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
         <?php endforeach;?>
@@ -29,7 +29,7 @@
         <table class="table_menu">
             <thead>
                 <tr>
-                    <td colspan="9">Меню на неделю</td>
+                    <td colspan="10">Меню на неделю</td>
                 </tr>
                 <tr>
                     <td width=400>Блюдо</td>
@@ -43,10 +43,14 @@
                     <td width=20>Вс.</td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody data-bind="foreach: MenuModel.currentMenu">
                 <tr>
-                    <td>Макароны по флотски</td>
-                    <td>110</td>
+                    <td colspan="10" data-bind="text: key" style="font-weight: bold"></td>
+                </tr>
+                <!-- ko foreach: val -->
+                <tr>
+                    <td data-bind="text: key"></td>
+                    <td data-bind="text: cost"></td>
                     <td><input type="checkbox" id="1"/></td>
                     <td><input type="checkbox" id="1"/></td>
                     <td><input type="checkbox" id="1"/></td>
@@ -56,12 +60,8 @@
                     <td><input type="checkbox" id="1"/></td>
                     <td><button id="1" class="button2 btt_mini">удалить</button></td>
                 </tr>
+                <!-- /ko -->
             </tbody>
         </table>
     </div>
-<?php
-    echo "<pre>";
-        var_dump($this->weekMenu);
-?>
-
 </div>
