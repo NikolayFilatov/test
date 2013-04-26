@@ -126,6 +126,8 @@ function getAjaxMenu()
     data = xhttp.responseText;
     data = eval('(' + data + ')');
 
+    console.info(data);
+
     return data;
 }
 

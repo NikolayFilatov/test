@@ -132,7 +132,6 @@ class MenuService extends EntityRepository {
             }
 
             $offsetDay = date("w", $date->getTimestamp());
-//            $offsetDay = $offsetDay == -1 ? 6 : $offsetDay;
 
             $menu_day[$offsetDay] = $arr;
             $date->add(new \DateInterval('P1D'));
@@ -181,9 +180,9 @@ class MenuService extends EntityRepository {
                 $r = [];
                 $i = 1;
                 $d1 = false; $d2 = false; $d3 = false; $d4 = false;
-                $d5 = false; $d6 = false; $d7 = false;
+                $d5 = false; $d6 = false; $d0 = false;
                 $id1 = 0; $id2 = 0; $id3 = 0; $id4 = 0;
-                $id5 = 0; $id6 = 0; $id7 = 0;
+                $id5 = 0; $id6 = 0; $id0 = 0;
                 foreach($vv as $k => $v)
                 {
                     $param = 'd' . $v['day'];
@@ -205,14 +204,14 @@ class MenuService extends EntityRepository {
                     'd4'    => $d4,
                     'd5'    => $d5,
                     'd6'    => $d6,
-                    'd7'    => $d7,
+                    'd0'    => $d0,
                     'id1'    => $id1,
                     'id2'    => $id2,
                     'id3'    => $id3,
                     'id4'    => $id4,
                     'id5'    => $id5,
                     'id6'    => $id6,
-                    'id7'    => $id7,
+                    'id0'    => $id0,
                 ];
             }
             $rrr[$iii] = [
@@ -223,6 +222,7 @@ class MenuService extends EntityRepository {
         }
 
         return $rrr;
+//        return $return;
 //        return $menu_day;
     }
 }

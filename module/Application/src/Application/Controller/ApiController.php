@@ -587,9 +587,12 @@ class ApiController extends AbstractActionController
 
             foreach($dishes as $dish)
             {
-                $ret['name'] = $dish->getName();
-                $ret['id'] = $dish->getId();
-                $return[] = $ret;
+                if($dish->isDeleted() == 0)
+                {
+                    $ret['name'] = $dish->getName();
+                    $ret['id'] = $dish->getId();
+                    $return[] = $ret;
+                }
             }
 
             return new JsonModel($return);
