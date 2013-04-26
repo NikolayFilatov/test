@@ -1,6 +1,7 @@
 <?php
 namespace Application\Entity\Menu;
 
+use Application\Entity\Dish\Dish;
 use Doctrine\ORM\EntityRepository;
 use Zend\ServiceManager\ServiceManager;
 use \Exception;
@@ -101,6 +102,12 @@ class MenuService extends EntityRepository {
         return $repo->findBy(['date' => $date]);
     }
 
+    public function getMenuByDishDate(Dish $dish, DateTime $date)
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
+        return $repo->findBy(['date' => $date, 'dish' => $dish]);
+    }
+
     /**
      * @param DateTime $date
      * @return array
@@ -124,14 +131,14 @@ class MenuService extends EntityRepository {
                 $arr[] = $m->toArray();
             }
 
-            $menu_day[$date->format('d.m.Y')] = $arr;
+            $offsetDay = date("w", $date->getTimestamp());
+//            $offsetDay = $offsetDay == -1 ? 6 : $offsetDay;
+
+            $menu_day[$offsetDay] = $arr;
             $date->add(new \DateInterval('P1D'));
         }
 
         //приведем массив к виду
-        // group -- name-cost-1-1-0-0-1-0-0
-        //          name-cost-1-0-1-0-1-0-0
-
         $return = [];
         foreach($menu_day as $key => $val)
         {
@@ -147,69 +154,75 @@ class MenuService extends EntityRepository {
                 $date = $key;
 
                 if($m['deleted'] == 0){
-
-//                    $vv = [
-//                        'cost'  => $cost,
-//                        'id'    => $id_menu,
-//                    ];
-//
-//                    $dd = [
-//                        'date' => $date,
-//                        'value' => $vv,
-//                    ];
-//
-//                    $nn = [
-//                        'name' => $name,
-//                        'date' => $dd,
-//                    ];
-//
-//                    $ret = [
-//                        'groupName' => $groupName,
-//                        'dish' => $nn,
-//                    ];
-//
-//                    $return[] = $ret;
                     $return[$groupName][$name][$date] = [
-                        'cost'  => $cost,
-                        'id'    => $id_menu,
+                        'cost'      => $cost,
+                        'in_menu'   => true,
+                        'id'        => $id_menu,
+                        'day'       => $date,
                     ];
                 } else {
                     $return[$groupName][$name][$date] = [
-                        'cost'  => 0,
-                        'id'    => $id_menu,
+                        'cost'      => $cost,
+                        'in_menu'   => false,
+                        'id'        => $id_menu,
+                        'day'       => $date,
                     ];
                 }
             }
         }
 
-        $rrr = [];
+        $rrr = []; $iii = 0;
         foreach ($return as $kkk => $vvv)
         {
             $rr = [];
+            $rrr[$iii] = [];
             foreach($vvv as $kk => $vv)
             {
                 $r = [];
+                $i = 1;
+                $d1 = false; $d2 = false; $d3 = false; $d4 = false;
+                $d5 = false; $d6 = false; $d7 = false;
+                $id1 = 0; $id2 = 0; $id3 = 0; $id4 = 0;
+                $id5 = 0; $id6 = 0; $id7 = 0;
                 foreach($vv as $k => $v)
                 {
-                    $r[] = [
-                        'date'  => $k,
-                        'cost'  => $v['cost'],
-                        'id'    => $v['id'],
-                    ];
+                    $param = 'd' . $v['day'];
+                    $paramId = 'id' . $v['day'];
+                    $$param = $v['in_menu'];
                     $cost = $v['cost'];
+                    $$paramId = $v['id'];
+
+                    $i++;
                 }
+
                 $rr[] = [
                     'key'   => $kk,
                     'val'   => $r,
                     'cost'  => $cost,
+                    'd1'    => $d1,
+                    'd2'    => $d2,
+                    'd3'    => $d3,
+                    'd4'    => $d4,
+                    'd5'    => $d5,
+                    'd6'    => $d6,
+                    'd7'    => $d7,
+                    'id1'    => $id1,
+                    'id2'    => $id2,
+                    'id3'    => $id3,
+                    'id4'    => $id4,
+                    'id5'    => $id5,
+                    'id6'    => $id6,
+                    'id7'    => $id7,
                 ];
             }
-            $rrr[] = [
+            $rrr[$iii] = [
                 'key' => $kkk,
                 'val' => $rr,
             ];
+            $iii++;
         }
 
         return $rrr;
+//        return $menu_day;
     }
 }

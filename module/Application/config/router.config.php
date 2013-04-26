@@ -337,6 +337,50 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
+                    'getAjaxList' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/getAjaxList',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'getAjaxList',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'removeItemMenu' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/removeItemMenu',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'removeItemMenu',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'changeItemById' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/changeItemById',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'changeItemById',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'addItemToMenu' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/addItemToMenu',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'addItemToMenu',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
 				],
 			],
 			

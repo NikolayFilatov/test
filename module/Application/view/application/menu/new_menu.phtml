@@ -11,18 +11,34 @@
     <div class="top">
         <input type="text" class="txt_find" placeholder="Введите название блюда" value="" />
         <div class="fl_r" style="padding:4px 2px 2px 0;"><button class="button3 btt_mini2">добавить все</button></div>
-        <ul class="list_menu">
-            <li>Свинина по армянски <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по русски <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по грузински <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по туркменски <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по русски <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по грузински <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по туркменски <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по русски <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по грузински <button class="button3 btt_mini2 fl_r">добавить</button></li>
-            <li>Свинина по туркменски <button class="button3 btt_mini2 fl_r">добавить</button></li>
+
+        <ul class="list_menu" data-bind="foreach: MenuModel.listDishes">
+            <li>
+                <table>
+                    <tr>
+                        <td width=580 data-bind="text: name"></td>
+                        <td><button data-bind="
+                            attr:{id: id},
+                            click: MenuModel.addItemToMenu"
+                            class="button3 btt_mini2 fl_r">добавить</button></td>
+                    </tr>
+                </table>
+            </li>
         </ul>
+
+        <ul class="ul_group">
+            <?php foreach($this->groups as $group):?>
+                <li style="float: left">
+                    <table>
+                        <tr>
+                            <td style="padding-top: 4px;"><input checked type="checkbox" id="<?=$group->getId()?>" name="ch_<?=$group->getId()?>" /></td>
+                            <td><label style="margin-top:-3px;font-size: 12px; padding: 0 10px 0 0;" for="ch_<?=$group->getId()?>"><?=$group->getName()?></label></td>
+                        </tr>
+                    </table>
+                </li>
+            <?php endforeach;?>
+        </ul>
+        <div class="clearfloat"></div>
     </div>
 
     <div class="week_menu">
@@ -31,9 +47,9 @@
                 <tr>
                     <td colspan="10">Меню на неделю</td>
                 </tr>
-                <tr>
-                    <td width=400>Блюдо</td>
-                    <td width=60>Цена</td>
+                <tr style="font-size: 12px;">
+                    <td width=400></td>
+                    <td width=60></td>
                     <td width=20>Пн.</td>
                     <td width=20>Вт.</td>
                     <td width=20>Ср.</td>
@@ -49,16 +65,19 @@
                 </tr>
                 <!-- ko foreach: val -->
                 <tr>
-                    <td data-bind="text: key"></td>
+                    <td style="font-style: italic; padding-left: 5px" data-bind="text: key"></td>
                     <td data-bind="text: cost"></td>
-                    <td><input type="checkbox" id="1"/></td>
-                    <td><input type="checkbox" id="1"/></td>
-                    <td><input type="checkbox" id="1"/></td>
-                    <td><input type="checkbox" id="1"/></td>
-                    <td><input type="checkbox" id="1"/></td>
-                    <td><input type="checkbox" id="1"/></td>
-                    <td><input type="checkbox" id="1"/></td>
-                    <td><button id="1" class="button2 btt_mini">удалить</button></td>
+                    <td><input type="checkbox" data-bind="checked: d1, attr: {id: id1}, click: MenuModel.changeItemById"/></td>
+                    <td><input type="checkbox" data-bind="checked: d2, attr: {id: id2}, click: MenuModel.changeItemById"/></td>
+                    <td><input type="checkbox" data-bind="checked: d3, attr: {id: id3}, click: MenuModel.changeItemById"/></td>
+                    <td><input type="checkbox" data-bind="checked: d4, attr: {id: id4}, click: MenuModel.changeItemById"/></td>
+                    <td><input type="checkbox" data-bind="checked: d5, attr: {id: id5}, click: MenuModel.changeItemById"/></td>
+                    <td><input type="checkbox" data-bind="checked: d6, attr: {id: id6}, click: MenuModel.changeItemById"/></td>
+                    <td><input type="checkbox" data-bind="checked: d7, attr: {id: id7}, click: MenuModel.changeItemById"/></td>
+                    <td><button class="button2 btt_mini"
+                                data-bind="
+                                    click: MenuModel.removeItem,
+                                    attr: {id: id1}">удалить</button></td>
                 </tr>
                 <!-- /ko -->
             </tbody>

@@ -2,6 +2,7 @@
 
 namespace Application\Controller;
 
+use Application\Entity\Dish\DishGroupService;
 use Application\Entity\Menu\MenuService;
 use Application\Entity\User\User;
 
@@ -121,12 +122,15 @@ class MenuController extends AbstractActionController
         $menuService = new MenuService($em);
 
         $week_menu = $menuService->getMenuToWeek($dateNow);
+        $dishGroupService = new DishGroupService($em);
+        $groups = $dishGroupService->getAllDishGroup();
 
         $response = [
             'dateNow'   => $dateRet,
             'month'     => $month,
             'dates'     => $dates,
             'weekMenu'  => $week_menu,
+            'groups'    => $groups,
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/menu/new_menu');

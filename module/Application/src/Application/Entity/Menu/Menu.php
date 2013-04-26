@@ -8,7 +8,6 @@ use Application\Entity\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use \DateTime;
-use \DateTimeZone;
 
 /**
  * @ORM\Entity

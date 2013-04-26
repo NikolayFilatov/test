@@ -506,4 +506,132 @@ class ApiController extends AbstractActionController
         }
     }
 
+    public function removeItemMenuAction()
+    {
+        if($this->getRequest()->isGet())
+        {
+            $em = $this->getEntityManager();
+
+            $id = $this->getRequest()->getQuery()->id;
+            $timestamp = $this->getRequest()->getQuery()->date;
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            $date2 = clone $date;
+
+            //удалим пункт меню
+            $menuService = new MenuService($em);
+            $menu = $menuService->getMenuById($id);
+            $dish = $menu->getDish();
+
+            for($i = 0; $i < 7; $i++)
+            {
+                $menus = $menuService->getMenuByDishDate($dish, $date2);
+                foreach($menus as $menu)
+                {
+                    $menuService->delete($menu);
+                }
+                $date2->add(new DateInterval('P1D'));
+            }
+
+            $menu = $menuService->getMenuToWeek($date);
+
+            $result = [
+                'menu'      => $menu,
+            ];
+
+            return new JsonModel($result);
+        }
+    }
+
+    public function changeItemByIdAction()
+    {
+        if($this->getRequest()->isGet())
+        {
+            $em = $this->getEntityManager();
+
+            $id = $this->getRequest()->getQuery()->id;
+            $timestamp = $this->getRequest()->getQuery()->date;
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            //удалим пункт меню
+            $menuService = new MenuService($em);
+            $menu = $menuService->getMenuById($id);
+            if($menu->isDeleted())
+                $menu->markUnDelete();
+            else
+                $menu->markDelete();
+
+            $menuService->save($menu);
+
+            $menu = $menuService->getMenuToWeek($date);
+
+            $result = [
+                'menu'      => $menu,
+            ];
+            return new JsonModel($result);
+        }
+    }
+
+    public function getAjaxListAction()
+    {
+        if($this->getRequest()->isGet())
+        {
+            $em = $this->getEntityManager();
+            $dishService = new DishService($em);
+
+            $dishes = $dishService->getAllDish();
+
+            foreach($dishes as $dish)
+            {
+                $ret['name'] = $dish->getName();
+                $ret['id'] = $dish->getId();
+                $return[] = $ret;
+            }
+
+            return new JsonModel($return);
+        }
+    }
+
+    public function addItemToMenuAction()
+    {
+        if($this->getRequest()->isGet())
+        {
+            $em = $this->getEntityManager();
+
+            $id = $this->getRequest()->getQuery()->id;
+            $timestamp = $this->getRequest()->getQuery()->date;
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            $date2 = clone $date;
+
+            $menuService = new MenuService($em);
+            $dishService = new DishService($em);
+            $dish = $dishService->getDishById($id);
+
+            //проверить нет ли такого блюда уже в меню
+            $m = $menuService->getMenuByDishDate($dish, $date);
+            if (!$m)
+                for($i = 0; $i < 7; $i++)
+                {
+                    $menuService->createMenu([
+                        'date' => $date2,
+                        'dish' => $dish,
+                    ]);
+                    $date2->add(new DateInterval('P1D'));
+                }
+
+            $menu = $menuService->getMenuToWeek($date);
+
+            $result = [
+                'menu'      => $menu,
+            ];
+            return new JsonModel($result);
+        }
+    }
 }
