@@ -1,6 +1,6 @@
 <?php $this->headScript()->appendFile('/js/eating.js'); ?>
 <div class="dcontent">
-    <div style="margin-left: 10px;">
+    <div style="margin-left: 10px;" class="calendar">
         <?php foreach($this->dates as $date):?>
             <a href="/eating/<?=$date['timestamp']?>" class="<?=$date['class']?>"><?=$date['date']?></a>
         <?php endforeach;?>

@@ -90,9 +90,11 @@ class DishService extends EntityRepository {
                 if(in_array($r->getGroup()->getId(), $dat))
                     $return[] = $r;
             }
-        } else {
-            $return = $ret;
         }
+//        else
+//        {
+//            $return = $ret;
+//        }
 
         if($like != '')
         {

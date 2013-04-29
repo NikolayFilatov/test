@@ -146,6 +146,8 @@ class OrdersController extends AbstractActionController
                 "close" ? "li_group_close" : "li_group";
         }
 
+        $total = 0;
+        $items = [];
         $items = $orderService->findItems($dateNow);
         $total = $orderService->getTotal($dateNow);
 
