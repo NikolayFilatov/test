@@ -84,4 +84,19 @@ class DishGroup extends Entity {
         $this->dish->add($dish);
     }
 
+    public function getDish($page = 1, $perPage = 25)
+    {
+        if ($page == 0)
+            $slice = $this->dish;
+        else
+        {
+            $limit = (int) $perPage;
+            $skip = ((int) $page - 1) * $limit;
+            $slice = $this->dish->slice($skip, $limit);
+        }
+
+        return $slice;
+    }
+
+
 }

@@ -13,7 +13,7 @@
     <ul>
         <?php foreach($this->groups as $group):?>
             <li>
-                <?php $dishes = $group->getDish();?>
+                <?php $dishes = $group->getDish(0);?>
                 <ul>
                     <li class="li_group">
                         <table>

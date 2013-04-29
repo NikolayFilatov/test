@@ -54,6 +54,12 @@ class DishGroup extends \Application\Entity\Dish\DishGroup implements \Doctrine\
         return parent::addDish($dish);
     }
 
+    public function getDish($page = 1, $perPage = 25)
+    {
+        $this->__load();
+        return parent::getDish($page, $perPage);
+    }
+
     public function fromArray(array $data = array (
 ))
     {
