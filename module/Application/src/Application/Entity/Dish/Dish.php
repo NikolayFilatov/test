@@ -97,6 +97,7 @@ class Dish extends Entity {
             'cost'      => $this->getCost(),
             'groupName' => $this->group->getName(),
             'groupId'   => $this->group->getId(),
+            'deleted'   => $this->isDeleted(),
         ];
     }
 
@@ -135,6 +136,9 @@ class Dish extends Entity {
 
     public function isDeleted()
     {
-        return $this->deleted;
+        if ($this->deleted == 0)
+            return false;
+        else
+            return true;
     }
 }

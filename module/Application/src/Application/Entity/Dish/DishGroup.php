@@ -73,9 +73,16 @@ class DishGroup extends Entity {
     }
 
     public function toArray() {
+        $di = [];
+        foreach($this->dish as $d)
+        {
+            $di[] = $d->toArray();
+        }
+
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'dish' => $di,
         ];
     }
 

@@ -125,4 +125,10 @@ class DishService extends EntityRepository {
         return $repo->find($id);
     }
 
+    public function getDishesByGroup(DishGroup $group)
+    {
+        $repo = $this->_em->getRepository('\Application\Entity\Dish\Dish');
+        return $repo->findBy(['group' => $group]);
+    }
+
 }

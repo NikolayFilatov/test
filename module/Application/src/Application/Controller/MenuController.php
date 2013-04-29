@@ -118,6 +118,10 @@ class MenuController extends AbstractActionController
             $date->add(new \DateInterval('P1W'));
         }
 
+        $dateNow1 = clone $dateNow;
+        $dateNow1->add(new \DateInterval('P1W'));
+        $str_dates = "(" . $dateNow->format("d.m.Y") . " - " . $dateNow1->format("d.m.Y") . ")";
+
         //получим меню на текущую неделю для knockout
         $menuService = new MenuService($em);
 
@@ -131,6 +135,7 @@ class MenuController extends AbstractActionController
             'dates'     => $dates,
             'weekMenu'  => $week_menu,
             'groups'    => $groups,
+            'str_dates' => $str_dates,
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/menu/new_menu');

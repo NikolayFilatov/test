@@ -23,17 +23,6 @@ return [
 				],
 				'may_terminate' => true,
 			],
-//            'menu' => [
-//				'type' => 'Segment',
-//				'options' => [
-//					'route' => '/menu[/:timestamp]',
-//					'defaults' => [
-//						'controller' => 'Application\Controller\Menu',
-//						'action'     => 'index',
-//					],
-//				],
-//				'may_terminate' => true,
-//			],
             'newMenu' => [
                 'type' => 'Segment',
                 'options' => [
@@ -94,13 +83,26 @@ return [
             'catalog' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => '/catalog[/:timestamp]',
+                    'route' => '/catalog',
                     'defaults' => [
                         'controller' => 'Application\Controller\Catalog',
                         'action'     => 'index',
                     ],
                 ],
                 'may_terminate' => true,
+                'child_routes' => [
+                    'group' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/group/:id',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Catalog',
+                                'action'     => 'group',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                ],
             ],
             'order' => [
                 'type' => 'Segment',

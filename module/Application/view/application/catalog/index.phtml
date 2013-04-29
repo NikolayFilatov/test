@@ -13,13 +13,12 @@
     <ul>
         <?php foreach($this->groups as $group):?>
             <li>
-                <?php $dishes = $group->getDish(0);?>
                 <ul>
-                    <li class="li_group">
+                    <li class="li_dish">
                         <table>
                             <tr>
                                 <td><input class="geoTXT txt_group" type="text" id="<?=$group->getId();?>" value="<?=$group->getName();?>" /></td>
-                                <td><a href="#null" id="<?=$group->getId();?>" class="button3 btt_add_dish">Добавить</a></td>
+                                <td><a href="/catalog/group/<?=$group->getId();?>" class="button1">Перейти</a></td>
                                 <td>
                                     <a href="#null" class="button2 btt_del">Удалить</a>
                                     <a href="#null" id="<?=$group->getId();?>" style="display: none;" class="button4 btt_confirm_group">Да!</a>
@@ -27,36 +26,6 @@
                             </tr>
                         </table>
                     </li>
-                    <?php if(count($dishes) != 0):?>
-                        <?php foreach($dishes as $dish):?>
-                            <?php if($dish->isDeleted()):?>
-                                <li class="li_dish li_dish_deleted">
-                                    <table>
-                                        <tr>
-                                            <td><input class="geoTXT txt_name" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getName()?>" /></td>
-                                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getCost()?>" /></td>
-                                            <td>
-                                                <a href='#null' id='<?=$dish->getId();?>' class='button3 btt_ret'>Вернуть</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                            <?php else:?>
-                                <li class="li_dish <?=$d_class?>">
-                                    <table>
-                                        <tr>
-                                            <td><input class="geoTXT txt_name" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getName()?>" /></td>
-                                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish->getId();?>" value="<?=$dish->getCost()?>" /></td>
-                                            <td>
-                                                <a href='#null' class='button2 btt_del'>Удалить</a>
-                                                <a href='#null' id='<?=$dish->getId();?>' style='display: none;' class='button4 btt_confirm_name'>Да!</a>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                            <?php endif;?>
-                        <?php endforeach;?>
-                    <?php endif;?>
                 </ul>
             </li>
         <?php endforeach;?>
