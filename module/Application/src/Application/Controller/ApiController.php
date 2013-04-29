@@ -674,6 +674,7 @@ class ApiController extends AbstractActionController
                 //проверить нет ли такого блюда уже в меню
                 $m = $menuService->getMenuByDishDate($dish, $date);
                 if (!$m)
+                {
                     for($i = 0; $i < 7; $i++)
                     {
                         $deleted = 0;
@@ -688,12 +689,44 @@ class ApiController extends AbstractActionController
                         ]);
                         $date2->add(new DateInterval('P1D'));
                     }
+                    $date2->sub(new DateInterval('P7D'));
+                }
             }
 
             $menu = $menuService->getMenuToWeek($date);
 
             $result = [
                 'menu'      => $menu,
+            ];
+            return new JsonModel($result);
+        }
+    }
+
+    public function removeAllItemFromMenuAction()
+    {
+        if($this->getRequest()->isGet())
+        {
+            $em = $this->getEntityManager();
+
+            $timestamp = $this->getRequest()->getQuery()->date;
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            $menuService = new MenuService($em);
+
+            for($i = 0; $i < 7; $i++)
+            {
+                $menus = $menuService->getMenuByDate($date);
+                foreach($menus as $m)
+                {
+                    $menuService->delete($m);
+                }
+                $date->add(new DateInterval('P1D'));
+            }
+
+            $result = [
+                'menu'      => [],
             ];
             return new JsonModel($result);
         }

@@ -21,6 +21,15 @@ $(document).ready(function(){
         addGroupItemToMenuAjax(arr_id, date);
     });
 
+    $('.bttRemoveAll').click(function(){
+        $(this).css('display', 'none').next().css('display', 'block');
+    });
+
+    $('.bttConfirmRemoveAll').click(function(){
+        date = $('.curDate').attr('id');
+        removeAllItemFromMenu(date);
+    });
+
     function goFind()
     {
         str = '';
@@ -140,29 +149,43 @@ function addItemToMenuAjax(id, date)
 
 function addGroupItemToMenuAjax(arr_id, date)
 {
+    $('.div_wait').css('display', 'block');
     data = {
         'arr_id': arr_id,
         'date': date
     };
 
-    console.info(data);
-
     xhttp = $.ajax({
         type: "GET",
         url: "/api/addGroupItemToMenu",
         data: data,
-        async: false
+        async: true,
+        success: function(data){
+            refreshMenu(data);
+            $('.div_wait').fadeOut('fast');
+        }
     });
+}
 
-    data = xhttp.responseText;
+function removeAllItemFromMenu(date)
+{
+    $('.div_wait').css('display', 'block');
+    data = {
+        'date': date
+    };
 
-    console.info(data);
-
-    data = eval('(' + data + ')');
-
-    console.info(data);
-
-    refreshMenu(data);
+    xhttp = $.ajax({
+        type: "GET",
+        url: "/api/removeAllItemFromMenu",
+        data: data,
+        async: true,
+        success: function(data){
+            refreshMenu(data);
+            $('.div_wait').fadeOut('fast');
+            $('.bttConfirmRemoveAll').css('display', 'none');
+            $('.bttRemoveAll').fadeIn();
+        }
+    });
 }
 
 function getAjaxMenu()

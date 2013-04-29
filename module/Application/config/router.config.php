@@ -392,6 +392,17 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
+                    'removeAllItemFromMenu' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/removeAllItemFromMenu',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'removeAllItemFromMenu',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
 				],
 			],
 			
