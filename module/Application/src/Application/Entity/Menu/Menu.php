@@ -43,6 +43,12 @@ class Menu extends Entity {
     protected $dish;
 
     /**
+     * @ORM\Column(type = "integer")
+     * @var integer
+     */
+    protected $dishGroup;
+
+    /**
      * Deleted
      * @ORM\Column(type="integer")
      * @var integer

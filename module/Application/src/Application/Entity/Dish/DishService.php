@@ -72,12 +72,41 @@ class DishService extends EntityRepository {
     /**
      * Получим всех пользователей
      *
+     * @param $data (string, separator = "#")
+     * @param $like string
      * @return array[Users]
      */
-    public function getAllDish()
+    public function getAllDish($data = '', $like = '')
     {
         $repo = $this->_em->getRepository('\Application\Entity\Dish\Dish');
-        return $repo->findAll();
+        $ret = $repo->findAll();
+        $return = [];
+
+        if($data != '')
+        {
+            $dat = explode("#", $data);
+            foreach($ret as $r)
+            {
+                if(in_array($r->getGroup()->getId(), $dat))
+                    $return[] = $r;
+            }
+        } else {
+            $return = $ret;
+        }
+
+        if($like != '')
+        {
+            $ret = $return;
+            $return = [];
+            foreach ($ret as $r)
+            {
+                $pos = stripos($r->getName(), $like);
+                if ($pos !== false)
+                    $return[] = $r;
+            }
+        }
+
+        return $return;
     }
 
     public function createDish($data = null)

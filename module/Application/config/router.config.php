@@ -23,17 +23,17 @@ return [
 				],
 				'may_terminate' => true,
 			],
-            'menu' => [
-				'type' => 'Segment',
-				'options' => [
-					'route' => '/menu[/:timestamp]',
-					'defaults' => [
-						'controller' => 'Application\Controller\Menu',
-						'action'     => 'index',
-					],
-				],
-				'may_terminate' => true,
-			],
+//            'menu' => [
+//				'type' => 'Segment',
+//				'options' => [
+//					'route' => '/menu[/:timestamp]',
+//					'defaults' => [
+//						'controller' => 'Application\Controller\Menu',
+//						'action'     => 'index',
+//					],
+//				],
+//				'may_terminate' => true,
+//			],
             'newMenu' => [
                 'type' => 'Segment',
                 'options' => [
@@ -377,6 +377,17 @@ return [
                             'defaults' => [
                                 'controller' => 'Application\Controller\Api',
                                 'action'     => 'addItemToMenu',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
+                    'addGroupItemToMenu' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/addGroupItemToMenu',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Api',
+                                'action'     => 'addGroupItemToMenu',
                             ],
                         ],
                         'may_terminate' => true,

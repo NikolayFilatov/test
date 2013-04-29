@@ -4,7 +4,36 @@ $(document).ready(function(){
     ko.applyBindings(MenuModel);
 
     refreshMenu(getAjaxMenu());
-    refreshList(getAjaxList());
+    refreshList(getAjaxList('', ''));
+
+    $('.check').click(function()
+    {
+        goFind()
+    });
+
+    $('.txt_find').blur(function(){
+        goFind()
+    });
+
+    $('.bttAddAll').click(function(){
+        arr_id = MenuModel.listDishes();
+        date = $('.curDate').attr('id');
+        addGroupItemToMenuAjax(arr_id, date);
+    });
+
+    function goFind()
+    {
+        str = '';
+        $('.check').each(function(){
+            if($(this).attr('checked') == 'checked')
+                str = str + $(this).attr('id') + "#"
+
+        });
+
+        like = $('.txt_find').val();
+        refreshList(getAjaxList(str, like));
+    }
+
 });
 
 var MenuModel = {
@@ -109,6 +138,33 @@ function addItemToMenuAjax(id, date)
     refreshMenu(data);
 }
 
+function addGroupItemToMenuAjax(arr_id, date)
+{
+    data = {
+        'arr_id': arr_id,
+        'date': date
+    };
+
+    console.info(data);
+
+    xhttp = $.ajax({
+        type: "GET",
+        url: "/api/addGroupItemToMenu",
+        data: data,
+        async: false
+    });
+
+    data = xhttp.responseText;
+
+    console.info(data);
+
+    data = eval('(' + data + ')');
+
+    console.info(data);
+
+    refreshMenu(data);
+}
+
 function getAjaxMenu()
 {
     date = $('.curDate').attr('id');
@@ -126,16 +182,20 @@ function getAjaxMenu()
     data = xhttp.responseText;
     data = eval('(' + data + ')');
 
-    console.info(data);
-
     return data;
 }
 
-function getAjaxList()
+function getAjaxList(groups, like)
 {
+    data = {
+        'groups': groups,
+        'like': like
+    }
+
     xhttp = $.ajax({
         type: "GET",
         url: "/api/getAjaxList",
+        data: data,
         async: false
     });
 

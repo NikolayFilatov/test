@@ -400,7 +400,7 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
     outline: none;
     margin: 0;
     margin-top: 5px;
-    width: 560px;
+    width: 490px;
     border-bottom: 0;
 }
 .list_menu{
@@ -409,7 +409,8 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
     border:1px solid #BBB;
     box-shadow: inset 1px 1px 5px rgba(0,0,0,.1);
     overflow-y: scroll;
-    height:150px;
+    height:180px;
+    width:510px;
 }
 .list_menu li{
     padding:5px;

@@ -581,10 +581,15 @@ class ApiController extends AbstractActionController
         if($this->getRequest()->isGet())
         {
             $em = $this->getEntityManager();
+
+            $groups = $this->getRequest()->getQuery()->groups;
+            $like = $this->getRequest()->getQuery()->like;
+
             $dishService = new DishService($em);
 
-            $dishes = $dishService->getAllDish();
+            $dishes = $dishService->getAllDish($groups, $like);
 
+            $return = [];
             foreach($dishes as $dish)
             {
                 if($dish->isDeleted() == 0)
@@ -622,12 +627,68 @@ class ApiController extends AbstractActionController
             if (!$m)
                 for($i = 0; $i < 7; $i++)
                 {
+                    $deleted = 0;
+                    if ($i > 4)
+                        $deleted = 1;
+
                     $menuService->createMenu([
-                        'date' => $date2,
-                        'dish' => $dish,
+                        'date'      => $date2,
+                        'dish'      => $dish,
+                        'dishGroup' => $dish->getGroup()->getId(),
+                        'deleted'   => $deleted,
                     ]);
                     $date2->add(new DateInterval('P1D'));
                 }
+
+            $menu = $menuService->getMenuToWeek($date);
+
+            $result = [
+                'menu'      => $menu,
+            ];
+            return new JsonModel($result);
+        }
+    }
+
+    public function addGroupItemToMenuAction()
+    {
+        if($this->getRequest()->isGet())
+        {
+            $em = $this->getEntityManager();
+
+            $arr_id = $this->getRequest()->getQuery()->arr_id;
+            $timestamp = $this->getRequest()->getQuery()->date;
+
+            $date = new \DateTime('now');
+            $date->setTimestamp($timestamp);
+
+            $date2 = clone $date;
+
+            $menuService = new MenuService($em);
+            $dishService = new DishService($em);
+
+            //переберем массив id блюд, получим по ним блюда и добавим в меню
+            foreach ($arr_id as $id)
+            {
+                $dish = $dishService->getDishById($id['id']);
+
+                //проверить нет ли такого блюда уже в меню
+                $m = $menuService->getMenuByDishDate($dish, $date);
+                if (!$m)
+                    for($i = 0; $i < 7; $i++)
+                    {
+                        $deleted = 0;
+                        if ($i > 4)
+                            $deleted = 1;
+
+                        $menuService->createMenu([
+                            'date'      => $date2,
+                            'dish'      => $dish,
+                            'dishGroup' => $dish->getGroup()->getId(),
+                            'deleted'   => $deleted,
+                        ]);
+                        $date2->add(new DateInterval('P1D'));
+                    }
+            }
 
             $menu = $menuService->getMenuToWeek($date);
 

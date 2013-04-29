@@ -99,7 +99,7 @@ class MenuService extends EntityRepository {
     public function getMenuByDate(DateTime $date)
     {
         $repo = $this->_em->getRepository('\Application\Entity\Menu\Menu');
-        return $repo->findBy(['date' => $date]);
+        return $repo->findBy(['date' => $date], ['dishGroup' => 'ASC']);
     }
 
     public function getMenuByDishDate(Dish $dish, DateTime $date)

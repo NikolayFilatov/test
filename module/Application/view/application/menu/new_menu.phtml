@@ -9,35 +9,45 @@
     </div>
 
     <div class="top">
-        <input type="text" class="txt_find" placeholder="Введите название блюда" value="" />
-        <div class="fl_r" style="padding:4px 2px 2px 0;"><button class="button3 btt_mini2">добавить все</button></div>
 
-        <ul class="list_menu" data-bind="foreach: MenuModel.listDishes">
-            <li>
-                <table>
-                    <tr>
-                        <td width=580 data-bind="text: name"></td>
-                        <td><button data-bind="
-                            attr:{id: id},
-                            click: MenuModel.addItemToMenu"
-                            class="button3 btt_mini2 fl_r">добавить</button></td>
-                    </tr>
-                </table>
-            </li>
-        </ul>
+        <div style="float:right; width:150px;">
+            <ul class="ul_group">
+                <?php foreach($this->groups as $group):?>
+                    <li>
+                        <table>
+                            <tr>
+                                <td style="padding-top: 4px;">
+                                    <input type="checkbox" id="<?=$group->getId()?>" class="check" />
+                                </td>
+                                <td>
+                                    <label style="margin-top:-3px;font-size: 12px; padding: 0 10px 0 0;" for="<?=$group->getId()?>"><?=$group->getName()?></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
+                <?php endforeach;?>
+            </ul>
+        </div>
 
-        <ul class="ul_group">
-            <?php foreach($this->groups as $group):?>
-                <li style="float: left">
+        <div style="width:540px;">
+            <input type="text" class="txt_find" placeholder="Введите название блюда" value="" />
+
+            <ul class="list_menu" data-bind="foreach: MenuModel.listDishes">
+                <li>
                     <table>
                         <tr>
-                            <td style="padding-top: 4px;"><input checked type="checkbox" id="<?=$group->getId()?>" name="ch_<?=$group->getId()?>" /></td>
-                            <td><label style="margin-top:-3px;font-size: 12px; padding: 0 10px 0 0;" for="ch_<?=$group->getId()?>"><?=$group->getName()?></label></td>
+                            <td width=450 data-bind="text: name"></td>
+                            <td><button data-bind="
+                                attr:{id: id},
+                                click: MenuModel.addItemToMenu"
+                                class="button3 btt_mini2 fl_r">добавить</button></td>
                         </tr>
                     </table>
                 </li>
-            <?php endforeach;?>
-        </ul>
+            </ul>
+            <div><button class="button3 bttAddAll">добавить все из списка</button></div>
+        </div>
+
         <div class="clearfloat"></div>
     </div>
 

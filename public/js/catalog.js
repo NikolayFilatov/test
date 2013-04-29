@@ -76,7 +76,7 @@ $(document).ready(function(){
             data: data,
             async: true,
             success: function(e){
-                //document.location.reload();
+                document.location.reload();
             }
         });
     });
