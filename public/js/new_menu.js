@@ -40,7 +40,7 @@ $(document).ready(function(){
         str = '';
         $('.check').each(function(){
             if($(this).attr('checked') == 'checked')
-                str = str + $(this).attr('id') + "#"
+                str = str + $(this).attr('id')
 
         });
 
@@ -228,6 +228,7 @@ function getAjaxList(groups, like)
     });
 
     data = xhttp.responseText;
+
     data = eval('(' + data + ')');
 
     return data;

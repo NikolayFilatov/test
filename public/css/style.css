@@ -289,7 +289,7 @@ button, .button1, .button11, .button2, .button3, .button4, .button5, .buttonadm,
 .li_dish, .li_group, .li_group_close, .li_add_group{
     padding:0 3px;
     /*border-radius: 12px;*/
-    background-color: #EEE;
+    /*background-color: #EEE;*/
     /*border:1px solid #DDD;*/
     margin:0 3px;
 }

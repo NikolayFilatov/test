@@ -585,12 +585,16 @@ class ApiController extends AbstractActionController
             $groups = $this->getRequest()->getQuery()->groups;
             $like = $this->getRequest()->getQuery()->like;
 
+//            $groupService = new DishGroupService($em);
+//            $group = $groupService->getGroupById($groups);
+
             $dishService = new DishService($em);
 
             if ($groups == '' && $like == '')
                 $dishes = [];
             else
                 $dishes = $dishService->getAllDish($groups, $like);
+//                $dishes = $dishService->getDishesByGroupArray($group);
 
             $return = [];
             foreach($dishes as $dish)
@@ -604,6 +608,7 @@ class ApiController extends AbstractActionController
             }
 
             return new JsonModel($return);
+//            return new JsonModel($dishes);
         }
     }
 

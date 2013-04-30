@@ -86,10 +86,9 @@ class DishService extends EntityRepository {
 
         if($data != '')
         {
-            $dat = explode("#", $data);
             foreach($ret as $r)
             {
-                if(in_array($r->getGroup()->getId(), $dat))
+                if($r->getGroup()->getId() == $data)
                     $return[] = $r;
             }
         }
@@ -135,30 +134,29 @@ class DishService extends EntityRepository {
 
     public function getDishesByGroupArray(DishGroup $group)
     {
-        $rsm = new ResultSetMapping;
-        $rsm->addEntityResult('Application\Entity\Dish\Dish', 'd');
-        $rsm->addFieldResult('d', 'id', 'id');
-        $rsm->addFieldResult('d', 'name', 'name');
-        $rsm->addJoinedEntityResult('Application\Entity\Price\Price', 'p', 'd', 'dish_id');
-        $rsm->addFieldResult('p', 'dish_id', 'dish_id');
-        $rsm->addFieldResult('p', 'cost', 'cost');
 
-        $sql = 'SELECT d.id, d.name, p.cost  FROM dish d ' .
-            'INNER JOIN price p ON d.id = p.dish_id where p.date=(select MAX(date) from price where dish_id = d.id)';
-        $query = $this->_em->createNativeQuery($sql, $rsm);
+        $dql  = "SELECT dish.deleted, dish.name, dish.id id, price.cost, price.id pid FROM Application\\Entity\\Dish\\Dish dish ";
+        $dql .= "LEFT JOIN Application\\Entity\\Price\\Price price WITH price.dish = dish.id ";
+//        $dql .= "AND price.date=(SELECT MAX(price2.date) FROM Application\\Entity\\Price\\Price price2 WHERE price2.dish = dish.id GROUP BY price2.dish) ";
+        $dql .= "WHERE dish.group = " . $group->getId();
 
-        $price = $query->getArrayResult();
+        $query = $this->_em->createQuery($dql);
 
-        echo "<pre>";
-        var_dump($price);
-        die();
+        $results = $query->getArrayResult();
 
+        $return = [];
+        foreach($results as $r)
+        {
+            if(isset($return[$r['id']]))
+            {
+                if($return[$r['id']]['pid'] < $r['pid'])
+                    $return[$r['id']] = $r;
+            } else {
+                $return[$r['id']] = $r;
+            }
+        }
 
-        $result = [
-            'dishes'  => $price,
-        ];
-
-        return $result;
+        return $return;
     }
 
 }

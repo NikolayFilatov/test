@@ -4,21 +4,17 @@
     <div class="top">
         <a href="#null" class="button1 showDeleted fl_r">Показать удаленные</a>
         <a href="#null" id="<?=$this->id;?>" class="button3 btt_add_dish fl_r">Добавить блюдо в каталог</a>
-        <div class="capt"><?=$this->name . " (" . count($this->dishes['dishes']) . ")"?></div>
+        <div class="capt"><?=$this->name . " (" . count($this->dishes) . ")"?></div>
     </div>
-    <?php
-//    echo "<pre>";
-//    var_dump($dishes);
-//
-    ?>
+
     <ul>
-        <?php foreach($this->dishes['dishes'] as $dish):?>
+        <?php foreach($this->dishes as $dish):?>
             <?php if($dish['deleted'] == 1):?>
                 <li class="li_dish li_dish_deleted">
                     <table>
                         <tr>
                             <td><input class="geoTXT txt_name" type="text" id="<?=$dish['id'];?>" value='<?=$dish['name']?>' /></td>
-                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish['id'];?>" value='<?=$this->dishes['price'][$dish['id']]['cost']?>' /></td>
+                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish['id'];?>" value='<?=$dish['cost']?>' /></td>
                             <td>
                                 <a href='#null' id='<?=$dish['id'];?>' class='button3 btt_ret'>Вернуть</a>
                             </td>
@@ -30,7 +26,7 @@
                     <table>
                         <tr>
                             <td><input class="geoTXT txt_name" type="text" id="<?=$dish['id'];?>" value='<?=$dish['name']?>' /></td>
-                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish['id'];?>" value='<?=$this->dishes['price'][$dish['id']]['cost']?>' /></td>
+                            <td><input class="geoTXT txt_cost" type="text" id="<?=$dish['id'];?>" value='<?=$dish['cost']?>' /></td>
                             <td>
                                 <a href='#null' class='button2 btt_del'>Удалить</a>
                                 <a href='#null' id='<?=$dish['id'];?>' style='display: none;' class='button4 btt_confirm_name'>Да!</a>
