@@ -16,9 +16,14 @@ $(document).ready(function(){
     });
 
     $('.bttAddAll').click(function(){
-        arr_id = MenuModel.listDishes();
-        date = $('.curDate').attr('id');
-        addGroupItemToMenuAjax(arr_id, date);
+        if(MenuModel.listDishes().length < 40)
+        {
+            arr_id = MenuModel.listDishes();
+            date = $('.curDate').attr('id');
+            addGroupItemToMenuAjax(arr_id, date);
+        } else {
+            alert ('Уточните выборку, слишком много элементов');
+        }
     });
 
     $('.bttRemoveAll').click(function(){

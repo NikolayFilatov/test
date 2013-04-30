@@ -66,6 +66,7 @@ class EatingController extends AbstractActionController
             'orders' => $orders,
             'dates' => $dates,
             'dateNow' => $dateNow,
+            'str_dates' => $dateNow->format('d.m.Y'),
         ];
         $vm = new ViewModel($response);
         $vm->setTemplate('application/eating/index');

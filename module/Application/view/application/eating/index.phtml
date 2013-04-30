@@ -10,6 +10,7 @@
             Всего заказов - <?=count($this->orders)?>
         </div>
     </div>
+    <div>Заказ на - <?=$this->str_dates?></div>
     <?php if(count($this->orders) != 0):?>
         <?php foreach($this->orders as $order): ?>
             <table class="t_print">

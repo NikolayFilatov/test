@@ -587,7 +587,10 @@ class ApiController extends AbstractActionController
 
             $dishService = new DishService($em);
 
-            $dishes = $dishService->getAllDish($groups, $like);
+            if ($groups == '' && $like == '')
+                $dishes = [];
+            else
+                $dishes = $dishService->getAllDish($groups, $like);
 
             $return = [];
             foreach($dishes as $dish)

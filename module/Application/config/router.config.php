@@ -102,6 +102,17 @@ return [
                         ],
                         'may_terminate' => true,
                     ],
+                    'groupa' => [
+                        'type'    => 'Zend\Mvc\Router\Http\Segment',
+                        'options' => [
+                            'route'    => '/groupa/:id',
+                            'defaults' => [
+                                'controller' => 'Application\Controller\Catalog',
+                                'action'     => 'groupa',
+                            ],
+                        ],
+                        'may_terminate' => true,
+                    ],
                 ],
             ],
             'order' => [

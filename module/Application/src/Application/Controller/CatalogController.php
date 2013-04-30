@@ -49,6 +49,7 @@ class CatalogController extends AbstractActionController
         $group = $groupService->getGroupById($id);
 
         $dishService = new DishService($em);
+//        $dishes = $dishService->getDishesByGroupArray($group);
         $dishes = $dishService->getDishesByGroup($group);
 
         $return = [
@@ -61,7 +62,31 @@ class CatalogController extends AbstractActionController
         $vm->setTemplate('application/catalog/group');
 
         return $vm;
-
     }
 
+
+    public function groupaAction()
+    {
+        $em = $this->getEntityManager();
+        $id = $this->getEvent()->getRouteMatch()->getParam('id');
+
+        //получим блюда по id группы
+        $groupService = new DishGroupService($em);
+        $group = $groupService->getGroupById($id);
+
+        $dishService = new DishService($em);
+        $dishes = $dishService->getDishesByGroupArray($group);
+//        $dishes = $dishService->getDishesByGroup($group);
+
+        $return = [
+            'dishes'    => $dishes,
+            'id'        => $id,
+            'name'      => $group->getName(),
+        ];
+
+        $vm = new ViewModel($return);
+        $vm->setTemplate('application/catalog/groupa');
+
+        return $vm;
+    }
 }

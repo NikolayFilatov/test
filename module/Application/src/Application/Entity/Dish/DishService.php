@@ -2,8 +2,10 @@
 namespace Application\Entity\Dish;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Zend\ServiceManager\ServiceManager;
 use \Exception;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 class DishService extends EntityRepository {
 
@@ -129,6 +131,34 @@ class DishService extends EntityRepository {
     {
         $repo = $this->_em->getRepository('\Application\Entity\Dish\Dish');
         return $repo->findBy(['group' => $group]);
+    }
+
+    public function getDishesByGroupArray(DishGroup $group)
+    {
+        $rsm = new ResultSetMapping;
+        $rsm->addEntityResult('Application\Entity\Dish\Dish', 'd');
+        $rsm->addFieldResult('d', 'id', 'id');
+        $rsm->addFieldResult('d', 'name', 'name');
+        $rsm->addJoinedEntityResult('Application\Entity\Price\Price', 'p', 'd', 'dish_id');
+        $rsm->addFieldResult('p', 'dish_id', 'dish_id');
+        $rsm->addFieldResult('p', 'cost', 'cost');
+
+        $sql = 'SELECT d.id, d.name, p.cost  FROM dish d ' .
+            'INNER JOIN price p ON d.id = p.dish_id where p.date=(select MAX(date) from price where dish_id = d.id)';
+        $query = $this->_em->createNativeQuery($sql, $rsm);
+
+        $price = $query->getArrayResult();
+
+        echo "<pre>";
+        var_dump($price);
+        die();
+
+
+        $result = [
+            'dishes'  => $price,
+        ];
+
+        return $result;
     }
 
 }
