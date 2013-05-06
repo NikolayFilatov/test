@@ -13,6 +13,8 @@
 
     <div class="top">
         <div class="label fl_l" id="<?=$this->dateNow->getTimestamp()?>"><div class='fl_r total_cost'><?=$total?></div>Стоимость заказа -&nbsp;</div>
+        <a href="#null" class="button1 fl_r show_my">Только заказанное</a>
+        <a href="#null" class="button1 fl_r show_all" style="display:none;">Все меню</a>
     </div>
     <?php if(count($this->menus) != 0):?>
         <ul>
@@ -42,10 +44,12 @@
                             echo "<li class='" . $this->class . " p10'>$dg";
                         }
 
+                        $class_tr = $count == 0 ? 'pre_hidden' : '';
+
                         echo "
                         <li class='li_dish'>
                             <table>
-                                <tr>
+                                <tr class='$class_tr'>
                                     <td style='width:435px; padding-left:10px; font-size: 14px'>
                                         {$menu->getDish()->getName()}
                                     </td>

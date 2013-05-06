@@ -24,6 +24,8 @@ $(document).ready(function(){
         $count = $(this).parent().prev().find('.count');
         $count.html($count.html() * 1 + 1);
 
+        $(this).parent().parent().removeClass('pre_hidden');
+
         $cost = $(this).parent().prev().prev().html() * 1;
         $('.total_cost').html($('.total_cost').html() * 1 + $cost);
 
@@ -33,7 +35,7 @@ $(document).ready(function(){
             data: data,
             async: true,
             success: function(e){
-                //document.location.reload();
+//                document.location.reload();
             }
         });
     });
@@ -54,15 +56,33 @@ $(document).ready(function(){
 
             $count.html($count.html() * 1 - 1);
 
+            if ($count.html() * 1 == 0){
+                $(this).parent().parent().addClass('pre_hidden');
+            }
+
             xhttp = $.ajax({
                 type: "POST",
                 url: "/api/removeItemFromOrder",
                 data: data,
                 async: true,
                 success: function(e){
-    //                document.location.reload();
+//                    document.location.reload();
                 }
             });
         }
     });
+
+    $('.show_my').click(function(){
+        $('.show_my').css('display', 'none');
+        $('.show_all').css('display', 'block');
+
+        $('.pre_hidden').addClass('hidden');
+    });
+
+    $('.show_all').click(function(){
+        $('.show_my').css('display', 'block');
+        $('.show_all').css('display', 'none');
+
+        $('.pre_hidden').removeClass('hidden');
+    })
 });
