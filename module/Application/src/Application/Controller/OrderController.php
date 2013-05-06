@@ -18,7 +18,8 @@ class OrderController extends AbstractActionController
 
     public function getEntityManager()
     {
-        if (null === $this->em) {
+        if (null === $this->em)
+        {
             $this->em = $this->getServiceLocator()
                 ->get('doctrine.entitymanager.orm_default');
         }

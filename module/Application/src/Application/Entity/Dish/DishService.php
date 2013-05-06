@@ -92,10 +92,6 @@ class DishService extends EntityRepository {
                     $return[] = $r;
             }
         }
-//        else
-//        {
-//            $return = $ret;
-//        }
 
         if($like != '')
         {
