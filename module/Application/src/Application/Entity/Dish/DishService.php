@@ -128,29 +128,34 @@ class DishService extends EntityRepository {
         return $repo->findBy(['group' => $group]);
     }
 
-    public function getDishesByGroupArray(DishGroup $group)
+    public function getDishesByGroupArray(
+        DishGroup $group = null,
+        $like = null,
+        $limit = null)
     {
-
-        $dql  = "SELECT dish.deleted, dish.name, dish.id id, price.cost, price.id pid FROM Application\\Entity\\Dish\\Dish dish ";
-        $dql .= "LEFT JOIN Application\\Entity\\Price\\Price price WITH price.dish = dish.id ";
-//        $dql .= "AND price.date=(SELECT MAX(price2.date) FROM Application\\Entity\\Price\\Price price2 WHERE price2.dish = dish.id GROUP BY price2.dish) ";
-        $dql .= "WHERE dish.group = " . $group->getId();
+        $dql  = "SELECT dish.deleted, dish.name, dish.id id FROM Application\\Entity\\Dish\\Dish dish ";
+        $dql .= "WHERE 1=1 ";
+        if (!is_null($group))
+            $dql .= " AND dish.group = " . $group->getId();
+        if (!is_null($like))
+            $dql .= " AND dish.name like '%" . $like . "%'";
 
         $query = $this->_em->createQuery($dql);
 
-        $results = $query->getArrayResult();
+        $count = count($query->getArrayResult());
 
-        $return = [];
-        foreach($results as $r)
+        if (!is_null($limit))
         {
-            if(isset($return[$r['id']]))
-            {
-                if($return[$r['id']]['pid'] < $r['pid'])
-                    $return[$r['id']] = $r;
-            } else {
-                $return[$r['id']] = $r;
-            }
+            $query->setFirstResult(0);
+            $query->setMaxResults($limit);
         }
+
+
+        $result = $query->getArrayResult();
+        $return = [
+            'result' => $result,
+            'count' => $count,
+        ];
 
         return $return;
     }

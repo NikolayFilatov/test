@@ -585,30 +585,19 @@ class ApiController extends AbstractActionController
             $groups = $this->getRequest()->getQuery()->groups;
             $like = $this->getRequest()->getQuery()->like;
 
-//            $groupService = new DishGroupService($em);
-//            $group = $groupService->getGroupById($groups);
-
-            $dishService = new DishService($em);
-
-            if ($groups == '' && $like == '')
-                $dishes = [];
+            if($groups == '0')
+                $group = null;
             else
-                $dishes = $dishService->getAllDish($groups, $like);
-//                $dishes = $dishService->getDishesByGroupArray($group);
-
-            $return = [];
-            foreach($dishes as $dish)
             {
-                if($dish->isDeleted() == 0)
-                {
-                    $ret['name'] = $dish->getName();
-                    $ret['id'] = $dish->getId();
-                    $return[] = $ret;
-                }
+                $groupService = new DishGroupService($em);
+                $group = $groupService->getGroupById($groups);
             }
 
-            return new JsonModel($return);
-//            return new JsonModel($dishes);
+            $like = $like == '' ? null : $like;
+            $dishService = new DishService($em);
+            $result = $dishService->getDishesByGroupArray($group, $like, 50);
+
+            return new JsonModel($result);
         }
     }
 

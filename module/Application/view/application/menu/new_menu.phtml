@@ -12,6 +12,18 @@
 
         <div style="float:right; width:150px;">
             <ul class="ul_group">
+                <li>
+                    <table>
+                        <tr>
+                            <td style="padding-top: 4px;">
+                                <input type="radio" id="0" name="group1" class="check" checked />
+                            </td>
+                            <td>
+                                <label style="margin-top:-3px;font-size: 12px; padding: 0 10px 0 0;" for="0">Все разделы</label>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
                 <?php foreach($this->groups as $group):?>
                     <li>
                         <table>
@@ -47,6 +59,9 @@
             </ul>
             <div class="fl_r div_wait" style="display:none; padding:8px; font-size: 13px; font-weight: bold; color: #F00">
                 Ждите! Идет обработка данных.
+            </div>
+            <div class="fl_r div_info" style="padding:8px; font-size: 13px; font-weight: bold; color: #0A1">
+                Найдено - <span data-bind="text:MenuModel.listCount"></span> (лимит 50)
             </div>
             <div>
                 <button class="button3 bttAddAll">добавить все</button>

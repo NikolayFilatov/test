@@ -4,7 +4,7 @@ $(document).ready(function(){
     ko.applyBindings(MenuModel);
 
     refreshMenu(getAjaxMenu());
-    refreshList(getAjaxList('', ''));
+    getAjaxList('', '');
 
     $('.check').click(function()
     {
@@ -41,11 +41,10 @@ $(document).ready(function(){
         $('.check').each(function(){
             if($(this).attr('checked') == 'checked')
                 str = str + $(this).attr('id')
-
         });
 
         like = $('.txt_find').val();
-        refreshList(getAjaxList(str, like));
+        getAjaxList(str, like);
     }
 
 });
@@ -53,6 +52,7 @@ $(document).ready(function(){
 var MenuModel = {
     currentMenu: ko.observableArray(),
     listDishes: ko.observableArray(),
+    listCount: ko.observable(0),
 
     removeItem: function(v1, v2){
         id = v2.currentTarget.id;
@@ -103,13 +103,12 @@ function removeElement(id, date)
         type: "GET",
         url: "/api/removeItemMenu",
         data: data,
-        async: false
+        async: true,
+        success: function(data){
+            refreshMenu(data);
+        }
     });
 
-    data = xhttp.responseText;
-    data = eval('(' + data + ')');
-
-    refreshMenu(data);
 }
 
 function changeItemMenuByDay(id, date)
@@ -224,12 +223,16 @@ function getAjaxList(groups, like)
         type: "GET",
         url: "/api/getAjaxList",
         data: data,
-        async: false
+        async: true,
+        success: function(e){
+            refreshList(e['result']);
+            MenuModel.listCount(e['count']);
+        }
     });
-
-    data = xhttp.responseText;
-
-    data = eval('(' + data + ')');
-
-    return data;
+//
+//    data = xhttp.responseText;
+//
+//    data = eval('(' + data + ')');
+//
+//    return data;
 }
