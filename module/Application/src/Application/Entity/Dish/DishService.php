@@ -150,7 +150,6 @@ class DishService extends EntityRepository {
             $query->setMaxResults($limit);
         }
 
-
         $result = $query->getArrayResult();
         $return = [
             'result' => $result,
