@@ -64,7 +64,6 @@ class CatalogController extends AbstractActionController
         return $vm;
     }
 
-
     public function groupaAction()
     {
         $em = $this->getEntityManager();
